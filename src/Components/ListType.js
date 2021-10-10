@@ -1,6 +1,5 @@
 import React ,{Fragment} from 'react'
 import Item from './Item'
-import Menu from './Menu'
 
 function ListType(props) {
     return (

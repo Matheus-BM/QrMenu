@@ -1,7 +1,7 @@
-import React from 'react'
-import Item from './Item'
-import Title from './Title'
-import ListType from './ListType'
+import React, {Fragment} from 'react'
+import Title from '../Components/Title'
+import ListType from '../Components/ListType'
+import { Link } from 'react-router-dom'
 
 function Menu(props) {
 
@@ -50,9 +50,12 @@ function Menu(props) {
 
 
     return (
-        <div>  
+        <Fragment>  
 
             <div className="header"> 
+            <Link to="/mesa"> 
+            <button className="btnVoltar" > <i className="fas fa-chevron-left"></i></button>
+            </Link>
                 <Title name="Cardapio" />
 
                <div className="box">
@@ -70,7 +73,7 @@ function Menu(props) {
 
            
             
-        </div>
+        </Fragment>
     )
 }
 
