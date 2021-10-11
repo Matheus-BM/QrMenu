@@ -65,9 +65,9 @@ function Menu(props) {
 
             </div>
 
-        {types.map((type,id) => (
+        {types.map((type) => (
 
-            <ListType Key={id} Type={type} Menu={menu}/>
+            <ListType Key={type} Type={type} Menu={menu}/>
             
         ))}
 

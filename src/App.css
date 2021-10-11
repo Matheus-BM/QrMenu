@@ -9,6 +9,10 @@ body{
   background-image: url("./img/Fundo.svg");
   
 }
+a{
+  text-decoration: none;
+  color: black;
+}
 #root{
   height: 90vh;
 }
@@ -21,6 +25,8 @@ body{
 
 button{
   background-color: #c4c4c400;
+  border-radius: 20px;
+  border: 1px;
 }
 
 h4,h1,h2,h3{
@@ -41,10 +47,40 @@ input{
   margin-left: 10px;
 
 }
+label{
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.modal-title{
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.modal-container{
+  opacity: 100;
+  pointer-events:visible;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #2e2e2e70;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  height: fit-content;
+  width: 225px;
+  display: flex;
+  flex-direction: column;
+  
+}
 
 .box{
   width: 225px;
-  min-height: 30px;
+  min-height: fit-content;
   padding: 10px 15px;
   box-shadow: 0px 8px 15px 2px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
@@ -52,6 +88,24 @@ input{
   margin-top: 20px;
   display: flex;
   align-items: center;
+}
+.box.innerShadow{
+  box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+  border: 0px solid #0000;
+  border-radius: 15px;
+}
+
+.modal.box form{
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.modal.box input{
+  margin: 0 auto; 
+  width: 80%;
+  border: 0px solid darkgray;
 }
 
 
@@ -139,7 +193,17 @@ input{
   color: rgb(204, 19, 19);
   font-size: 32px;
 }
-
+.btnAdd{
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  background-color: #EF271B;
+  width: 120px;
+  border-radius: 10px;
+  padding: 10px;
+}
 
 .itemPedido{
   display: flex;

@@ -7,8 +7,8 @@ function ListType(props) {
             <h2 id={props.type}>{props.Type}</h2>
 
             {
-                props.Menu.filter( item => item.type === props.Type).map((item,id) => (
-                    <Item src={item.image} key={id} title={item.name} price={item.price}>  </Item>
+                props.Menu.filter( item => item.type === props.Type).map((item) => (
+                    <Item src={item.image} key={item.name} title={item.name} price={item.price}>  </Item>
                 ))
             }
             
