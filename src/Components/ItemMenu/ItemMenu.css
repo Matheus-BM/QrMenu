@@ -1,0 +1,11 @@
+.item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn.add{
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border :none;
+}

@@ -1,0 +1,84 @@
+import React,{useState} from "react";
+
+export const ContextlistaDePedidos = React.createContext();
+
+
+const PedidosProvider = ({children}) =>{
+
+    const [pedidos, setPedidos] = useState([]);
+
+    const addPedido = pedido => {
+
+        
+        const newPedido = {
+            id: pedido.id,
+            nome : pedido.nome,
+            categoria:pedido.categoria,
+            preco: pedido.preco,
+            imgSrc: pedido.imgSrc,
+            qt: 1 
+        }
+        
+        
+
+        if (pedidos.find(item => item.id === pedido.id) === undefined){
+            setPedidos([...pedidos,newPedido]);
+        }else{
+             pedidos.forEach((item) => {
+                if(item.id === pedido.id ){
+                    return { 
+                        id: item.id,
+                        nome : item.nome,
+                        categoria:item.categoria,
+                        preco: item.preco,
+                        imgSrc: item.imgSrc,
+                        qt : item.qt++
+                    };
+                }
+                return item;
+                
+            }) 
+            setPedidos([...pedidos]);
+        }
+    }
+
+
+    return(
+        <ContextlistaDePedidos.Provider value={{pedidos,addPedido}} >
+            {children}            
+        </ContextlistaDePedidos.Provider>
+    )
+
+};
+
+export default PedidosProvider;
+
+export const listMenuItems  = [
+    {
+        id: 1,
+        nome:"Carne", 
+        categoria:"Pratos Principais",
+        preco: "R$50,00",
+        imgSrc:"link" 
+
+    },
+    {
+        id: 2,
+        nome:"Peixe", 
+        categoria:"Pratos Principais",
+        preco: "R$20,00",
+        imgSrc:"link" 
+
+    },
+    {
+        id: 3,
+        nome:"Coca-Cola", 
+        categoria:"Bebidas",
+        preco: "R$5,00",
+        imgSrc:"link" 
+
+    }
+]
+
+
+export const categorias = ["Pratos Principais","Bebidas"]
