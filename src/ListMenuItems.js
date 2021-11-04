@@ -42,9 +42,43 @@ const PedidosProvider = ({children}) =>{
         }
     }
 
+    const deletePedido = pedido =>{
+
+      const arrayPedidos = pedidos;  
+        
+      const indexPedido =  pedidos.findIndex((item) => {
+            return item.id === pedido.id 
+        })
+
+       if(indexPedido !== -1 ) {
+           if(pedido.qt === 1){
+                arrayPedidos.splice(indexPedido,1)
+                setPedidos([...arrayPedidos]);
+            }else{
+                pedidos.forEach((item) => {
+                    if(item.id === pedido.id ){
+                        return { 
+                            id: item.id,
+                            nome : item.nome,
+                            categoria:item.categoria,
+                            preco: item.preco,
+                            imgSrc: item.imgSrc,
+                            qt : item.qt--
+                        };
+                    }
+                    return item;
+                    
+                }) 
+                setPedidos([...pedidos]);
+
+            }
+        } 
+
+    }
+
 
     return(
-        <ContextlistaDePedidos.Provider value={{pedidos,addPedido}} >
+        <ContextlistaDePedidos.Provider value={{pedidos,addPedido,deletePedido}} >
             {children}            
         </ContextlistaDePedidos.Provider>
     )

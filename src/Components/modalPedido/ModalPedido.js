@@ -5,13 +5,13 @@ import { ContextlistaDePedidos } from '../../ListMenuItems'
 
 const ModalPedido = ( ) => {
 
-    const {pedidos} = useContext(ContextlistaDePedidos)
+    const {pedidos,deletePedido} = useContext(ContextlistaDePedidos)
 
 
     return (
         <div className="Modal">
             <h2>Pedidos</h2>
-            <ul>{pedidos.map((item,i)=> <li key = {i++}>{item.nome} <p>{item.qt}</p></li>)}</ul>
+            <ul>{pedidos.map((item,i)=> <li key = {i++}>{item.nome} <p>{item.qt}</p> <button className="btn remove" onClick = {( ) => deletePedido(item)}>x</button></li>)}</ul>
         </div>
     )
 }

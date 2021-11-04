@@ -3,9 +3,16 @@
     justify-content: space-between;
 }
 
+.btn {
+    font-weight: bold;
+    border :none;
+}
+
+
 .btn.add{
     font-weight: bold;
     font-size: 20px;
     background-color: rgba(0, 0, 0, 0);
     border :none;
 }
+

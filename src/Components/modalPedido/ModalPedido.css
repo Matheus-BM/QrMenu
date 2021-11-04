@@ -14,11 +14,18 @@
 }
 .Modal p{
     width: fit-content;
-    margin-top: 0;
+
 }
 
 .Modal li {
     display: flex; 
     justify-content: space-between;
+    align-items: center;
     margin-right: 40px;
+    margin-top: 0;
+}
+
+.btn.remove{
+    color: red;
+    background-color: transparent;
 }
