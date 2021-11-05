@@ -111,8 +111,25 @@ export const listMenuItems  = [
         preco: "R$5,00",
         imgSrc:"link" 
 
+    },
+    {
+        id: 4,
+        nome:"Chocolate", 
+        categoria:"Sobremesa",
+        preco: "R$5,00",
+        imgSrc:"link" 
+
     }
+    
 ]
+const categoriasArray = []
 
+listMenuItems.forEach((item)=>{
+    if (categoriasArray.findIndex((categoria) => categoria === item.categoria ) === -1){
+        categoriasArray.push(item.categoria)
+    }    
+})
 
-export const categorias = ["Pratos Principais","Bebidas"]
+console.log(categoriasArray)
+export const categorias = categoriasArray;
+
