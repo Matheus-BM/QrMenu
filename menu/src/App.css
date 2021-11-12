@@ -1,0 +1,14 @@
+body {
+  background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  background-size: auto;
+  background-image: url("./img/Fundo.svg");
+  position: relative;
+  height: 110vh;
+  margin-bottom: 0px;
+}
+
