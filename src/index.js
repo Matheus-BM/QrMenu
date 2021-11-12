@@ -1,22 +1,6 @@
-
-import './App.css';
-import Menu from './Pages/Menu';
-import Mesa from './Pages/Mesa';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router,Route} from 'react-router-dom'
-
-
-function App() {
-  return (
-    <Router>
-    <div className="App">
-      <Route path="/mesa" component={Mesa} />
-      <Route path="/menu" component={Menu}/>
-    </div>
-    </Router>
-  );
-}
+import App from './App';
 
 
 ReactDOM.render(
@@ -25,4 +9,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-

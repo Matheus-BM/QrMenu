@@ -1,0 +1,54 @@
+.Modal {
+  background-color: #f6f6f6;
+  padding: 0px;
+  border-radius: 20px;
+  width: 280px;
+  top: calc(100vh - 200px);
+  margin-top: 30px;
+}
+
+.Modal.modal-active {
+  height: 67.81px;
+  overflow: hidden;
+}
+
+.Modal h2 {
+  text-align: center;
+}
+.Modal p {
+  width: fit-content;
+}
+
+.Modal li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 40px;
+  margin-top: 0;
+}
+
+.btn.remove {
+  color: red;
+  background-color: transparent;
+}
+
+.box-modal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 10%;
+}
+
+.box-modal h2 {
+  margin-left: 18%;
+}
+
+.fas.fa-chevron-down {
+  transform: rotate(0deg);
+  transition: 0.3s ease-in-out;
+}
+
+.fas.fa-chevron-down.arrow-active {
+  transform: rotate(-90deg);
+  transition: 0.3s ease-in-out;
+}
