@@ -11,12 +11,16 @@
 }
 
 .Modal.modal-active {
-  height: 67.81px;
+ 
   transform: translateY(0); 
-  overflow: hidden;
-  transition: ease-in 0.5s;
   
 }
+
+.Modal ul{
+  margin: 0;
+ 
+}
+
 
 .Modal h2 {
   text-align: center;
@@ -31,10 +35,6 @@
   align-items: center;
   margin-right: 40px;
   margin-top: 0;
-}
-
-.Modal ul{
-  margin: 0;
 }
 
 .btn.remove {
