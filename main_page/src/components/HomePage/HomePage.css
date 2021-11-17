@@ -57,8 +57,17 @@
     z-index: -5;
     width: 100vw;
     height: 100vh;
+    max-width: 1444px;
+    background-repeat: no-repeat;
 }
 
 a{
     text-decoration: none;
 }
+
+@media screen and (min-width: 2048px) {
+    
+        .background_img {
+            left: 15%;
+        }
+    }
