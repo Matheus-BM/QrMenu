@@ -3,6 +3,8 @@ const express = require("express")
 const app = express();
 const cors = require("cors");
 
+//DB Connection
+
 const {Pool} = require('pg')
 const client = new Pool({
     user: process.env.PG_USER,
@@ -49,6 +51,52 @@ app.get("/api/:nomeRestaurante/categoria", async (req,res) =>{
 })
 
 
+
+//// LOGIN AREA //////
+
+//REGISTER #TODO INSTALL bycript
+app.post("/api/register", async (req,res)=>{
+
+    const users = await client.query("SELECT * from gerente").rows
+
+    const email = req.body.email;
+    const password = await bcrypt.hash(req.body.password,10);
+
+    const uniqueEmail = users.find((user) => user.email === email );
+
+    if( uniqueEmail === null){
+        await client.query("INSERT INTO gerente (email_gerente , senha_gerente) values ($1,$2) ",[email,password])
+    }
+
+    res.status(200).send()
+})
+
+//LOGIN
+app.post("/api/login", async (req,res) =>{
+
+    const users = await client.query("SELECT * from gerente").rows
+
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const user = users.find((user) => user.email === email  );
+
+    if( user === null){
+        return res.status(404).send("email not found");
+    }
+
+    try {
+       if( await bycript.compare(password, user.password)){
+            res.status(200).send("logged in")
+        }else{
+            res.send("Not Allowed");
+        }
+    } catch (error) {
+        res.status(500).send()
+    }
+
+    
+})
 
 const PORT = process.env.PORT| 5000
 app.listen(PORT, () => console.log(`listen to port ${PORT}`))
