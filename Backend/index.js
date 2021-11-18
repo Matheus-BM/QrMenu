@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require("express")
 const app = express();
 const cors = require("cors");
+const bcrypt = require('bcrypt');
 
 //DB Connection
 
@@ -57,39 +58,48 @@ app.get("/api/:nomeRestaurante/categoria", async (req,res) =>{
 //REGISTER #TODO INSTALL bycript
 app.post("/api/register", async (req,res)=>{
 
-    const users = await client.query("SELECT * from gerente").rows
-
+    const users = await client.query("SELECT * from gerente")
+    const usersArray = users.rows;
+    
+    
+    const nome = req.body.nome;
+    const sobrenome = req.body.sobrenome;
     const email = req.body.email;
-    const password = await bcrypt.hash(req.body.password,10);
+    const password = await bcrypt.hash(req.body.password,1);
 
-    const uniqueEmail = users.find((user) => user.email === email );
+    const uniqueEmail = usersArray.find((user) => user.email_gerente === email );
+
+
 
     if( uniqueEmail === null){
-        await client.query("INSERT INTO gerente (email_gerente , senha_gerente) values ($1,$2) ",[email,password])
+        await client.query("INSERT INTO gerente (nome_gerente, sobrenome_gerente,email_gerente , senha_gerente) values ($1,$2,$3,$4) ",[nome,sobrenome,email,password])
+        return res.status(200).send("Registrado com sucesso");
     }
 
-    res.status(200).send()
+    return res.status(401).send("Usuario já cadastrado");
+    
 })
 
 //LOGIN
 app.post("/api/login", async (req,res) =>{
 
-    const users = await client.query("SELECT * from gerente").rows
+    const users = await client.query("SELECT * from gerente")
+    const usersArray = users.rows;
 
     const email = req.body.email;
     const password = req.body.password;
 
-    const user = users.find((user) => user.email === email  );
+    const user = usersArray.find((user) => user.email_gerente === email  );
 
-    if( user === null){
+    if( user === undefined){
         return res.status(404).send("email not found");
     }
 
     try {
-       if( await bycript.compare(password, user.password)){
-            res.status(200).send("logged in")
+       if( await bcrypt.compare(password, user.senha_gerente)){
+            res.status(200).send(true)
         }else{
-            res.send("Not Allowed");
+            res.send(false);
         }
     } catch (error) {
         res.status(500).send()
