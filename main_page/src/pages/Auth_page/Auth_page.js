@@ -25,15 +25,21 @@ function Auth_page() {
                     <h1>REGISTRE-SE</h1>
                     <form>
                         <div className="col">
+                            <label>Nome</label>
+                            <input type="text" />
+                            <div className="col">
+                            <label>Sobrenome</label>
+                            <input type="text" />
+                        </div>
+                        </div>
+                        
+                        
+                        <div className="col">
                             <label>Email</label>
                             <input type="email" />
                         </div>
                         <div className="col">
                             <label>Senha</label>
-                            <input type="password" />
-                        </div>
-                        <div className="col">
-                            <label>Confirme Sua senha</label>
                             <input type="password" />
                         </div>
                         <button className="btn">Registre-se </button>
