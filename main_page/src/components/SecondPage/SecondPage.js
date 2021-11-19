@@ -4,14 +4,14 @@ import "./SecondPage.css";
 function SecondPage() {
   return (
     <div>
-      <div id="fundo">
+      <div id="bg2">
         <h1>Como Funciona?</h1>
-        <div id="titulos">
-          <h3 id="t1">Cadastre-se</h3>
-          <h3 id="t2">Crie seu cardapio</h3>
-          <h3 id="t3">Começe a usar</h3>
+        <div id="step">
+          <h3 id="step1">Cadastre-se</h3>
+          <h3 id="step2">Crie seu cardapio</h3>
+          <h3 id="step3">Começe a usar</h3>
         </div>
-        <div id="geral">
+        <div id="imgs">
           <div id="img1"></div>
           <div id="img2"></div>
           <div id="img3"></div>

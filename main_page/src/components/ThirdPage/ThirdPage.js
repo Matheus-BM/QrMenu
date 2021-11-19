@@ -4,9 +4,9 @@ import "./ThirdPage.css";
 function ThirdPage() {
   return (
     <div>
-      <div id="fundin">
+      <div id="bg3">
         <h1 id="navtitle">Custos?</h1>
-        <div id="tituloG">
+        <div id="maintitle">
           <h1>100% Free</h1>
           <h1>QrMenu é gratuito</h1>
         </div>

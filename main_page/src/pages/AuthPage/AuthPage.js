@@ -4,6 +4,9 @@ import "./AuthPage.css";
 function Auth_page() {
   return (
     <div className="bg">
+      <div id="logo">
+        <div id="logotipo"></div>
+      </div>
       <div className="form-box">
         <div className="login-form">
           <h1>Login</h1>
@@ -39,7 +42,7 @@ function Auth_page() {
               <label>Senha</label>
               <input type="password" />
             </div>
-            <button className="btn">Registre-se </button>
+            <button className="btn">Registre-se</button>
           </form>
         </div>
       </div>

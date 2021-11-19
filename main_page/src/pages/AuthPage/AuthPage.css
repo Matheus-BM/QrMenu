@@ -1,76 +1,86 @@
-.bg{
-    background-image: url(../../img/bg_foods.png);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bg {
+  background-image: url(../../img/bg_foods.png);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.form-box{
-    background-color: #32DAC8;
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    height: 70%;
-    border-radius: 20px;
-    min-width: 600px;
-    max-width: 800px;
-}
-
-.login-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    padding-top: 30px;
-    width: 50%;
+.form-box {
+  background-color: #32dac8;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 70%;
+  border-radius: 20px;
+  min-width: 600px;
+  max-width: 800px;
+  margin-right: 20%;
 }
 
-
-
-.cadastro-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
-    background-color: white;
-    width: 50%;
-    border-radius: 0px 20px  20px 0px;
-    outline: 2px solid #7EDDD3;
-    outline-offset: -2px;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding-top: 30px;
+  width: 50%;
 }
 
-form{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    
-}
-input{
-    width: 100%;
-    padding: 5px;
-    height: 25px;
-    border-radius: 5px;
-    border: none;
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  background-color: white;
+  width: 50%;
+  border-radius: 0px 20px 20px 0px;
+  outline: 2px solid #7eddd3;
+  outline-offset: -2px;
 }
 
-.cadastro-form input{
-    border: 2px solid gray;
+form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+input {
+  width: 100%;
+  padding: 5px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
 }
 
-.btn{
-    margin-top: 20px;
-    background-color: transparent;
-    font-weight: bold;
+.cadastro-form input {
+  border: 2px solid gray;
 }
 
-.login-form .btn{
-    color: white;
-    border-color: white;
-    border-style: solid;
+.btn {
+  margin-top: 20px;
+  background-color: transparent;
+  font-weight: bold;
 }
-.col{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
+
+.login-form .btn {
+  color: white;
+  border-color: white;
+  border-style: solid;
+}
+.col {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#logotipo {
+  background-image: url(../../img/Logo_1.png);
+  background-repeat: no-repeat;
+  height: 70px;
+  width: 360px;
+  margin-left: 260%;
+}
+
+#logo {
+  margin-bottom: 40%;
 }
