@@ -1,0 +1,77 @@
+#fundo {
+  background-image: url(../../img/bg_foods.png);
+  background-size: cover;
+  margin-top: 13.5%;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1444px;
+  background-repeat: no-repeat;
+}
+
+#fundo h1 {
+  font-size: 50px;
+  padding-top: 5%;
+  margin-left: 36%;
+}
+
+#fundo #title2 {
+  margin-top: 5%;
+}
+
+#titulos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  margin-top: 10%;
+  margin-left: -1%;
+}
+
+#titulos h3 {
+  font-size: 30px;
+}
+
+#titulos #t1 {
+  color: #7eddd3;
+}
+
+#titulos #t2 {
+  color: #ffb563;
+}
+
+#titulos #t3 {
+  color: #ff0000;
+}
+
+#geral {
+  display: flex;
+  justify-content: space-around;
+}
+#geral.h3 {
+  margin-bottom: 200px;
+}
+
+#img1 {
+  background-image: url(../../img/1.png);
+  height: 220px;
+  width: 200px;
+  background-repeat: no-repeat;
+}
+
+#img1.h3 {
+  margin-bottom: 200px;
+}
+
+#img2 {
+  background-image: url(../../img/2.png);
+  height: 220px;
+  width: 200px;
+  background-repeat: no-repeat;
+}
+
+#img3 {
+  background-image: url(../../img/3.png);
+  height: 220px;
+  width: 200px;
+  background-repeat: no-repeat;
+}

@@ -1,23 +1,17 @@
-
-import './App.css';
-import { BrowserRouter as Router, Route, Routes,} from "react-router-dom";
-import Welcome_Page from './pages/WelcomePage/Welcome_Page';
-import Auth_page from './pages/Auth_page/Auth_page';
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import WelcomePage from "./pages/WelcomePage/WelcomePage.js";
+import AuthPage from "./pages/AuthPage/AuthPage.js";
 
 function App() {
-
   return (
     <Router>
       <Routes>
-        
-        <Route exact path="/" element={<Welcome_Page/>} />  
-        <Route exact path="/auth" element={<Auth_page/>} />
-      
+        <Route exact path="/" element={<WelcomePage />} />
+        <Route exact path="/auth" element={<AuthPage />} />
       </Routes>
     </Router>
-
-   
-  )
+  );
 }
 
 export default App;

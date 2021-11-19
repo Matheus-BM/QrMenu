@@ -1,0 +1,59 @@
+#fundin {
+  background-image: url(../../img/fundo3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1444px;
+  margin-top: 20px;
+}
+
+#navtitle {
+  padding-top: 3%;
+  margin-left: 45%;
+  font-size: 40px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20%;
+}
+
+#btn1 {
+  height: 40px;
+  width: 160px;
+  background-color: #ff0000;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+#btn2 {
+  height: 40px;
+  width: 120px;
+  background-color: #ebe9e9;
+  color: black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+#tituloG {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20%;
+  font-size: 40px;
+}
+
+/*#buttons #btn1 {
+  ERRADO FAZER ISSO
+  height: 200px;
+  width: 200px;
+  background-color: #ff0000;
+  border-radius: 10%;
+  color: #ffffff;
+}
+*/
