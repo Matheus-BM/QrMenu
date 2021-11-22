@@ -10,9 +10,9 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<WelcomePage />} />
-        <Route exact path="/auth" element={<AuthPage />} />
-        <Route exact path="/menucreate" element={<MenuCreate />} />
-        <Route exact path="/personaldata" element={<PersonalData />} />
+        <Route exact path="/auth" element={<AuthPage/>} />
+        <Route exact path="/AdminMenu" element={<MenuCreate />} />
+        <Route exact path="/personalData" element={<PersonalData />} />
       </Routes>
     </Router>
   );

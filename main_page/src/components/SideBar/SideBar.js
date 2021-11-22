@@ -1,7 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import "./SideBar.css";
 
+
+
+
+
 function Sidebar() {
+
+  const navigate = useNavigate();
+
+  const handleLogout = ()=>{
+    navigate('/auth');
+  }
   return (
     <div id="bg-left">
       <div id="seta"></div>
@@ -18,9 +29,9 @@ function Sidebar() {
         <div id="meus-dados" className="emoji-final">
           <h3 id="dados-frase">Meus Dados</h3>
         </div>
-        <button id="logout-button">
+        <button id="logout-button" onClick={()=> handleLogout()}>
           <div id="logout" className="emoji-final"></div>
-          <h3 id="button-frase">Logout</h3>
+          <h3 id="button-frase" >Logout</h3>
         </button>
       </div>
     </div>
