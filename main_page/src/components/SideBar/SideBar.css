@@ -1,0 +1,102 @@
+#bg-left {
+  background-color: #32dac8;
+  width: 400px;
+  height: 100vh;
+  position: absolute;
+  left: 0%;
+  top: 0;
+}
+
+.emoji-bgleft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 300px;
+  margin-left: 10%;
+  margin-top: 5%;
+  cursor: pointer;
+}
+
+.emoji-name {
+  margin-bottom: 20%;
+  color: white;
+  width: 160px;
+}
+
+#seta {
+  background-image: url(../../img/Arrow\ 4.png);
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 30px;
+  margin-top: 5%;
+  margin-left: 86%;
+  cursor: pointer;
+}
+
+#painel-controle {
+  background-image: url(../../img/hammer-solid\ 1.png);
+  background-repeat: no-repeat;
+  margin-top: 20%;
+}
+
+#cardapio {
+  background-image: url(../../img/bars-solid\ 1.png);
+  background-repeat: no-repeat;
+}
+
+#gerar-qrcode {
+  background-image: url(../../img/qrcode-solid\ 1.png);
+  background-repeat: no-repeat;
+}
+
+#final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+}
+
+.emoji-final {
+  height: 50px;
+  width: 50px;
+  margin-top: 70%;
+}
+
+#meus-dados {
+  background-image: url(../../img/users-cog-solid\ 1.png);
+  background-repeat: no-repeat;
+  width: 200px;
+  margin-right: 10%;
+  cursor: pointer;
+}
+
+#dados-frase {
+  color: white;
+  margin-top: 5%;
+  margin-left: 40%;
+}
+
+#logout {
+  background-image: url(../../img/door-open-solid\ 1.png);
+  background-repeat: no-repeat;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+#logout-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-color: white;
+  border-radius: 20%;
+  width: 200px;
+  height: 60px;
+  cursor: pointer;
+}
+
+#button-frase {
+  font-size: 20px;
+  color: white;
+  margin-left: 5%;
+}

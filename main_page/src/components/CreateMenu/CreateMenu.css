@@ -1,0 +1,91 @@
+#main {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+#logo {
+  position: absolute;
+  background-image: url(../../img/Logo_1.png);
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 400px;
+  left: 80%;
+  top: 3%;
+}
+
+#main-titulo {
+  font-size: 70px;
+  position: relative;
+  left: 45%;
+  top: 20%;
+  height: 100px;
+}
+
+#teste {
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+  width: 800px;
+  margin-top: 20%;
+  margin-left: 10%;
+  border: 5px solid #000000;
+  border-radius: 15px;
+}
+
+#ladoA {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 5%;
+  cursor: pointer;
+}
+
+#ladoB {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 25%;
+  cursor: pointer;
+}
+
+.emoji-main {
+  width: 260px;
+  height: 50px;
+}
+
+.emoji-title {
+  margin-top: 5%;
+  margin-left: 30%;
+}
+
+#create-category {
+  background-image: url(../../img/boxes-solid\ 1.png);
+  background-repeat: no-repeat;
+}
+
+#edit-category {
+  background-image: url(../../img/pencil-alt-solid\ 2.png);
+  background-repeat: no-repeat;
+}
+
+#remove-category {
+  background-image: url(../../img/trash-alt-solid\ 2.png);
+  background-repeat: no-repeat;
+}
+
+#add-itens {
+  background-image: url(../../img/plus-solid\ 1.png);
+  background-repeat: no-repeat;
+}
+
+#edit-itens {
+  background-image: url(../../img/pencil-alt-solid\ 2.png);
+  background-repeat: no-repeat;
+}
+
+#remove-itens {
+  background-image: url(../../img/trash-alt-solid\ 2.png);
+  background-repeat: no-repeat;
+}

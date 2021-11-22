@@ -1,13 +1,13 @@
-.home{
-    display: flex;
-    flex-direction: column;
-    height: 80vh;
-    margin-left: 23em;
-    justify-content: center;
-    align-items: center;
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  margin-left: 23em;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo.h1{
+.logo.h1 {
   background-image: url(../../img/Logo_1.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -15,59 +15,57 @@
   width: 353px;
 }
 
-#slogan{
-    font-weight: bold;
-    font-size: 20px;
+#slogan {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .buttons {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
-.btn{
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
+.btn {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.btn.Cadastro{
-    margin-right: 20px;
-    background-color: #FF0000;
-    color: white;
-    font-weight: bold;
-    border: none;
+.btn.Cadastro {
+  margin-right: 20px;
+  background-color: #ff0000;
+  color: white;
+  font-weight: bold;
+  border: none;
 }
 
-.btn.Login{
-    background-color: transparent;
-    border: none;
-     outline: 2px solid #7EDDD3;
-     color: #7EDDD3;
-    outline-offset: -3px;
-    cursor: pointer;
+.btn.Login {
+  background-color: transparent;
+  border: none;
+  outline: 2px solid #7eddd3;
+  color: #7eddd3;
+  outline-offset: -3px;
+  cursor: pointer;
 }
 
-
-.background_img{
-    background-image: url(../../img/Background_1.png);
-    background-position: left;
-    position: absolute;
-    top: 80px;
-    left: -60px;
-    z-index: -5;
-    width: 100vw;
-    height: 100vh;
-    max-width: 1444px;
-    background-repeat: no-repeat;
+.background_img {
+  background-image: url(../../img/Background_1.png);
+  background-position: left;
+  position: absolute;
+  top: 80px;
+  left: -60px;
+  z-index: -5;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1444px;
+  background-repeat: no-repeat;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 2048px) {
-    
-        .background_img {
-            left: 15%;
-        }
-    }
+  .background_img {
+    left: 15%;
+  }
+}

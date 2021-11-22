@@ -1,0 +1,80 @@
+#main {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+#logo {
+  position: absolute;
+  background-image: url(../../img/Logo_1.png);
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 400px;
+  left: 80%;
+  top: 3%;
+}
+
+#titulo {
+  font-size: 70px;
+  position: relative;
+  left: 45%;
+  top: 20%;
+  height: 100px;
+}
+
+#fieldset {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 600px;
+  margin-top: 20%;
+  margin-left: 15%;
+  border: 5px solid #000000;
+  border-radius: 15px;
+}
+
+#all-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+#email {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+#options {
+  display: flex;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+}
+.emoji {
+  width: 250px;
+  height: 50px;
+  margin-top: 15%;
+  margin-left: 10%;
+  cursor: pointer;
+}
+
+.name-emoji {
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+#edit {
+  background-image: url(../../img/Vector.png);
+  background-repeat: no-repeat;
+  color: #ffc700;
+}
+
+#remove {
+  background-image: url(../../img/trash-alt-solid\ red\ 2.png);
+  background-repeat: no-repeat;
+  color: #c90000;
+}
