@@ -24,7 +24,7 @@ function Auth_page() {
     }).then(response =>{
       setLoading(false);
       setUserSession(response.data.token,response.data.user);
-      navigate('/AdminMenu');
+      navigate('/Dashboard');
     }).catch(error =>{
       setLoading(false);
       if(error.response.status === 401 || error.response.status === 400){

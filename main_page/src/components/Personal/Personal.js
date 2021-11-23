@@ -1,7 +1,12 @@
 import React from "react";
+import { getUser } from "../../utils/Common";
 import "./Personal.css";
 
 function Personal() {
+
+  const user = getUser();
+
+
   return (
     <div id="main">
       <div id="logo"></div>
@@ -9,16 +14,13 @@ function Personal() {
       <fieldset id="fieldset">
         <div id="all-info">
           <div className="info">
-            <h2>Nome:</h2>
-            <h2>Jõao</h2>
+            <h2>Nome:  { ` ${user.name} ${user.sobrenome }`}</h2>
           </div>
           <div id="email" className="info">
-            <h2>Email:</h2>
-            <h2>jõaogamer@hotmail.com</h2>
+            <h2>Email:  { `  ${user.email}`}</h2>
           </div>
           <div className="info">
-            <h2>Senha:</h2>
-            <h2>********</h2>
+            <h2>Nome do Restaurante: {` ${user.nomeRestaurante}`}</h2>
           </div>
         </div>
         <div id="options">

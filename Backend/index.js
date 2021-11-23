@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req,res,next) => {
     var token = req.headers['authorization'];
-  if (!token) return next(); //if no token, continue
+  if (!token) return next(); 
  
   token = token.replace('Bearer ', '');
 
@@ -41,7 +41,7 @@ app.use((req,res,next) => {
         message: "Invalid user."
       });
     } else {
-      req.user = user; //set the user to req so other routes can use it
+      req.user = user; 
       next();
     }
   });
