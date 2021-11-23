@@ -55,6 +55,7 @@
   flex-direction: column;
   align-items: center;
   height: 1px;
+  margin-top: 60%;
 }
 
 .emoji-final {

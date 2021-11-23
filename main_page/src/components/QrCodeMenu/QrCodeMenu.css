@@ -24,16 +24,6 @@
   font-size: 70px;
 }
 
-#logo {
-  position: absolute;
-  background-image: url(../../img/Logo_1.png);
-  background-repeat: no-repeat;
-  height: 400px;
-  width: 400px;
-  left: 80%;
-  top: 3%;
-}
-
 #qrcode {
   background-image: url(../../img/image\ 31.png);
   background-repeat: no-repeat;
