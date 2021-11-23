@@ -7,7 +7,10 @@ import PublicRoute from "./utils/PublicRoute";
 import PrivateRoute from "./utils/PrivateRoute";
 import QrCode from "./pages/QrCode/QrCode"
 import PersonalData from "./pages/PersonalData/PersonalData"
+
+
 function App() {
+
   return (
     <Router>
       <Routes>
