@@ -10,3 +10,16 @@ body {
   align-items: center;
   width: 100vw;
 }
+
+.fundo{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-image: url(./img/Fundo.svg);
+}
+
+.container{
+  width: auto;
+}
