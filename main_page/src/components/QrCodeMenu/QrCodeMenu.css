@@ -1,0 +1,43 @@
+#all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20%;
+}
+
+#subtitle {
+  font-size: 30px;
+  color: #32dac8;
+}
+
+#button-gerarqr {
+  margin-top: 5%;
+  width: 300px;
+  height: 80px;
+  font-size: 30px;
+  background-color: white;
+  cursor: pointer;
+}
+
+#title-qrcode {
+  margin-bottom: 10%;
+  font-size: 70px;
+}
+
+#logo {
+  position: absolute;
+  background-image: url(../../img/Logo_1.png);
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 400px;
+  left: 80%;
+  top: 3%;
+}
+
+#qrcode {
+  background-image: url(../../img/image\ 31.png);
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 400px;
+  margin-top: 10%;
+}

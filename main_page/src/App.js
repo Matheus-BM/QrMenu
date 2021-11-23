@@ -4,6 +4,7 @@ import WelcomePage from "./pages/WelcomePage/WelcomePage.js";
 import AuthPage from "./pages/AuthPage/AuthPage.js";
 import MenuCreate from "./pages/MenuCreate/MenuCreate.js";
 import PersonalData from "./pages/PersonalData/PersonalData";
+import QrCode from "./pages/QrCode/QrCode";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/auth" element={<AuthPage />} />
         <Route exact path="/menucreate" element={<MenuCreate />} />
         <Route exact path="/personaldata" element={<PersonalData />} />
+        <Route exact path="/qrcode" element={<QrCode />} />
       </Routes>
     </Router>
   );
