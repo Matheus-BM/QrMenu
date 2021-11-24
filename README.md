@@ -80,7 +80,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://imgur.com/a/N72wRlC" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://i.imgur.com/X0x6GUp.png" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
         <sub>
           <b>Matheus Barreto</b>
         </sub>
@@ -88,7 +88,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://imgur.com/a/JK3dTL3" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
+        <img src="https://i.imgur.com/rLMJJfV.jpeg" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
         <sub>
           <b>Valentin Almeida</b>
         </sub>
@@ -96,7 +96,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://imgur.com/a/UFDiYtw" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://i.imgur.com/XPLgsA5.jpeg" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Pedro Macedo</b>
         </sub>
@@ -104,7 +104,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
      <td align="center">
       <a href="#">
-        <img src="https://imgur.com/a/fPCWyHN" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://i.imgur.com/GlpDxZp.jpeg" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Julia Valu</b>
         </sub>
