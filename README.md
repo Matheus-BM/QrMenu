@@ -15,9 +15,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Fazer servidor
 - [x] Fazer o site 
 - [x] Implementar login 
-- [] Implementar cadastro de itens no cardapio
-- [] Implementar cadastro de categorias
-- [] Tornar site responsivo
+- [ ] Implementar cadastro de itens no cardapio
+- [ ] Implementar cadastro de categorias
+- [ ] Tornar site responsivo
 
 
 ## 💻 Pré-requisitos
@@ -30,19 +30,17 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 Para instalar o <QrMenu>, siga estas etapas:
 
-Linux e macOS:
-```
-<comando_de_instalação>
-```
-
 Windows:
 ```
 git clone https://github.com/Matheus-BM/QrMenu.git;
 ```
+Sevidor
 ```
 cd servidor 
 npm install
-cd .. 
+````
+Client
+```
 cd client
 npm install
 ```
@@ -82,15 +80,15 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars3.githubusercontent.com/u/31936044" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://imgur.com/a/N72wRlC" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
         <sub>
-          <b>Matheus Barreto Medeiros</b>
+          <b>Matheus Barreto</b>
         </sub>
       </a>
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
+        <img src="https://imgur.com/a/JK3dTL3" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
         <sub>
           <b>Valentin Almeida</b>
         </sub>
@@ -98,7 +96,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://imgur.com/a/UFDiYtw" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Pedro Macedo</b>
         </sub>
@@ -106,7 +104,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
      <td align="center">
       <a href="#">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://imgur.com/a/fPCWyHN" width="100px;" alt="Foto do Steve Jobs"/><br>
         <sub>
           <b>Julia Valu</b>
         </sub>
