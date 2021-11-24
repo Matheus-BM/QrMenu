@@ -5,7 +5,9 @@
 ![GitHub](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![GitHub](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
->O “Desce a Conta” é um sistema que tem como objetivo organizar os clientes em mesa, e após essa organização fazer com que cada cliente consiga realizar seu pedido de forma simplificada. Gerando assim a divisão da conta de todos os participantes da mesa, cada um com seu pedido. Dessa forma, é um sistema que se mostra vantajoso.
+<img src="https://i.imgur.com/7smKLTx.png" alt="logo">
+
+>O “QrMenu” é um sistema que tem como objetivo facilitar a criação de menus online para restaurantes, além disso ele gera um codigo qr para o menu, que podem ser impressos e dispostos pelas mesas seu restaurante  .
 
 
 ### Ajustes e melhorias
@@ -60,18 +62,6 @@ Server
 cd server
 nodemon index.js
 ```
-
-## 📫 Contribuindo para <nome_do_projeto>
-
-Para contribuir com <nome_do_projeto>, siga estas etapas:
-
-1. Bifurque este repositório.
-2. Crie um branch: `git checkout -b <nome_branch>`.
-3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
-4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
-5. Crie a solicitação de pull.
-
-Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
 ## 🤝 Colaboradores
 
