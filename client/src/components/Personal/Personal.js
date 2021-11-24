@@ -23,14 +23,6 @@ function Personal() {
             <h2>Nome do Restaurante: {` ${user.nomeRestaurante}`}</h2>
           </div>
         </div>
-        <div id="options">
-          <div id="edit" className="emoji">
-            <h3 className="name-emoji">Editar</h3>
-          </div>
-          <div id="remove" className="emoji">
-            <h3 className="name-emoji">Apagar Conta</h3>
-          </div>
-        </div>
       </fieldset>
     </div>
   );

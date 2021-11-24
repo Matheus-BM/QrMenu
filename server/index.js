@@ -50,35 +50,6 @@ app.use((req,res,next) => {
 
 //Routes//
 
-
-
-//Verificar Token
-
-app.get("/api/verifyToken", (req,res) => {
-    var token = req.query.token;
-    if(!token){
-        return res.status(400).send("Token esta faltando")
-    }
-
-    jwt.verify(token, process.env.JWT_SECRET, async (err,user) => {
-        if(err) return res.status(401).send("Token invalido");
-
-        const users = await client.query("SELECT * from gerente")
-        const usersArray = users.rows;
-        const uniqueEmail = usersArray.find((user) => user.email_gerente === email );
-        
-    
-        if(user.email !== uniqueEmail.email_gerente){
-            if(err) return res.status(401).send("Email invalido");
-        }
-    
-        var userObj = utils.getCleanUser(userData);
-        return res.json({user:userObj, token});
-    })
-
-  
-})
-
 //get a menu
 
 app.get("/api/:nomeRestaurante", async (req,res) =>{
@@ -222,7 +193,32 @@ app.post("/api/login", async (req,res) =>{
 })
 
 
+//Verificar Token
 
+app.get("api/verifyToken", (req,res) => {
+    var token = req.query.token;
+    if(!token){
+        return res.status(400).send("Token esta faltando")
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, async (err,user) => {
+        if(err) return res.status(401).send("Token invalido");
+
+        const users = await client.query("SELECT * from gerente")
+        const usersArray = users.rows;
+        const uniqueEmail = usersArray.find((user) => user.email_gerente === email );
+        
+    
+        if(user.email !== uniqueEmail.email_gerente){
+            if(err) return res.status(401).send("Email invalido");
+        }
+    
+        var userObj = utils.getCleanUser(userData);
+        return res.json({user:userObj, token});
+    })
+
+  
+})
 
 
 

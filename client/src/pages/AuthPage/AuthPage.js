@@ -3,6 +3,7 @@ import {  useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AuthPage.css";
 import { setUserSession } from "../../utils/Common";
+import { baseURL } from "../../apis/MenuFetcher";
 
 function Auth_page() {
 
@@ -18,7 +19,7 @@ function Auth_page() {
     setError(null);
     setLoading(true);
 
-    axios.post("http://localhost:5000/api/login", {
+    axios.post(`${baseURL}login`, {
       email: username,
       password: password
     }).then(response =>{
@@ -48,7 +49,7 @@ function Auth_page() {
     setError(null);
     setLoading(true);
 
-    axios.post("http://localhost:5000/api/register", {
+    axios.post(`${baseURL}register`, {
       email: email,
       password: senha,
       nome: nome,
