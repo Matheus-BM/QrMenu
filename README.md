@@ -5,9 +5,8 @@
 ![GitHub](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![GitHub](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
-<img src="./src/img/Background_1.png" alt="exemplo imagem">
+>O “Desce a Conta” é um sistema que tem como objetivo organizar os clientes em mesa, e após essa organização fazer com que cada cliente consiga realizar seu pedido de forma simplificada. Gerando assim a divisão da conta de todos os participantes da mesa, cada um com seu pedido. Dessa forma, é um sistema que se mostra vantajoso.
 
-> Codigo do site qrmenu.
 
 ### Ajustes e melhorias
 
