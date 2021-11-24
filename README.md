@@ -33,7 +33,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 Para instalar o <QrMenu>, siga estas etapas:
 
-Windows:
+Clone o repositorio:
 ```
 git clone https://github.com/Matheus-BM/QrMenu.git;
 ```
