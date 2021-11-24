@@ -42,11 +42,16 @@ Sevidor
 cd servidor 
 npm install
 ````
+> Crie sua base DB usando o schema do arquivo database.sql
+
 Client
 ```
 cd client
 npm install
 ```
+> Não esqueça de configurar os arquivos .env como o do exemploDotEnvFile.txt tanto para o cliente como para o servidor
+
+
 
 ## ☕ Usando <QrMenu>
 
