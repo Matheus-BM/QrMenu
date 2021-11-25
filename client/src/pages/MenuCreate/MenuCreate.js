@@ -5,9 +5,9 @@ import CreateMenu from "../../components/CreateMenu/CreateMenu.js";
 
 function MenuCreate() {
   return (
-    <div>
+    <div className="row">
+       <SideBar />
       <CreateMenu />
-      <SideBar />
     </div>
   );
 }

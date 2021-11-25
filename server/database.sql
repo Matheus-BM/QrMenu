@@ -1,39 +1,32 @@
-CREATE DATABASE QrMenu;
+CREATE TABLE gerente(
+cod_gerente SERIAL PRIMARY KEY,
+nome_gerente VARCHAR(50) NOT NULL,
+sobrenome_gerente VARCHAR(50) NOT NULL,
+senha_gerente INT NOT NULL,
+email_gerente INT NOT NULL
+);
 
 CREATE TABLE restaurante(
-cod_Restaurante SERIAL PRIMARY KEY,
-nome_Restaurante VARCHAR(50) NOT NULL,
-cidade_Restaurante VARCHAR(50) NOT NULL,
-estado_Restaurante VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE gerente(
-cod_Gerente SERIAL PRIMARY KEY,
-nome_Gerente VARCHAR(50) NOT NULL,
-sobrenome_Gerente VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE cardapio(
-cod_Cardapio SERIAL PRIMARY KEY,
-data_update_cardapio DATE
+cod_restaurante SERIAL PRIMARY KEY,
+nome_restaurante VARCHAR(50) NOT NULL,
+cod_gerente SERIAL REFERENCES gerente(cod_gerente),
+cod_cardapio SERIAL REFERENCES cardapio(cod_cardapio)
 );
 
 CREATE TABLE produto(
-cod_Produto SERIAL PRIMARY KEY,
-nome_Produto VARCHAR(90) NOT NULL,
-preco_Produto MONEY NOT NULL
+cod_produto SERIAL PRIMARY KEY,
+nome_produto VARCHAR(50) NOT NULL,
+descricao_produto VARCHAR(100) NOT NULL,
+preco_produto INT NOT NULL,
+cod_categoria SERIAL REFERENCES categoria(cod_categoria),
+cod_cardapio SERIAL REFERENCES cardapio(cod_cardapio)
 );
 
-CREATE TABLE imagem_Produto(
-cod_Imagem SERIAL PRIMARY KEY,
-nome_Imagem VARCHAR(50) NOT NULL,
-qr_Imagem bytea NOT NULL
+CREATE TABLE cardapio(
+cod_cardapio SERIAL PRIMARY KEY
 );
 
-ALTER TABLE restaurante ADD cod_Gerente SERIAL REFERENCES gerente(cod_Gerente);
-
-ALTER TABLE gerente ADD cod_Cardapio SERIAL REFERENCES cardapio(cod_Cardapio);
-
-ALTER TABLE produto ADD cod_Cardapio SERIAL REFERENCES cardapio(cod_Cardapio);
-
-ALTER TABLE imagem_Produto ADD cod_Produto SERIAL REFERENCES produto(cod_Produto);
+CREATE TABLE categoria(
+cod_categoria SERIAL PRIMARY KEY,
+nome_categoria VARCHAR(40) NOT NULL
+);

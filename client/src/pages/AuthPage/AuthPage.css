@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .form-box {
   background-color: #32dac8;
@@ -13,7 +14,7 @@
   width: 80%;
   height: 70%;
   border-radius: 20px;
-  min-width: 600px;
+  min-width: 800px;
   max-width: 800px;
 
 }
@@ -103,4 +104,12 @@ input {
 .row input{
   width: 111px;
   margin-right: 0px;
+}
+#voltar {
+  width: 80%;
+  min-width: 800px;
+  max-width: 800px;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 20px;
 }

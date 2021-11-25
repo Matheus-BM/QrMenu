@@ -3,6 +3,10 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 #logo {
@@ -11,43 +15,40 @@
   background-repeat: no-repeat;
   height: 80px;
   width: 400px;
-  left: 80%;
+  left: 60%;
   top: 3%;
 }
 
 #main-titulo {
   font-size: 70px;
-  position: relative;
-  left: 45%;
-  top: 20%;
   height: 100px;
+  width: 800px;
+  text-align: left;
 }
 
 #teste {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   height: 400px;
   width: 800px;
-  margin-top: 20%;
-  margin-left: 10%;
   border: 5px solid #000000;
   border-radius: 15px;
 }
 
 #ladoA {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin-left: 5%;
-  cursor: pointer;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-evenly;
+ height: 400px;
 }
 
 #ladoB {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin-left: 25%;
-  cursor: pointer;
+ flex-direction: column;
+ justify-content: space-evenly;
+ height: 400px;
 }
 
 .emoji-main {

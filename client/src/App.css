@@ -23,3 +23,9 @@ body {
 .container{
   width: auto;
 }
+
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

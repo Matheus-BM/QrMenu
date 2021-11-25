@@ -1,10 +1,10 @@
 import React,{useState} from "react";
-import {  useNavigate } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AuthPage.css";
 import { setUserSession } from "../../utils/Common";
 import { baseURL } from "../../apis/MenuFetcher";
-
+import Navbar from "../../components/navbar/Navbar"
 function Auth_page() {
 
   /*LOGIN*/
@@ -59,7 +59,7 @@ function Auth_page() {
     }).then(response =>{
       setLoading(false);
       setUserSession(response.data.token,response.data.user);
-      navigate('/AdminMenu');
+      navigate('/Dashboard');
     }).catch(error =>{
       setLoading(false);
       if(error.response.status === 401 || error.response.status === 400){
@@ -74,9 +74,11 @@ function Auth_page() {
 
   return (
     <div className="bg">
+      <Link to="/"> <div id="voltar"> ← voltar</div></Link>
       <div id="logo">
         <div id="logotipo"></div>
       </div>
+      
       <div className="form-box">
         <div className="login-form">
           <h1>LOGIN</h1>

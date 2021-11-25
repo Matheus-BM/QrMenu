@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useNavigate } from "react-router";
 import { Link } from 'react-router-dom'
 import { getUser, removeUserSession } from "../../utils/Common";
@@ -18,9 +18,21 @@ function Sidebar() {
     removeUserSession();
     navigate('/auth');
   }
+  let bgLeft = document.querySelector("#bg-left");
+  let arrow = document.querySelector("#seta")
+
+  useEffect(() => {
+    bgLeft = document.querySelector("#bg-left");
+  }, [])
+
+  const SidebarActive = () => {
+    arrow.classList.toggle("active");
+    bgLeft.classList.toggle("active");
+  };
+
   return (
     <div id="bg-left">
-      <div id="seta"></div>
+      <div id="seta" onClick={()=> SidebarActive()}></div>
     <Link to="/Dashboard">
       <div id="painel-controle" className="emoji-bgleft">
         <h3 className="emoji-name">Painel de Controle</h3>

@@ -83,7 +83,7 @@ app.get("/api/:nomeRestaurante/categoria", async (req,res) =>{
 
 //// LOGIN AREA //////
 
-//REGISTER #TODO INSTALL bycript
+//REGISTER 
 app.post("/api/register", async (req,res)=>{
     try{
 
@@ -108,7 +108,7 @@ app.post("/api/register", async (req,res)=>{
         cod_gerente = cod_gerente.rows[0].cod_gerente;
 
         var cod_cardapio = await client.query("SELECT COUNT(*) FROM cardapio");
-        cod_cardapio = cod_cardapio.rows[0].count++;
+        cod_cardapio = cod_cardapio.rows[0].count;
         console.log(cod_cardapio)
 
         await client.query(" INSERT INTO cardapio (cod_cardapio) values ($1)",[cod_cardapio])
@@ -233,5 +233,5 @@ app.get('/', (req, res) => {
 
 
 
-const PORT = process.env.PORT| 5000
+const PORT = process.env.PORT|| 5000
 app.listen(PORT, () => console.log(`listen to port ${PORT}`))

@@ -15,14 +15,18 @@
 
 #buttons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-top: 13%;
+  width: 100vw;
 }
 
+
+
 #btn1 {
-  margin-left: 30%;
+  margin-right: 20px;
   height: 40px;
   width: 160px;
+  border-radius: 6px;
   background-color: #ff0000;
   color: white;
   font-weight: bold;
@@ -31,9 +35,9 @@
 }
 
 #btn2 {
-  margin-right: 30%;
   height: 40px;
   width: 120px;
+  border-radius: 6px;
   background-color: #ebe9e9;
   color: black;
   font-weight: bold;

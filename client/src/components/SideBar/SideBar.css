@@ -5,6 +5,10 @@
   position: absolute;
   left: 0%;
   top: 0;
+  transition: .8s ease-in;
+}
+#bg-left.active{
+  left: -330px;
 }
 
 .emoji-bgleft {
@@ -27,11 +31,18 @@
 #seta {
   background-image: url(../../img/Arrow\ 4.png);
   background-repeat: no-repeat;
+  background-position: center;
   width: 100px;
   height: 30px;
   margin-top: 5%;
-  margin-left: 86%;
+  margin-left: 78%;
   cursor: pointer;
+  transform: rotate(180deg);
+  transition: transform .8s ease-in;
+}
+
+#seta.active{
+  transform: rotate(360deg);
 }
 
 #painel-controle {
