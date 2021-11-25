@@ -4,7 +4,6 @@ import axios from "axios";
 import "./AuthPage.css";
 import { setUserSession } from "../../utils/Common";
 import { baseURL } from "../../apis/MenuFetcher";
-import Navbar from "../../components/navbar/Navbar"
 function Auth_page() {
 
   /*LOGIN*/
@@ -61,6 +60,9 @@ function Auth_page() {
       setUserSession(response.data.token,response.data.user);
       navigate('/Dashboard');
     }).catch(error =>{
+      if(!error.response){
+        return
+      }
       setLoading(false);
       if(error.response.status === 401 || error.response.status === 400){
         setError(error.response.data.message);
@@ -73,12 +75,15 @@ function Auth_page() {
 
 
   // Responsividade
-
+// eslint-disable-next-line
 let formRegister = document.querySelector(".cadastro-form");
+// eslint-disable-next-line
 let formLogin = document.querySelector(".login-form")
 
 useEffect(() => {
+  // eslint-disable-next-line
   formRegister = document.querySelector(".cadastro-form");
+  // eslint-disable-next-line
   formLogin = document.querySelector(".login-form")
 }, [])
 
@@ -86,15 +91,16 @@ useEffect(() => {
     formRegister.classList.toggle("active");
     formLogin.classList.toggle("closed");
   }
+  /*
+      */ 
 
   return (
-    <div className="bg">
-      <Link to="/"> <div id="voltar"> ← voltar</div></Link>
-      <div id="logo">
-        <div id="logotipo"></div>
-      </div>
-      
+    <>
+    <div className="bg"> <Link to="/"> <div id="voltar"> ← voltar</div></Link> </div>
+    <div id="logo"> <div id="logotipo"></div></div>
+    
       <div className="form-box">
+        
         <div className="login-form">
           <h1>LOGIN</h1>
           <form onSubmit={e => ( e.preventDefault())}>
@@ -149,7 +155,7 @@ useEffect(() => {
           <div className="mobile">Já tem conta?<span onClick={()=> showRegisterForm()}>Faça Login</span> </div>
         </div>
       </div>
-    </div>
+      </>
   );
 }
 

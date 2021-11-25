@@ -117,7 +117,12 @@ app.post("/api/register", async (req,res)=>{
         return res.status(200).send("Registrado com sucesso");
     }
 
-    return res.status(401).send("Usuario já cadastrado");
+    return res.status(401).json({
+        error:true,
+        message: "Usuario já cadastrado!"
+    })
+
+
     }catch (e){
         console.error(e);
     }

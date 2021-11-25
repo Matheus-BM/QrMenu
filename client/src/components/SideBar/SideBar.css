@@ -6,10 +6,15 @@
   left: 0%;
   top: 0;
   transition: .8s ease-in;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  z-index:3;
 }
 #bg-left.active{
   left: -330px;
 }
+
 
 .emoji-bgleft {
   display: flex;
@@ -61,19 +66,7 @@
   background-repeat: no-repeat;
 }
 
-#final {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 1px;
-  margin-top: 60%;
-}
 
-.emoji-final {
-  height: 50px;
-  width: 50px;
-  margin-top: 100px;
-}
 
 #meus-dados {
   background-image: url(../../img/users-cog-solid\ 1.png);
@@ -88,6 +81,9 @@
   color: white;
   margin-top: 5%;
   margin-left: 40%;
+}
+#final{
+  margin: auto auto 20px ;
 }
 
 #logout {
@@ -112,4 +108,20 @@
   font-size: 20px;
   color: white;
   margin-left: 5%;
+}
+
+@media screen and (max-width: 400px) {
+  #bg-left{
+    width: 300px;
+  }
+  #bg-left.active{
+    left: -230px;
+    
+  }
+  #bg-left.active #logout-button{
+    display: none;
+  }
+  #seta{
+    margin-left: 70%;
+  }
 }

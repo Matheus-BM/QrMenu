@@ -18,12 +18,17 @@ function Sidebar() {
     removeUserSession();
     navigate('/auth');
   }
+  // eslint-disable-next-line
   let bgLeft = document.querySelector("#bg-left");
+  // eslint-disable-next-line
   let arrow = document.querySelector("#seta")
 
   useEffect(() => {
+    // eslint-disable-next-line
     bgLeft = document.querySelector("#bg-left");
+    // eslint-disable-next-line
     arrow = document.querySelector("#seta")
+    SidebarActive()
   }, [])
 
   const SidebarActive = () => {
@@ -34,8 +39,8 @@ function Sidebar() {
   return (
     <div id="bg-left">
       <div id="seta" onClick={()=> SidebarActive()}></div>
-    <Link to="/Dashboard">
-      <div id="painel-controle" className="emoji-bgleft">
+    <Link to="/Dashboard" >
+      <div id="painel-controle" className="emoji-bgleft" >
         <h3 className="emoji-name">Painel de Controle</h3>
       </div>
      </Link> 

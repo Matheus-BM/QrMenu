@@ -32,3 +32,23 @@
   height: 400px;
   margin-top: 10%;
 }
+
+@media screen and (max-width: 800px) {
+  #all{
+    width: 100px;
+    min-width: 100px;
+    margin-left: 50px;
+  }
+  #button-gerarqr {
+    display: none;
+  }
+  #all img{
+    width: 250px;
+
+  }
+  #subtitle{
+    width: 250px;
+    overflow-wrap: break-word;
+  }
+
+}
