@@ -52,3 +52,14 @@
   margin-top: 15%;
   font-size: 40px;
 }
+
+@media screen and (max-width: 361px) {
+
+  #navtitle{
+    padding-top: 100px;
+  }
+
+  #maintitle{
+    font-size: 30px;
+  }
+}

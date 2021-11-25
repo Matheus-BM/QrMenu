@@ -18,3 +18,9 @@ nav ul {
 nav a {
     text-decoration: none;
 }
+
+@media screen and (max-width: 660px) {
+    nav{
+        width: 600px;
+    }
+}

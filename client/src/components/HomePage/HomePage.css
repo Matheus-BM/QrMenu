@@ -65,8 +65,20 @@ a {
   text-decoration: none;
 }
 
-@media screen and (min-width: 2048px) {
-  .background_img {
-    left: 15%;
-  }
+@media screen and (max-width: 960px) {
+    .background_img{
+      display: none;
+    }
+    .col{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #slogan{
+      width: 300px;
+      text-align: center;
+    }
+    .home{
+      height: calc(100vh - 10px);
+    }
 }
