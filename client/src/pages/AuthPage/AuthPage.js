@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import {  Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AuthPage.css";
@@ -72,6 +72,21 @@ function Auth_page() {
   }
 
 
+  // Responsividade
+
+let formRegister = document.querySelector(".cadastro-form");
+let formLogin = document.querySelector(".login-form")
+
+useEffect(() => {
+  formRegister = document.querySelector(".cadastro-form");
+  formLogin = document.querySelector(".login-form")
+}, [])
+
+  const showRegisterForm= ()=>{
+    formRegister.classList.toggle("active");
+    formLogin.classList.toggle("closed");
+  }
+
   return (
     <div className="bg">
       <Link to="/"> <div id="voltar"> ← voltar</div></Link>
@@ -94,6 +109,7 @@ function Auth_page() {
             {error&&<div className="erro"> {error} </div>}
             <button className="btn" onClick={() => handleLogin()} disabled={loading}>{ loading?"Loading" : "Login"} </button>
           </form>
+          <div className="mobile">Não tem conta?<span onClick={()=> showRegisterForm()}>Resgistre-se</span> </div>
         </div>
         <div className="cadastro-form">
           <h1>REGISTRE-SE</h1>
@@ -130,6 +146,7 @@ function Auth_page() {
             </div>
             <button className="btn" onClick={() => handleRegister()} disabled={loading}>{ loading?"Loading" : "Registre-se"}</button>
           </form>
+          <div className="mobile">Já tem conta?<span onClick={()=> showRegisterForm()}>Faça Login</span> </div>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20%;
+  min-width:706px ;
 }
 
 #subtitle {

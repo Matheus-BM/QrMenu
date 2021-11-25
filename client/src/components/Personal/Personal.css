@@ -7,9 +7,6 @@
 
 #titulo {
   font-size: 70px;
-  position: relative;
-  left: 45%;
-  top: 20%;
   height: 100px;
 }
 
@@ -18,8 +15,6 @@
   flex-direction: column;
   height: 400px;
   width: 600px;
-  margin-top: 20%;
-  margin-left: 15%;
   border: 5px solid #000000;
   border-radius: 15px;
 }

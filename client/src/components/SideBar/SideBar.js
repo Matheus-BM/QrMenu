@@ -23,6 +23,7 @@ function Sidebar() {
 
   useEffect(() => {
     bgLeft = document.querySelector("#bg-left");
+    arrow = document.querySelector("#seta")
   }, [])
 
   const SidebarActive = () => {
