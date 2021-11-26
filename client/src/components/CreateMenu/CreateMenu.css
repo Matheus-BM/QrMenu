@@ -93,9 +93,7 @@
 
 
 @media screen and (max-width: 800px) {
-  #main{
-    
-  }
+  
   #main-titulo{
     width: 200px;
     font-size: 2.5em;

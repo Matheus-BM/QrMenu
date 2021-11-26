@@ -18,20 +18,18 @@ function Sidebar() {
     removeUserSession();
     navigate('/auth');
   }
-  // eslint-disable-next-line
-  let bgLeft = document.querySelector("#bg-left");
-  // eslint-disable-next-line
-  let arrow = document.querySelector("#seta")
+ 
 
   useEffect(() => {
-    // eslint-disable-next-line
-    bgLeft = document.querySelector("#bg-left");
-    // eslint-disable-next-line
-    arrow = document.querySelector("#seta")
+
     SidebarActive()
   }, [])
 
   const SidebarActive = () => {
+     // eslint-disable-next-line
+    let bgLeft = document.querySelector("#bg-left");
+  // eslint-disable-next-line
+    let arrow = document.querySelector("#seta")
     arrow.classList.toggle("active");
     bgLeft.classList.toggle("active");
   };

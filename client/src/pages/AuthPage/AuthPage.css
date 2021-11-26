@@ -157,9 +157,6 @@ input {
 
 
 @media screen and (max-width: 400px) {
-  body{
-    overflow: hidden;
-  }
 
   .cadastro-form.active{
     display: flex;

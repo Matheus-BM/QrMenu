@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState} from "react";
 import {  Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AuthPage.css";
@@ -75,24 +75,18 @@ function Auth_page() {
 
 
   // Responsividade
-// eslint-disable-next-line
-let formRegister = document.querySelector(".cadastro-form");
-// eslint-disable-next-line
-let formLogin = document.querySelector(".login-form")
 
-useEffect(() => {
-  // eslint-disable-next-line
-  formRegister = document.querySelector(".cadastro-form");
-  // eslint-disable-next-line
-  formLogin = document.querySelector(".login-form")
-}, [])
 
   const showRegisterForm= ()=>{
+        // eslint-disable-next-line
+    let formRegister = document.querySelector(".cadastro-form");
+    // eslint-disable-next-line
+    let formLogin = document.querySelector(".login-form")
+
+
     formRegister.classList.toggle("active");
     formLogin.classList.toggle("closed");
   }
-  /*
-      */ 
 
   return (
     <>
