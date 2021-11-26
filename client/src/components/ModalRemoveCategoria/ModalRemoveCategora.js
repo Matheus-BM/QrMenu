@@ -1,7 +1,13 @@
-import React from "react";
-import "./Modal.css";
+import React,{useEffect} from "react";
+import "./ModalRemoveCategoria.css";
 
-function Modal() {
+function ModalRemoveCategora({onClose=()=>{}}) {
+
+
+  useEffect(() => {
+    ModalActive();
+  }, [])
+
   const ModalActive = () => {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
@@ -16,6 +22,7 @@ function Modal() {
 
     let fundin = document.querySelector("#fundin");
     fundin.style.backgroundColor = "transparent";
+    onClose();
   };
 
   return (
@@ -26,21 +33,17 @@ function Modal() {
         </button>
         <div className="modal">
           <div id="x" onClick={ModalDesactive}></div>
-          <h1 id="title-category">Escolha a Categoria</h1>
+          <h1 id="title-category">Remova Categoria</h1>
           <fieldset id="field">
-            <div id="category">
-              <h2 className="h2">Categoria 1</h2>
-              <h2 className="h2">Categoria 2</h2>
-              <h2 className="h2">Categoria 3</h2>
-              <h2 className="h2">Categoria 4</h2>
-              <h2 className="h2">Categoria 5</h2>
-            </div>
-            <div id="emojis">
-              <div className="emoji-side"></div>
-              <div className="emoji-side"></div>
-              <div className="emoji-side"></div>
-              <div className="emoji-side"></div>
-              <div className="emoji-side"></div>
+            <div className="categories">
+              <div id="category">
+                <h2 className="h2">Categoria 1</h2>
+                <div className="emoji-side-trash"></div>
+              </div>
+              <div id="category">
+                <h2 className="h2">Categoria 1</h2>
+                <div className="emoji-side-trash"></div>
+              </div>
             </div>
           </fieldset>
         </div>
@@ -49,4 +52,4 @@ function Modal() {
   );
 }
 
-export default Modal;
+export default ModalRemoveCategora;

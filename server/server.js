@@ -95,10 +95,23 @@ app.post("/api/register", async (req,res)=>{
     const sobrenome = req.body.sobrenome;
     const email = req.body.email;
     const nomeRestaurante = req.body.nomeRestaurante;
-    const password = await bcrypt.hash(req.body.password,1);
+    var password = req.body.password;
+
+    if (!email || !password ||!nomeRestaurante|| !nome || !sobrenome) {
+        return res.status(400).json({
+            error:true,
+            message: "Todos os campos são necessarios!"
+        })
+    }
+
+    password = await bcrypt.hash(req.body.password,1);
+
+    
 
     const uniqueEmail = usersArray.find((user) => user.email_gerente === email );
 
+
+    
 
 
     if( uniqueEmail === undefined){
@@ -172,7 +185,7 @@ app.post("/api/login", async (req,res) =>{
         let user = usersArray.find((user) => user.email_gerente === email  );
         
         if( user === undefined){
-            return res.status(404).json({
+            return res.status(400).json({
                 error:true,
                 message: "Email não encontrado!"
             })

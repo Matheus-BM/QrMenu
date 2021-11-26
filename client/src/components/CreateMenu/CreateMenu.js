@@ -1,20 +1,29 @@
-import React from "react";
+import React,{ useState} from "react";
 import "./CreateMenu.css";
+import ModalAddCategoria from "../ModalAddCategoria/ModalAddCategoria";
+import ModalEditCategora from "../ModalEditCategora/ModalEditCategora";
+import ModalRemoveCategora from "../ModalRemoveCategoria/ModalRemoveCategora";
 
 function CreateMenu() {
+
+  const [toggleModal, setToggleModal] = useState(false)
+  const [toggleEditCategoria, setToggleEditCategoria] = useState(false)
+  const [toggleDeleteCategoria, setToggleDeleteCategoria] = useState(false)
   return (
     <div id="main">
       <div id="logo"></div>
       <h1 id="main-titulo">Crie seu Menu</h1>
+      
       <fieldset id="teste">
         <div id="ladoA">
-          <div id="create-category" className="emoji-main">
-            <h3 className="emoji-title">Adicione Categorias</h3>
+          
+          <div id="create-category" className="emoji-main" onClick={()=>setToggleModal(true)} >
+            <h3 className="emoji-title" >Adicione Categorias</h3>
           </div>
-          <div id="edit-category" className="emoji-main">
+          <div id="edit-category" className="emoji-main" onClick={()=>setToggleEditCategoria(true)}>
             <h3 className="emoji-title">Editar Categorias</h3>
           </div>
-          <div id="remove-category" className="emoji-main">
+          <div id="remove-category" className="emoji-main" onClick={()=>setToggleDeleteCategoria(true)}>
             <h3 className="emoji-title">Remova Categorias</h3>
           </div>
         </div>
@@ -30,7 +39,10 @@ function CreateMenu() {
           </div>
         </div>
       </fieldset>
-    </div>
+      {toggleModal?<ModalAddCategoria onClose={()=>setToggleModal(false)} />:null}
+      {toggleEditCategoria?<ModalEditCategora onClose={()=>setToggleEditCategoria(false)}/>:null}     
+      {toggleDeleteCategoria?<ModalRemoveCategora onClose={()=>setToggleDeleteCategoria(false)}/>:null}
+      </div>
   );
 }
 

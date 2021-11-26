@@ -12,12 +12,13 @@
   font-size: 60px;
 }
 
-.emoji-side-trash {
-  background: url(../../img/trash-alt-solid\ red\ 2.png);
+.emoji-side {
+  background: url(../../img/pencil-alt-solid\ 2.png);
   background-repeat: no-repeat;
   height: 50px;
   width: 50px;
   cursor: pointer;
+  margin-right: 50px;
 }
 
 #emojis {
@@ -56,6 +57,9 @@
   background-color: transparent;
   animation: animate;
   animation-duration: 1s;
+  position: absolute;
+  top:0;
+  left: 0;
 }
 
 .modal {
@@ -66,10 +70,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 15px;
   display: none;
   animation: animate;
   animation-duration: 1s;
+}
+
+.categories{
+  width: 100%;
 }
 
 @keyframes animate {

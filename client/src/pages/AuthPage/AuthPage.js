@@ -58,7 +58,6 @@ function Auth_page() {
     }).then(response =>{
       setLoading(false);
       setUserSession(response.data.token,response.data.user);
-
       navigate('/Dashboard');
     }).catch(error =>{
       if(!error.response){

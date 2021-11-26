@@ -16,7 +16,7 @@
   animation-duration: 1s;
 }
 
-.modal {
+.ModalAddCategoria {
   height: 600px;
   width: 800px;
   background-color: white;
@@ -39,33 +39,42 @@
   }
 }
 
-input {
+#fundin input {
   width: 500px;
   border: 2px solid black;
   border-radius: 10px;
-  margin-left: 10%;
+  margin: auto;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 select {
   width: 200px;
-  margin-top: 10%;
-  margin-left: 10%;
-  padding: 10px;
+  margin-top: 5%;
+  margin-left:16%;
   border: 2px solid black;
   border-radius: 10px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 #form-modal {
   margin-top: 10%;
+  
 }
 
 #btn-form {
   width: 100px;
   height: 100px;
-  margin-left: 60%;
+  margin-left: 70%;
   background-color: transparent;
   border: 2px solid #19990e;
   border-radius: 40px 40px 40px 40px;
+  background-image: url(../../img/Arrow\ 6.png) ;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #btn-form:hover {

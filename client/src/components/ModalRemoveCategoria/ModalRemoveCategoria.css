@@ -12,23 +12,22 @@
   font-size: 60px;
 }
 
-.emoji-side {
-  background: url(../../img/pencil-alt-solid\ 2.png);
+.emoji-side-trash {
+  background: url(../../img/trash-alt-solid\ red\ 2.png);
   background-repeat: no-repeat;
   height: 50px;
   width: 50px;
   cursor: pointer;
-}
-
-#emojis {
-  display: flex;
-  flex-direction: column;
+ 
 }
 
 #category {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  text-align: center;
   margin-bottom: 5%;
+  width: 100%;
+  justify-content: space-between;
 }
 
 #field {
@@ -43,11 +42,12 @@
   justify-content: space-around;
 }
 
-.h2 {
-  margin-top: 15%;
+  #category .h2 {
+  margin-top: 0;
   height: 30px;
   width: 200px;
   font-size: 30px;
+  margin-left: 50px;
 }
 
 #fundin {
@@ -66,6 +66,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 15px;
   display: none;
   animation: animate;
   animation-duration: 1s;
