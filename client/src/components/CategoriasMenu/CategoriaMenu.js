@@ -24,23 +24,7 @@ function CategoriaMenu() {
             </Fragment>
       )) 
       
-      
-      /*categorias.map((categoria, i) => (
-        <Fragment key={i++}>
-          <h1> {categoria} </h1>
-
-          {pedidos
-            .filter((item) => item.categoria === categoria)
-            .map((item) => (
-              <ItemMenu
-                key={item.id}
-                nome={item.nome}
-                preco={item.preco}
-                id={item.id}
-              />
-            ))}
-        </Fragment>
-            ))*/}
+      }
     </div>
   );
 }

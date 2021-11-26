@@ -10,6 +10,7 @@ export const ContextlistaDePedidos = React.createContext();
 const PedidosProvider = ({children}) =>{
 
     const [pedidos, setPedidos] = useState([]);
+    
 
     const addPedido = pedido => {
 

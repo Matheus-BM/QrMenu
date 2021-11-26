@@ -56,7 +56,9 @@ app.get("/api/:nomeRestaurante", async (req,res) =>{
     try {
 
         const { nomeRestaurante} = req.params;
-        const idCardapio = await (await client.query('SELECT cod_cardapio FROM restaurante where nome_restaurante = $1',[nomeRestaurante])).rows[0].cod_cardapio
+        var idCardapio = await (await client.query('SELECT cod_cardapio FROM restaurante where nome_restaurante = $1',[nomeRestaurante]))
+        idCardapio =idCardapio.rows[0].cod_cardapio
+
         const restaurante = await client.query("SELECT * from produto where cod_Cardapio = $1;", [idCardapio])
         
         res.json(restaurante.rows)
@@ -271,6 +273,35 @@ app.get('/', (req, res) => {
 
 
 });
+
+//CREATE SECTION
+
+app.post('/api/addCategoria', async (req,res)=>{
+    try{
+        const nomeCategoria =req.body.nomeCategoria;
+        const priority =req.body.priority;
+
+        const categoria = await client.query("SELECT nome_categoria from categoria where nome_categoria= $1",[nomeCategoria])
+        
+        if(categoria.rows[0]){
+           return res.status(400).json({
+                error:true,
+                msg:"Categoria já castrada"
+            })
+        }
+        await client.query("INSERT INTO categoria (nome_categoria,prioridade_categoria) values ($1,$2) ",[nomeCategoria,priority]);
+
+        return 
+    }catch(e){
+
+    }
+})
+
+//DELETE CATEGORIA
+app.post('/api/deleteCategoria',async(req,res)=>{
+    const cod_categoria = req.body.cod_categoria;
+    await client.query("DELETE FROM categoria where cod_categoria = $1",[cod_categoria])
+})
 
 
 

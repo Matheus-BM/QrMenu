@@ -22,7 +22,7 @@ function App() {
         <Route exact path="/modaltemp3" element={<ModalAddCategoria />} />
         <Route exact path="/" element={<WelcomePage />} />
         <Route exact path="/auth"element={ <PublicRoute><AuthPage /> </PublicRoute>}/>
-        <Route exact path="/Dashboard" element={<PrivateRoute>  <MenuCreate /></PrivateRoute>} />
+        <Route exact path="/Dashboard" element={<PrivateRoute> <PedidosProvider> <MenuCreate /></PedidosProvider></PrivateRoute>} />
         <Route path="/Dashboard/QrCode"element={<PrivateRoute><QrCode /></PrivateRoute>}/>
         <Route path="/Dashboard/DadosPessoais"element={<PrivateRoute><PersonalData /></PrivateRoute>}/>
         <Route exact path="/:nomeRestaurante"

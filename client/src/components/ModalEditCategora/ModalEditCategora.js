@@ -1,11 +1,16 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useState} from "react";
 import "./ModalEditCategora.css";
+import axios from "axios";
+import { baseURL } from "../../apis/MenuFetcher";
+import { getUser } from "../../utils/Common";
 
 function ModalEditCategora({onClose=()=>{}}) {
+  const [categoria, setCategoria] = useState([])
+  
+  const user = getUser();
+  const nomeRestaurante = user.nomeRestaurante;
 
-  useEffect(() => {
-    ModalActive();
-  }, [])
+
   
   const ModalActive = () => {
     let modal = document.querySelector(".modal");
@@ -13,6 +18,9 @@ function ModalEditCategora({onClose=()=>{}}) {
 
     let fundin = document.querySelector("#fundin");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+     
+    axios.get(`${baseURL}${nomeRestaurante}/categoria`)
+    .then(res => setCategoria(res.data))
   };
 
   const ModalDesactive = () => {
@@ -23,6 +31,15 @@ function ModalEditCategora({onClose=()=>{}}) {
     fundin.style.backgroundColor = "transparent";
     onClose();
   };
+  // eslint-disable-next-line
+  useEffect(() => {
+
+    ModalActive();
+  },[])
+
+  const editCategoria =()=>{
+    console.log("edit");
+  }
 
   return (
     <div>
@@ -35,14 +52,14 @@ function ModalEditCategora({onClose=()=>{}}) {
           <h1 id="title-category">Escolha a Categoria</h1>
           <fieldset id="field">
             <div className="categories">
-              <div id="category">
-                <h2 className="h2">Categoria 1</h2>
-                <div className="emoji-side"></div>
-              </div>
-              <div id="category">
-                <h2 className="h2">Categoria 2</h2>
-                <div className="emoji-side"></div>
-              </div>
+            {
+                categoria.map((categoria,id) =>(
+                  <div id="category" key={id++}  >
+                    <h2 className="h2">{categoria.nome_categoria}</h2>
+                    <div className="emoji-side" onClick={()=> editCategoria(categoria.cod_categoria)}></div>
+                  </div>   
+            ))
+              }
               
             </div>
           </fieldset>

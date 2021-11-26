@@ -1,11 +1,11 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useState} from "react";
 import "./ModalAddCategoria.css";
+import axios from "axios";
+import { baseURL } from "../../apis/MenuFetcher";
 
 function Modal({onClose=()=>{}}) {
 
-  useEffect(() => {
-    ModalActive()
-  }, [])
+  
 
   const ModalActive = () => {
     let modal = document.querySelector(".modal");
@@ -14,6 +14,10 @@ function Modal({onClose=()=>{}}) {
     let fundin = document.querySelector("#fundin");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
   };
+  // eslint-disable-next-line
+  useEffect(() => {
+    ModalActive()
+  },[])
 
   const ModalDesactive = () => {
     let modal = document.querySelector(".modal");
@@ -24,6 +28,20 @@ function Modal({onClose=()=>{}}) {
     onClose();
   };
 
+  const [nomeCategoria, setNomeCategoria] = useState("");
+  const [priority, setPriority] = useState("0")
+
+  const handleSubmit =()=>{
+
+    axios.post(`${baseURL}addCategoria`, {
+      nomeCategoria:nomeCategoria,
+      priority:priority
+    }).then(
+      ModalDesactive()
+    )
+
+  }
+
   return (
     <div>
       <div id="fundin">
@@ -32,17 +50,16 @@ function Modal({onClose=()=>{}}) {
           <h1 id="title-category">Categoria</h1>
 
           <div id="form-modal">
-            <form>
-              <input placeholder="Nome" type="text" required />
-              <select defaultValue="1" required>
-                <option disabled value="1">
-                  Prioridade
+            <form onSubmit={e => ( e.preventDefault())}>
+              <input placeholder="Nome" type="text" onChange={(e)=>setNomeCategoria(e.target.value)} required />
+              <select defaultValue="0" disabled onChange={(e)=>setPriority(e.target.value)}>
+                <option disabled value="0">
+                  Prioridade:
                 </option>
-                <option value="2">dormir</option>
-                <option value="3">acordar</option>
+                <option value="0">Em Breve</option>
               </select>
 
-              <button id="btn-form"></button>
+              <button id="btn-form" type="submit" onClick={()=>handleSubmit()}></button>
             </form>
           </div>
         </div>
