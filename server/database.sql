@@ -13,7 +13,9 @@ cod_cardapio SERIAL PRIMARY KEY
 CREATE TABLE categoria(
 cod_categoria SERIAL PRIMARY KEY,
 nome_categoria VARCHAR(40) NOT NULL,
-prioridade_categoria INT NOT NULL
+prioridade_categoria INT NOT NULL,
+cod_cardapio SERIAL REFERENCES cardapio(cod_cardapio) ON DELETE CASCADE
+ON UPDATE CASCADE
 );
 
 CREATE TABLE restaurante(

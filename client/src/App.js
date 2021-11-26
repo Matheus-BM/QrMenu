@@ -17,9 +17,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/modaltemp" element={<ModalEditCategora />} />
-        <Route exact path="/modaltemp2" element={<ModalRemoveCategoria/>} />
-        <Route exact path="/modaltemp3" element={<ModalAddCategoria />} />
         <Route exact path="/" element={<WelcomePage />} />
         <Route exact path="/auth"element={ <PublicRoute><AuthPage /> </PublicRoute>}/>
         <Route exact path="/Dashboard" element={<PrivateRoute> <PedidosProvider> <MenuCreate /></PedidosProvider></PrivateRoute>} />

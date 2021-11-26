@@ -8,8 +8,7 @@ function ModalEditCategora({onClose=()=>{}}) {
   const [categoria, setCategoria] = useState([])
   
   const user = getUser();
-  const nomeRestaurante = user.nomeRestaurante;
-
+  const nomeRestaurante = user.nomeRestaurante
 
   
   const ModalActive = () => {
@@ -19,7 +18,9 @@ function ModalEditCategora({onClose=()=>{}}) {
     let fundin = document.querySelector("#fundin");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
      
-    axios.get(`${baseURL}${nomeRestaurante}/categoria`)
+    axios.post(`${baseURL}${nomeRestaurante}/categoria`,{
+      cod_restaurante : user.idRestaurante
+    })
     .then(res => setCategoria(res.data))
   };
 

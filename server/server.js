@@ -55,8 +55,10 @@ app.use((req,res,next) => {
 app.get("/api/:nomeRestaurante", async (req,res) =>{
     try {
 
-        const { nomeRestaurante} = req.params;
-        var idCardapio = await (await client.query('SELECT cod_cardapio FROM restaurante where nome_restaurante = $1',[nomeRestaurante]))
+        const nomeRestaurante =req.params
+
+        var idCardapio = await client.query('SELECT cod_restaurante FROM restaurante where nome_restaurante = $1',[nomeRestaurante])
+
         idCardapio =idCardapio.rows[0].cod_cardapio
 
         const restaurante = await client.query("SELECT * from produto where cod_Cardapio = $1;", [idCardapio])
@@ -70,10 +72,15 @@ app.get("/api/:nomeRestaurante", async (req,res) =>{
 
 //get a categoria 
 
-app.get("/api/:nomeRestaurante/categoria", async (req,res) =>{
+app.post("/api/:nomeRestaurante/categoria", async (req,res) =>{
+    
     try {
 
-        const restaurante = await client.query("SELECT * from categoria ")
+        const idRestaurante = req.body.cod_restaurante
+
+        const idCardapio =  await client.query("SELECT cod_cardapio from restaurante where cod_restaurante = $1",[idRestaurante])
+
+        const restaurante = await client.query("SELECT * from categoria where cod_cardapio = $1 ",[idCardapio.rows[0].cod_cardapio])
         res.json(restaurante.rows)
         
     } 
@@ -280,6 +287,11 @@ app.post('/api/addCategoria', async (req,res)=>{
     try{
         const nomeCategoria =req.body.nomeCategoria;
         const priority =req.body.priority;
+        const idRestaurante = req.body.idRestaurante
+
+        const idCardapio = await client.query("SELECT cod_cardapio from restaurante where cod_restaurante =$1",[idRestaurante])
+
+        console.log(idCardapio.rows[0].idCardapio)
 
         const categoria = await client.query("SELECT nome_categoria from categoria where nome_categoria= $1",[nomeCategoria])
         
@@ -289,11 +301,11 @@ app.post('/api/addCategoria', async (req,res)=>{
                 msg:"Categoria já castrada"
             })
         }
-        await client.query("INSERT INTO categoria (nome_categoria,prioridade_categoria) values ($1,$2) ",[nomeCategoria,priority]);
+        await client.query("INSERT INTO categoria (nome_categoria,prioridade_categoria,cod_cardapio) values ($1,$2,$3) ",[nomeCategoria,priority,idCardapio.rows[0].cod_cardapio]);
 
         return 
     }catch(e){
-
+        console.log(e)
     }
 })
 
