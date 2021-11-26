@@ -107,14 +107,37 @@ app.post("/api/register", async (req,res)=>{
         var cod_gerente = await client.query("SELECT cod_gerente FROM gerente where nome_gerente = $1",[nome])
         cod_gerente = cod_gerente.rows[0].cod_gerente;
 
-        var cod_cardapio = await client.query("SELECT COUNT(*) FROM cardapio");
-        cod_cardapio = cod_cardapio.rows[0].count;
-        console.log(cod_cardapio)
+        var cod_cardapio = await client.query("SELECT MAX(cod_cardapio) FROM cardapio");
+        cod_cardapio = cod_cardapio.rows[0].max +1;
 
         await client.query(" INSERT INTO cardapio (cod_cardapio) values ($1)",[cod_cardapio])
 
         await client.query("INSERT INTO restaurante (nome_restaurante, cod_gerente,cod_cardapio)  values ($1,$2,$3)", [nomeRestaurante,cod_gerente,cod_cardapio])
-        return res.status(200).send("Registrado com sucesso");
+        
+
+        var user = await client.query("Select * from gerente where cod_gerente = $1",[cod_gerente])
+        user = user.rows[0]
+
+        const restaurante = await client.query("SELECT cod_restaurante,nome_restaurante from restaurante where cod_gerente = $1",[cod_gerente])
+        
+        if(restaurante.rows[0] === undefined) {
+            return res.status(400).json({
+                error:true,
+                message: "Email não cadastrado"
+            })
+        }else{
+            user = {
+                ...user,
+                idRestaurante: restaurante.rows[0].cod_restaurante,
+                nomeRestaurante: restaurante.rows[0].nome_restaurante 
+    
+            }
+        }
+        const token = utils.generateToken(user);
+
+        const userObj = utils.getCleanUser(user);
+        return res.status(200).json({user: userObj, token});
+        
     }
 
     return res.status(401).json({
