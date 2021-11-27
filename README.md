@@ -18,9 +18,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Fazer servidor
 - [x] Fazer o site 
 - [x] Implementar login 
-- [ ] Implementar cadastro de itens no cardapio
-- [ ] Implementar cadastro de categorias
-- [ ] Tornar site responsivo
+- [x] Implementar cadastro de itens no cardapio
+- [x] Implementar cadastro de categorias
+- [x] Tornar site responsivo
 
 
 ## 💻 Pré-requisitos
@@ -76,7 +76,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://i.imgur.com/X0x6GUp.png" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://i.imgur.com/X0x6GUp.png" width="100px;" alt="Foto do Matheus"/><br>
         <sub>
           <b>Matheus Barreto</b>
         </sub>
@@ -84,7 +84,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://i.imgur.com/rLMJJfV.jpeg" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
+        <img src="https://i.imgur.com/rLMJJfV.jpeg" width="100px;" alt="Foto do Valentin"/><br>
         <sub>
           <b>Valentin Almeida</b>
         </sub>
@@ -92,7 +92,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://i.imgur.com/XPLgsA5.jpeg" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://i.imgur.com/XPLgsA5.jpeg" width="100px;" alt="Foto do Macedo"/><br>
         <sub>
           <b>Pedro Macedo</b>
         </sub>
@@ -100,7 +100,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
      <td align="center">
       <a href="#">
-        <img src="https://i.imgur.com/GlpDxZp.jpeg" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="https://i.imgur.com/GlpDxZp.jpeg" width="100px;" alt="Foto da Julia"/><br>
         <sub>
           <b>Julia Valu</b>
         </sub>
