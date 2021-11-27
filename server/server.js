@@ -306,6 +306,12 @@ app.post('/api/deleteCategoria',async(req,res)=>{
     await client.query("DELETE FROM categoria where cod_categoria = $1",[cod_categoria])
 })
 
+//DELETE Item
+app.post('/api/deleteItem',async(req,res)=>{
+    const cod_produto = req.body.cod_produto;
+    await client.query("DELETE FROM produto where cod_produto = $1",[cod_produto])
+})
+
 
 //get a menu
 
@@ -324,16 +330,18 @@ app.get("/api/:nomeRestaurante", async (req,res) =>{
         var produto = null;
 
         await categorias.rows.forEach( async categoria => {
-             produto = await (await client.query("SELECT * FROM produto where cod_categoria = $1 ",[categoria.cod_categoria])).rows[0]
+             produto = await (await client.query("SELECT * FROM produto where cod_categoria = $1 ",[categoria.cod_categoria])).rows
              
              if( produto !== undefined){
-             await produtos.push(produto)
+             await produtos.push(...produto)
              }
         });
-
-        setTimeout(() =>res.json(produtos) , 1000)
         
-
+        setTimeout(() =>{res.json(produtos) 
+            console.log(produtos)
+        
+        }, 2000)
+        
         
         
     } 

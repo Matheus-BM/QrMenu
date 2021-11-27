@@ -5,7 +5,7 @@ import { baseURL } from "../../apis/MenuFetcher";
 import { getUser } from "../../utils/Common";
 
 function ModalRemoveCategora({ onClose = () => {} }) {
-  const [categoria, setCategoria] = useState([]);
+  const [item, setItem] = useState([]);
 
   useEffect(() => {
     ModalActive();
@@ -23,7 +23,7 @@ function ModalRemoveCategora({ onClose = () => {} }) {
 
     axios
       .get(`${baseURL}${nomeRestaurante}`)
-      .then((res) => setCategoria(res.data));
+      .then((res) => setItem(res.data));
   };
 
   const ModalDesactive = () => {
@@ -35,10 +35,10 @@ function ModalRemoveCategora({ onClose = () => {} }) {
     onClose();
   };
 
-  const deleteCategoria = (codCategoria) => {
+  const deleteItem = (codItem) => {
     axios
-      .post(`${baseURL}deleteCategoria`, {
-        cod_categoria: codCategoria,
+      .post(`${baseURL}deleteItem`, {
+        cod_produto: codItem,
       })
       .then(onClose());
   };
@@ -51,12 +51,12 @@ function ModalRemoveCategora({ onClose = () => {} }) {
           <h1 id="title-category">Remova um Item</h1>
           <fieldset id="field">
             <div className="categories">
-              {categoria.map((categoria, id) => (
+              {item.map((item, id) => (
                 <div id="category" key={id++}>
-                  <h2 className="h2">{categoria.nome_produto}</h2>
+                  <h2 className="h2">{item.nome_produto}</h2>
                   <div
                     className="emoji-side-trash"
-                    onClick={() => deleteCategoria(categoria.cod_produto)}
+                    onClick={() => deleteItem(item.cod_produto)}
                   ></div>
                 </div>
               ))}
