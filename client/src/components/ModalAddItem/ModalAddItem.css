@@ -1,13 +1,3 @@
-#x {
-  background: url(../../img/x.png);
-  background-repeat: no-repeat;
-  height: 40px;
-  width: 30px;
-  margin-left: 20px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
 #fundin {
   height: 100vh;
   width: 100vw;
@@ -16,41 +6,45 @@
   animation-duration: 1s;
 }
 
-.ModalAddCategoria {
-  height: 600px;
-  width: 800px;
-  background-color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 15px;
-  display: none;
-  animation: animate;
-  animation-duration: 1s;
-}
-
-@keyframes animate {
-  from {
-    opacity: 1;
-  }
-  from {
-    opacity: 0;
-  }
-}
-
-#name-category {
-  width: 500px;
+#name-item {
+  width: 600px;
   border: 2px solid black;
   border-radius: 10px;
   margin: auto;
   padding: 20px;
   font-weight: bold;
   font-size: 16px;
-  margin-left: 126px;
 }
 
-#select-priority {
+#input-item-desc {
+  width: 600px;
+  height: 100px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: auto;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#price-item {
+  width: 155px;
+  margin-top: 5%;
+  margin-left: 13%;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#price-category {
+  display: flex;
+  width: 600px;
+}
+
+select {
   width: 200px;
   margin-top: 5%;
   margin-left: 16%;
@@ -61,14 +55,19 @@
   font-size: 16px;
 }
 
-#form-modal {
-  margin-top: 10%;
+#form-item {
+  margin-bottom: 20%;
 }
 
-#btn-form {
+#name-desc {
+  display: flex;
+  flex-direction: column;
+}
+
+#btn-form-item {
   width: 100px;
   height: 100px;
-  margin-left: 70%;
+  margin-left: 650px;
   background-color: transparent;
   border: 2px solid #19990e;
   border-radius: 40px 40px 40px 40px;
@@ -77,6 +76,6 @@
   background-position: center;
 }
 
-#btn-form:hover {
+#btn-form-item:hover {
   background-color: #19990e10;
 }

@@ -41,7 +41,7 @@
   outline-offset: -2px;
 }
 
-form {
+#start-form {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@ input {
   border: none;
 }
 
-.erro{
+.erro {
   color: rgb(0, 0, 0);
   margin-top: 1em;
 }
@@ -92,17 +92,16 @@ input {
 .bg #logo {
   position: absolute;
   top: 20px;
-  left:65%;
+  left: 65%;
   margin-bottom: 40%;
   z-index: -100;
 }
 
-.row{
+.row {
   display: flex;
-
 }
 
-.row input{
+.row input {
   width: 111px;
   margin-right: 0px;
 }
@@ -116,86 +115,79 @@ input {
   margin-bottom: 20px;
   padding-top: 100px;
 }
-.mobile{
+.mobile {
   display: none;
 }
 
 @media screen and (max-width: 800px) {
-
-  .cadastro-form.active{
+  .cadastro-form.active {
     display: flex;
     width: 100%;
     border-radius: 20px;
   }
-  .cadastro-form{
-    display:none
-  }
-  .login-form.closed{
+  .cadastro-form {
     display: none;
   }
- .form-box{
-   width: 180px;
-   justify-content: center;
-   min-width: 400px;
-   
- }
- #voltar{
-   width: 400px;
-   min-width: 400px;
- }
- .mobile{
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-   
- }
- .mobile span{
-   font-weight: bold;
-   text-decoration: underline;
- }
+  .login-form.closed {
+    display: none;
+  }
+  .form-box {
+    width: 180px;
+    justify-content: center;
+    min-width: 400px;
+  }
+  #voltar {
+    width: 400px;
+    min-width: 400px;
+  }
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  .mobile span {
+    font-weight: bold;
+    text-decoration: underline;
+  }
 }
 
-
 @media screen and (max-width: 400px) {
-
-  .cadastro-form.active{
+  .cadastro-form.active {
     display: flex;
     width: 100%;
     border-radius: 0;
   }
-  .cadastro-form{
-    display:none
-  }
-  .login-form.closed{
+  .cadastro-form {
     display: none;
   }
-  .form-box{
+  .login-form.closed {
+    display: none;
+  }
+  .form-box {
     width: 100vw;
     height: 100vh;
     justify-content: center;
     min-width: 100vw;
-    min-height: 100vh ;
+    min-height: 100vh;
     border-radius: 0;
     top: 0;
-
   }
-  #logo{
+  #logo {
     display: none;
   }
-  .bg{
+  .bg {
     display: none;
   }
-  #voltar{
+  #voltar {
     display: none;
   }
-  .mobile{
-   display: flex;
-   flex-direction: column;
-   margin-top: 1em;
-    
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
   }
-  .mobile span{
+  .mobile span {
     font-weight: bold;
     text-decoration: underline;
   }
- }
+}

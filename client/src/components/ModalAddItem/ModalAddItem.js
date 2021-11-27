@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ModalAddCategoria.css";
+import "./ModalAddItem.css";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
 
@@ -42,31 +42,47 @@ function Modal({ onClose = () => {} }) {
       <div id="fundin">
         <div className="modal">
           <div id="x" onClick={() => ModalDesactive()}></div>
-          <h1 id="title-category">Categoria</h1>
+          <h1 id="title-category">Item</h1>
 
-          <div id="form-modal">
+          <div id="form-item">
             <form onSubmit={(e) => e.preventDefault()}>
-              <input
-                id="name-category"
-                placeholder="Nome"
-                type="text"
-                onChange={(e) => setNomeCategoria(e.target.value)}
-                required
-              />
-              <select
-                id="select-priority"
-                defaultValue="0"
-                disabled
-                onChange={(e) => setPriority(e.target.value)}
-              >
-                <option disabled value="0">
-                  Prioridade:
-                </option>
-                <option value="0">Em Breve</option>
-              </select>
-
+              <div id="name-desc">
+                <input
+                  id="name-item"
+                  placeholder="Nome"
+                  type="text"
+                  onChange={(e) => setNomeCategoria(e.target.value)}
+                  required
+                />
+                <input
+                  id="input-item-desc"
+                  placeholder="Descrição"
+                  type="text"
+                  onChange={(e) => setNomeCategoria(e.target.value)}
+                  required
+                />
+              </div>
+              <div id="price-category">
+                <input
+                  id="price-item"
+                  placeholder="Preço"
+                  type="number"
+                  onChange={(e) => setNomeCategoria(e.target.value)}
+                  required
+                />
+                <select
+                  id="select-item"
+                  defaultValue="0"
+                  disabledonChange={(e) => setPriority(e.target.value)}
+                >
+                  <option disabled value="0">
+                    Categoria:
+                  </option>
+                  <option value="0">Em Breve</option>
+                </select>
+              </div>
               <button
-                id="btn-form"
+                id="btn-form-item"
                 type="submit"
                 onClick={() => handleSubmit()}
               ></button>

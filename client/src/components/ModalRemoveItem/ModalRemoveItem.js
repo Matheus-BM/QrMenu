@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ModalRemoveCategoria.css";
+import "./ModalRemoveItem.css";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
 import { getUser } from "../../utils/Common";
@@ -48,7 +48,7 @@ function ModalRemoveCategora({ onClose = () => {} }) {
       <div id="fundin">
         <div className="modal">
           <div id="x" onClick={ModalDesactive}></div>
-          <h1 id="title-category">Remova Categoria</h1>
+          <h1 id="title-category">Remova um Item</h1>
           <fieldset id="field">
             <div className="categories">
               {categoria.map((categoria, id) => (
