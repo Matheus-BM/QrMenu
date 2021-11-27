@@ -3,9 +3,12 @@ import "./ModalEditItem.css";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
 import { getUser } from "../../utils/Common";
+import ModalEditItemData from "../ModaEditItemData/ModaEditItemData";
 
 function ModalEditCategora({ onClose = () => {} }) {
-  const [categoria, setCategoria] = useState([]);
+  const [item, setItem] = useState([]);
+  const [data, setData] = useState();
+  const [toggleModalData, setToggleModalData] = useState(false)
 
   const user = getUser();
   const nomeRestaurante = user.nomeRestaurante;
@@ -19,7 +22,7 @@ function ModalEditCategora({ onClose = () => {} }) {
 
     axios
       .get(`${baseURL}${nomeRestaurante}`)
-      .then((res) => setCategoria(res.data));
+      .then((res) => setItem(res.data));
   };
 
   const ModalDesactive = () => {
@@ -35,24 +38,27 @@ function ModalEditCategora({ onClose = () => {} }) {
     ModalActive();
   }, []);
 
-  const editCategoria = () => {
-    console.log("edit");
+  function editItem (categoria) {
+    console.log(categoria);
+    setData(categoria);
+    setToggleModalData(true);
   };
 
   return (
     <div>
+      { toggleModalData?<ModalEditItemData onClose={() => {setToggleModalData(false); ModalDesactive() }} data={data}/>:
       <div id="fundin">
         <div className="modal">
-          <div id="x" onClick={ModalDesactive}></div>
+          <div id="x" onClick={()=>ModalDesactive()}></div>
           <h1 id="title-category">Escolha o Item</h1>
           <fieldset id="field">
             <div className="categories">
-              {categoria.map((categoria, id) => (
+              {item.map((item, id) => (
                 <div id="category" key={id++}>
-                  <h2 className="h2">{categoria.nome_produto}</h2>
+                  <h2 className="h2">{item.nome_produto}</h2>
                   <div
                     className="emoji-side"
-                    onClick={() => editCategoria(categoria.cod_produto)}
+                    onClick={() => editItem(item)}
                   ></div>
                 </div>
               ))}
@@ -60,6 +66,7 @@ function ModalEditCategora({ onClose = () => {} }) {
           </fieldset>
         </div>
       </div>
+      }
     </div>
   );
 }

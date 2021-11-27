@@ -310,6 +310,21 @@ app.post('/api/deleteItem',async(req,res)=>{
     await client.query("DELETE FROM produto where cod_produto = $1",[cod_produto])
 })
 
+//Edit Item
+app.post('/api/editItem',async(req,res)=>{
+    const cod_produto = req.body.cod_produto;
+    const cod_categoria =req.body.cod_categoria;
+    const nomeItem = req.body.nomeItem;
+    const descItem = req.body.descItem;
+    const precoItem = req.body.precoItem;
+try{
+
+    await client.query("UPDATE produto SET nome_produto = $1 ,descricao_produto = $2,preco_produto = $3,cod_categoria = $4 where cod_produto = $5",
+    [nomeItem,descItem,precoItem,cod_categoria,cod_produto])
+}catch (e){
+    console.log(e)
+}
+})  
 
 //get a menu
 

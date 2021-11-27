@@ -3,10 +3,12 @@ import "./ModalEditCategora.css";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
 import { getUser } from "../../utils/Common";
+//import ModalEditCategoriaData from "../ModaEditItemData/ModaEditItemData";
 
 function ModalEditCategora({ onClose = () => {} }) {
   const [categoria, setCategoria] = useState([]);
-
+  const [data, setData] = useState();
+  const [toggleModalData, setToggleModalData] = useState(false)
   const user = getUser();
   const nomeRestaurante = user.nomeRestaurante;
 
@@ -37,13 +39,16 @@ function ModalEditCategora({ onClose = () => {} }) {
     ModalActive();
   }, []);
 
-  const editCategoria = () => {
-    console.log("edit");
+  function editCategoria (categoria) {
+    console.log(categoria);
+    setData(categoria);
+    setToggleModalData(true);
   };
 
   return (
     <div>
-      <div id="fundin">
+        {/*toggleModalData?<ModalEditCategoriaData onClose={() => {setToggleModalData(false); ModalDesactive() }}/>:*/
+       <div id="fundin">
         <div className="modal">
           <div id="x" onClick={ModalDesactive}></div>
           <h1 id="title-category">Escolha a Categoria</h1>
@@ -54,14 +59,14 @@ function ModalEditCategora({ onClose = () => {} }) {
                   <h2 className="h2">{categoria.nome_categoria}</h2>
                   <div
                     className="emoji-side"
-                    onClick={() => editCategoria(categoria.cod_categoria)}
+                    onClick={() => editCategoria(categoria)}
                   ></div>
                 </div>
               ))}
             </div>
           </fieldset>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
