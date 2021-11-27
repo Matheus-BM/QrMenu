@@ -50,38 +50,7 @@ app.use((req,res,next) => {
 
 //Routes//
 
-//get a menu
-
-app.get("/api/:nomeRestaurante", async (req,res) =>{
-    try {
-
-        const { nomeRestaurante} = req.params;
-        var idCardapio = await (await client.query('SELECT cod_cardapio FROM restaurante where nome_restaurante = $1',[nomeRestaurante]))
-        idCardapio =idCardapio.rows[0].cod_cardapio
-
-        const restaurante = await client.query("SELECT * from produto where cod_Cardapio = $1;", [idCardapio])
-        
-        res.json(restaurante.rows)
-        
-    } 
-    catch (error) {console.log(error)}
-
-})
-
-//get a categoria 
-
-app.get("/api/:nomeRestaurante/categoria", async (req,res) =>{
-    try {
-
-        const restaurante = await client.query("SELECT * from categoria ")
-        res.json(restaurante.rows)
-        
-    } 
-    catch (error) {console.log(error)}
-
-})
-
-
+/
 
 //// LOGIN AREA //////
 
@@ -280,6 +249,11 @@ app.post('/api/addCategoria', async (req,res)=>{
     try{
         const nomeCategoria =req.body.nomeCategoria;
         const priority =req.body.priority;
+        const idRestaurante = req.body.idRestaurante
+
+        const idCardapio = await client.query("SELECT cod_cardapio from restaurante where cod_restaurante =$1",[idRestaurante])
+
+        console.log(idCardapio.rows[0].idCardapio)
 
         const categoria = await client.query("SELECT nome_categoria from categoria where nome_categoria= $1",[nomeCategoria])
         
@@ -289,11 +263,11 @@ app.post('/api/addCategoria', async (req,res)=>{
                 msg:"Categoria já castrada"
             })
         }
-        await client.query("INSERT INTO categoria (nome_categoria,prioridade_categoria) values ($1,$2) ",[nomeCategoria,priority]);
+        await client.query("INSERT INTO categoria (nome_categoria,prioridade_categoria,cod_cardapio) values ($1,$2,$3) ",[nomeCategoria,priority,idCardapio.rows[0].cod_cardapio]);
 
         return 
     }catch(e){
-
+        console.log(e)
     }
 })
 
@@ -302,6 +276,63 @@ app.post('/api/deleteCategoria',async(req,res)=>{
     const cod_categoria = req.body.cod_categoria;
     await client.query("DELETE FROM categoria where cod_categoria = $1",[cod_categoria])
 })
+
+
+//get a menu
+
+app.post("/api/:nomeRestaurante", async (req,res) =>{
+    try {
+
+        const nomeRestaurante =req.body.nomeRestaurante
+
+        
+        var idCardapio = await client.query('SELECT cod_cardapio FROM restaurante where nome_restaurante = $1',[nomeRestaurante])
+        idCardapio =idCardapio.rows[0].cod_cardapio
+       
+        var categorias = await client.query('SELECT * from categoria where cod_cardapio = $1',[idCardapio])
+
+
+        var produtos = [];
+        var produto = null;
+
+        await categorias.rows.forEach( async categoria => {
+             produto = await (await client.query("SELECT * FROM produto where cod_categoria = $1 ",[categoria.cod_categoria])).rows[0]
+             
+             if( produto !== undefined){
+             await produtos.push(produto)
+             }
+        });
+
+        setTimeout(() =>res.json(produtos) , 1000)
+        
+
+        
+        
+    } 
+    catch (error) {console.log(error)}
+
+})
+
+//get a categoria 
+
+app.post("/api/:nomeRestaurante/categoria", async (req,res) =>{
+    
+    try {
+
+        const idRestaurante = req.body.cod_restaurante
+
+        const idCardapio =  await client.query("SELECT cod_cardapio from restaurante where cod_restaurante = $1",[idRestaurante])
+
+
+        const restaurante = await client.query("SELECT * from categoria where cod_cardapio = $1 ",[idCardapio.rows[0].cod_cardapio])
+        res.json(restaurante.rows)
+        
+    } 
+    catch (error) {console.log(error)}
+
+})
+
+
 
 
 

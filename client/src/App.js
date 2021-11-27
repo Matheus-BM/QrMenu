@@ -8,18 +8,13 @@ import PrivateRoute from "./utils/PrivateRoute";
 import QrCode from "./pages/QrCode/QrCode";
 import PersonalData from "./pages/PersonalData/PersonalData";
 import PedidosProvider from "./ListMenuItems";
-import ModalEditCategora from "./components/ModalEditCategora/ModalEditCategora";
-import ModalRemoveCategoria from "./components/ModalRemoveCategoria/ModalRemoveCategora";
 import { CategoriaMenu, ModalPedido, Title } from "./components/index";
-import ModalAddCategoria from "./components/ModalAddCategoria/ModalAddCategoria.js";
+
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/modaltemp" element={<ModalEditCategora />} />
-        <Route exact path="/modaltemp2" element={<ModalRemoveCategoria/>} />
-        <Route exact path="/modaltemp3" element={<ModalAddCategoria />} />
         <Route exact path="/" element={<WelcomePage />} />
         <Route exact path="/auth"element={ <PublicRoute><AuthPage /> </PublicRoute>}/>
         <Route exact path="/Dashboard" element={<PrivateRoute> <PedidosProvider> <MenuCreate /></PedidosProvider></PrivateRoute>} />

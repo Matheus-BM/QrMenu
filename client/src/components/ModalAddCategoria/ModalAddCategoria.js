@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./ModalAddCategoria.css";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
+import { getUser } from "../../utils/Common";
 
 function Modal({ onClose = () => {} }) {
+  const user = getUser();
+  const idRestaurante = user.idRestaurante;
+
   const ModalActive = () => {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
@@ -33,6 +37,7 @@ function Modal({ onClose = () => {} }) {
       .post(`${baseURL}addCategoria`, {
         nomeCategoria: nomeCategoria,
         priority: priority,
+        idRestaurante: idRestaurante,
       })
       .then(ModalDesactive());
   };

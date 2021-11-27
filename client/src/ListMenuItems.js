@@ -1,7 +1,9 @@
+import axios from "axios";
 import React,{useState} from "react";
 import { useParams } from "react-router";
 import { useEffect } from "react/cjs/react.development";
 import { baseURL } from "./apis/MenuFetcher";
+import { getUser } from "./utils/Common";
 
 
 export const ContextlistaDePedidos = React.createContext();
@@ -93,28 +95,32 @@ const PedidosProvider = ({children}) =>{
 
         const getMenu = async() =>{
             try {
-                const response = await fetch(`${baseURL}${nomeRestaurante}`)
-                const jsonData = await response.json()
+                const response = await axios.post(`${baseURL}${nomeRestaurante}`,{
+                    nomeRestaurante:user.nomeRestaurante
+                })
     
-                setMenu(jsonData)
+                setMenu(response.data)
             } catch (error) {
-                console.log(error.message)
+                console.log(error.message.data)
             }
         }
          getMenu();
 
-       
+    
 
     }, [nomeRestaurante,idCardapio])
+
+    const user = getUser();
 
     useEffect(() => {
         
         const getCategoria = async() =>{
             try {
-                const response = await fetch(`${baseURL}${nomeRestaurante}/categoria`)
-                const jsonData = await response.json()
+                const response = await axios.post(`${baseURL}${nomeRestaurante}/categoria`,{
+                    cod_restaurante : user.idRestaurante
+                  })
 
-                setCategoria(jsonData)
+                setCategoria(response.data)
             } catch (error) {
                 console.log(error.message)
             }
