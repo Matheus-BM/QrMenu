@@ -95,17 +95,18 @@ const PedidosProvider = ({children}) =>{
 
         const getMenu = async() =>{
             try {
-                const response = await fetch(`${baseURL}${nomeRestaurante}`)
-                const jsonData = await response.json()
+                const response = await axios.post(`${baseURL}${nomeRestaurante}`,{
+                    nomeRestaurante:user.nomeRestaurante
+                })
     
-                setMenu(jsonData)
+                setMenu(response.data)
             } catch (error) {
-                console.log(error.message)
+                console.log(error.message.data)
             }
         }
          getMenu();
 
-       
+    
 
     }, [nomeRestaurante,idCardapio])
 

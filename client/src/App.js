@@ -8,10 +8,8 @@ import PrivateRoute from "./utils/PrivateRoute";
 import QrCode from "./pages/QrCode/QrCode";
 import PersonalData from "./pages/PersonalData/PersonalData";
 import PedidosProvider from "./ListMenuItems";
-import ModalEditCategora from "./components/ModalEditCategora/ModalEditCategora";
-import ModalRemoveCategoria from "./components/ModalRemoveCategoria/ModalRemoveCategora";
 import { CategoriaMenu, ModalPedido, Title } from "./components/index";
-import ModalAddCategoria from "./components/ModalAddCategoria/ModalAddCategoria.js";
+
 
 function App() {
   return (
