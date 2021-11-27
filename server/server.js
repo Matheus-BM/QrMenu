@@ -271,6 +271,35 @@ app.post('/api/addCategoria', async (req,res)=>{
     }
 })
 
+
+
+app.post('/api/addItem', async (req,res)=>{
+    try{
+        const nomeCategoria =req.body.nomeCategoria;
+        const nomeItem = req.body.nomeItem;
+        const descItem = req.body.descItem;
+        const precoItem = req.body.precoItem;
+
+        // console.log(`Categoria : ${nomeCategoria} \nNome Item: ${nomeItem}\nDesc ${descItem}\nPreço ${precoItem}`)
+
+        const categoria = await client.query("SELECT cod_categoria from categoria where nome_categoria= $1",[nomeCategoria])
+        
+        const produto = await client.query("SELECT * from produto where nome_produto = $1",[nomeItem])
+
+        if(produto.rows[0]){
+           return res.status(400).json({
+                error:true,
+                msg:"Item já castrado"
+            })
+        }
+        await client.query("INSERT INTO produto (nome_produto,descricao_produto,preco_produto,cod_categoria) values ($1,$2,$3,$4) ",[nomeItem,descItem,precoItem,categoria.rows[0].cod_categoria]);
+
+        return 
+    }catch(e){
+        console.log(e)
+    }
+})
+
 //DELETE CATEGORIA
 app.post('/api/deleteCategoria',async(req,res)=>{
     const cod_categoria = req.body.cod_categoria;
@@ -280,14 +309,13 @@ app.post('/api/deleteCategoria',async(req,res)=>{
 
 //get a menu
 
-app.post("/api/:nomeRestaurante", async (req,res) =>{
+app.get("/api/:nomeRestaurante", async (req,res) =>{
     try {
 
-        const nomeRestaurante =req.body.nomeRestaurante
+        const {nomeRestaurante} =req.params
 
-        
         var idCardapio = await client.query('SELECT cod_cardapio FROM restaurante where nome_restaurante = $1',[nomeRestaurante])
-        idCardapio =idCardapio.rows[0].cod_cardapio
+         idCardapio =idCardapio.rows[0].cod_cardapio
        
         var categorias = await client.query('SELECT * from categoria where cod_cardapio = $1',[idCardapio])
 
@@ -315,13 +343,13 @@ app.post("/api/:nomeRestaurante", async (req,res) =>{
 
 //get a categoria 
 
-app.post("/api/:nomeRestaurante/categoria", async (req,res) =>{
+app.get("/api/:nomeRestaurante/categoria", async (req,res) =>{
     
     try {
 
-        const idRestaurante = req.body.cod_restaurante
+        const {nomeRestaurante} =req.params
 
-        const idCardapio =  await client.query("SELECT cod_cardapio from restaurante where cod_restaurante = $1",[idRestaurante])
+        var idCardapio = await client.query('SELECT cod_cardapio FROM restaurante where nome_restaurante = $1',[nomeRestaurante])
 
 
         const restaurante = await client.query("SELECT * from categoria where cod_cardapio = $1 ",[idCardapio.rows[0].cod_cardapio])

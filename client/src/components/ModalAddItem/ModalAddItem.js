@@ -2,14 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./ModalAddItem.css";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
+import { getUser } from "../../utils/Common";
 
 function Modal({ onClose = () => {} }) {
+
+  const [categoria, setCategoria] = useState([])
+  const user = getUser();
+  const nomeRestaurante= user.nomeRestaurante;
+
   const ModalActive = () => {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
 
     let fundin = document.querySelector("#fundin");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+
+    axios
+    .get(`${baseURL}${nomeRestaurante}/categoria`)
+    .then((res) => setCategoria(res.data));
   };
   // eslint-disable-next-line
   useEffect(() => {
@@ -26,13 +36,17 @@ function Modal({ onClose = () => {} }) {
   };
 
   const [nomeCategoria, setNomeCategoria] = useState("");
-  const [priority, setPriority] = useState("0");
+  const [nomeItem, setNomeItem] = useState("");
+  const [descItem, setDescItem] = useState("");
+  const [precoItem, setPrecoItem] = useState("");
 
   const handleSubmit = () => {
     axios
-      .post(`${baseURL}addCategoria`, {
+      .post(`${baseURL}addItem`, {
         nomeCategoria: nomeCategoria,
-        priority: priority,
+        nomeItem: nomeItem,
+        descItem:descItem,
+        precoItem:precoItem
       })
       .then(ModalDesactive());
   };
@@ -51,14 +65,14 @@ function Modal({ onClose = () => {} }) {
                   id="name-item"
                   placeholder="Nome"
                   type="text"
-                  onChange={(e) => setNomeCategoria(e.target.value)}
+                  onChange={(e) => setNomeItem(e.target.value)}
                   required
                 />
                 <input
                   id="input-item-desc"
                   placeholder="Descrição"
                   type="text"
-                  onChange={(e) => setNomeCategoria(e.target.value)}
+                  onChange={(e) => setDescItem(e.target.value)}
                   required
                 />
               </div>
@@ -67,19 +81,20 @@ function Modal({ onClose = () => {} }) {
                   id="price-item"
                   placeholder="Preço"
                   type="number"
-                  onChange={(e) => setNomeCategoria(e.target.value)}
+                  onChange={(e) => setPrecoItem(e.target.value)}
                   required
                 />
                 <select
                   id="select-item"
                   defaultValue="0"
-                  disabledonChange={(e) => setPriority(e.target.value)}
+                  onChange={(e) => setNomeCategoria(e.target.value)}
                 >
                   <option disabled value="0">
                     Categoria:
                   </option>
-                  <option value="0">Em Breve</option>
+                  {categoria.map((ctg,id)=>(<option value={ctg.nome_categoria} key={id++}>{ctg.nome_categoria}</option>))}
                 </select>
+                  
               </div>
               <button
                 id="btn-form-item"

@@ -95,8 +95,8 @@ const PedidosProvider = ({children}) =>{
 
         const getMenu = async() =>{
             try {
-                const response = await axios.post(`${baseURL}${nomeRestaurante}`,{
-                    nomeRestaurante:user.nomeRestaurante
+                const response = await axios.get(`${baseURL}${nomeRestaurante}`,{
+                   
                 })
     
                 setMenu(response.data)
@@ -116,8 +116,8 @@ const PedidosProvider = ({children}) =>{
         
         const getCategoria = async() =>{
             try {
-                const response = await axios.post(`${baseURL}${nomeRestaurante}/categoria`,{
-                    cod_restaurante : user.idRestaurante
+                const response = await axios.get(`${baseURL}${nomeRestaurante}/categoria`,{
+                  
                   })
 
                 setCategoria(response.data)

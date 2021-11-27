@@ -18,7 +18,7 @@ function ModalEditCategora({ onClose = () => {} }) {
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 
     axios
-      .post(`${baseURL}${nomeRestaurante}/categoria`, {
+      .get(`${baseURL}${nomeRestaurante}/categoria`, {
         cod_restaurante: user.idRestaurante,
       })
       .then((res) => setCategoria(res.data));

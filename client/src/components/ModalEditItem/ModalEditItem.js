@@ -18,7 +18,7 @@ function ModalEditCategora({ onClose = () => {} }) {
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 
     axios
-      .get(`${baseURL}${nomeRestaurante}/categoria`)
+      .get(`${baseURL}${nomeRestaurante}`)
       .then((res) => setCategoria(res.data));
   };
 
@@ -49,10 +49,10 @@ function ModalEditCategora({ onClose = () => {} }) {
             <div className="categories">
               {categoria.map((categoria, id) => (
                 <div id="category" key={id++}>
-                  <h2 className="h2">{categoria.nome_categoria}</h2>
+                  <h2 className="h2">{categoria.nome_produto}</h2>
                   <div
                     className="emoji-side"
-                    onClick={() => editCategoria(categoria.cod_categoria)}
+                    onClick={() => editCategoria(categoria.cod_produto)}
                   ></div>
                 </div>
               ))}

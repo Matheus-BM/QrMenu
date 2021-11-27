@@ -22,7 +22,7 @@ function ModalRemoveCategora({ onClose = () => {} }) {
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 
     axios
-      .get(`${baseURL}removeCategoria${nomeRestaurante}/categoria`)
+      .get(`${baseURL}${nomeRestaurante}`)
       .then((res) => setCategoria(res.data));
   };
 
@@ -53,10 +53,10 @@ function ModalRemoveCategora({ onClose = () => {} }) {
             <div className="categories">
               {categoria.map((categoria, id) => (
                 <div id="category" key={id++}>
-                  <h2 className="h2">{categoria.nome_categoria}</h2>
+                  <h2 className="h2">{categoria.nome_produto}</h2>
                   <div
                     className="emoji-side-trash"
-                    onClick={() => deleteCategoria(categoria.cod_categoria)}
+                    onClick={() => deleteCategoria(categoria.cod_produto)}
                   ></div>
                 </div>
               ))}
