@@ -324,7 +324,24 @@ try{
 }catch (e){
     console.log(e)
 }
+})
+
+//Edit categoria
+app.post('/api/editCategoria',async(req,res)=>{
+    const cod_categoria =req.body.cod_categoria;
+    const nome_categoria = req.body.nomeCategoria;
+
+
+try{
+    await client.query("UPDATE categoria SET nome_categoria = $1 where cod_categoria= $2"
+   , [ nome_categoria, cod_categoria])
+}catch (e){
+    console.log(e)
+}
 })  
+
+
+
 
 //get a menu
 

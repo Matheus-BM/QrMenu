@@ -3,7 +3,6 @@ import React,{useState} from "react";
 import { useParams } from "react-router";
 import { useEffect } from "react/cjs/react.development";
 import { baseURL } from "./apis/MenuFetcher";
-import { getUser } from "./utils/Common";
 
 
 export const ContextlistaDePedidos = React.createContext();
@@ -109,8 +108,6 @@ const PedidosProvider = ({children}) =>{
     
 
     }, [nomeRestaurante,idCardapio])
-
-    const user = getUser();
 
     useEffect(() => {
         

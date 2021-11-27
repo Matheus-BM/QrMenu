@@ -3,12 +3,12 @@ import "./ModalEditCategora.css";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
 import { getUser } from "../../utils/Common";
-//import ModalEditCategoriaData from "../ModaEditItemData/ModaEditItemData";
+import ModalEditCategoriaData from "../ModalEditCategoriaData/ModalEditCategoriaData"
 
 function ModalEditCategora({ onClose = () => {} }) {
   const [categoria, setCategoria] = useState([]);
   const [data, setData] = useState();
-  const [toggleModalData, setToggleModalData] = useState(false)
+  const [toggleModalDataCtg, setToggleModalDataCtg] = useState(false)
   const user = getUser();
   const nomeRestaurante = user.nomeRestaurante;
 
@@ -40,14 +40,13 @@ function ModalEditCategora({ onClose = () => {} }) {
   }, []);
 
   function editCategoria (categoria) {
-    console.log(categoria);
     setData(categoria);
-    setToggleModalData(true);
+    setToggleModalDataCtg(true);
   };
 
   return (
     <div>
-        {/*toggleModalData?<ModalEditCategoriaData onClose={() => {setToggleModalData(false); ModalDesactive() }}/>:*/
+        {toggleModalDataCtg?<ModalEditCategoriaData data={data} onClose={() => {setToggleModalDataCtg(false); ModalDesactive() }} />:
        <div id="fundin">
         <div className="modal">
           <div id="x" onClick={ModalDesactive}></div>
