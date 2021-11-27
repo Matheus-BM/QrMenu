@@ -21,9 +21,9 @@ function ModalEditItemData({ onClose = () => {},data }) {
     .get(`${baseURL}${nomeRestaurante}/categoria`)
     .then((res) => setCategoria(res.data));
   };
-  // eslint-disable-next-line
   useEffect(() => {
     ModalActive();
+    // eslint-disable-next-line
   }, []);
 
   const ModalDesactive = () => {

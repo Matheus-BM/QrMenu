@@ -33,9 +33,9 @@ function ModalEditCategora({ onClose = () => {} }) {
     fundin.style.backgroundColor = "transparent";
     onClose();
   };
-  // eslint-disable-next-line
   useEffect(() => {
     ModalActive();
+    // eslint-disable-next-line
   }, []);
 
   function editItem (categoria) {

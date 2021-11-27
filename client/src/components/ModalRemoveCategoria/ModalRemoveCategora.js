@@ -9,6 +9,7 @@ function ModalRemoveCategora({ onClose = () => {} }) {
 
   useEffect(() => {
     ModalActive();
+    // eslint-disable-next-line
   }, []);
 
   const user = getUser();

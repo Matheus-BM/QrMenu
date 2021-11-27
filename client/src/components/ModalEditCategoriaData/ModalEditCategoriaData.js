@@ -12,9 +12,9 @@ function Modal({ onClose = () => {},data }) {
     let fundin = document.querySelector("#fundin");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
   };
-  // eslint-disable-next-line
   useEffect(() => {
     ModalActive();
+    // eslint-disable-next-line
   }, []);
 
   const ModalDesactive = () => {
