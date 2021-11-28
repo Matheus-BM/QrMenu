@@ -1,4 +1,4 @@
-#x {
+.x {
   background: url(../../img/x.png);
   background-repeat: no-repeat;
   height: 40px;
@@ -8,15 +8,18 @@
   cursor: pointer;
 }
 
-#fundin {
+.fundin {
   height: 100vh;
   width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: transparent;
   animation: animate;
   animation-duration: 1s;
 }
 
-.ModalAddCategoria {
+.modal {
   height: 600px;
   width: 800px;
   background-color: white;
@@ -39,7 +42,7 @@
   }
 }
 
-#name-category {
+.name-category {
   width: 500px;
   border: 2px solid black;
   border-radius: 10px;
@@ -50,7 +53,7 @@
   margin-left: 126px;
 }
 
-#select-priority {
+.select-priority {
   width: 200px;
   margin-top: 5%;
   margin-left: 16%;
@@ -61,11 +64,11 @@
   font-size: 16px;
 }
 
-#form-modal {
+.form-modal {
   margin-top: 10%;
 }
 
-#btn-form {
+.btn-form {
   width: 100px;
   height: 100px;
   margin-left: 70%;
@@ -77,6 +80,42 @@
   background-position: center;
 }
 
-#btn-form:hover {
+.btn-form:hover {
   background-color: #19990e10;
+}
+
+
+@media screen and (max-width: 930px) {
+
+  .name-category{
+    width: 100px;
+    margin: 0;
+  }
+  .modal{
+    margin-left: 40px;
+    height: 500px;
+    width: 280px;
+  }
+  .btn-form{
+    margin-left: 10px;
+    width: 50px;
+    height: 40px;
+    align-self: flex-end;
+    margin-right: 40px;
+  }
+  .select-priority{
+    width: 140px;
+    margin: 0;
+  }
+
+
+  .form-modal form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height:300px ;
+  }
+  
 }

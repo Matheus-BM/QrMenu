@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./ModaEditItemData.css";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
 import { getUser } from "../../utils/Common";
@@ -14,7 +13,7 @@ function ModalEditItemData({ onClose = () => {},data }) {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 
     axios
@@ -49,16 +48,16 @@ function ModalEditItemData({ onClose = () => {},data }) {
 
   return (
     <div>
-      <div id="fundin">
+      <div className="fundin">
         <div className="modal">
-          <div id="x" onClick={() => ModalDesactive()}></div>
-          <h1 id="title-category">Edit Item</h1>
+          <div className="x" onClick={() => ModalDesactive()}></div>
+          <h1 className="title-category">Edit Item</h1>
 
-          <div id="form-item">
+          <div className="form-item">
             <form onSubmit={(e) => e.preventDefault()}>
-              <div id="name-desc">
+              <div className="name-desc">
                 <input
-                  id="name-item"
+                  className="name-item"
                   placeholder="Nome"
                   type="text"
                   defaultValue ={data.nome_produto}
@@ -66,7 +65,7 @@ function ModalEditItemData({ onClose = () => {},data }) {
                   required
                 />
                 <input
-                  id="input-item-desc"
+                  className="input-item-desc"
                   placeholder="Descrição"
                   type="text"
                   defaultValue={data.descricao_produto}
@@ -74,9 +73,9 @@ function ModalEditItemData({ onClose = () => {},data }) {
                   required
                 />
               </div>
-              <div id="price-category">
+              <div className="price-category">
                 <input
-                  id="price-item"
+                  className="price-item"
                   placeholder="Preço"
                   type="number"
                   defaultValue={parseFloat( data.preco_produto.substring(3))}
@@ -84,7 +83,7 @@ function ModalEditItemData({ onClose = () => {},data }) {
                   required
                 />
                 <select
-                  id="select-item"
+                  className="select-item"
                   defaultValue="0"
                   required
                   onChange={(e) => setCodCategoria(e.target.value) }
@@ -95,12 +94,12 @@ function ModalEditItemData({ onClose = () => {},data }) {
                   {categoria.map((ctg,id)=>(<option value={ctg.cod_categoria} key={ctg.cod_categoria}> {ctg.nome_categoria}</option>))}
                 </select>
                   
+                  <button
+                    className="btn-form item"
+                    type="submit"
+                    onClick={() => handleSubmit()}
+                  ></button>
               </div>
-              <button
-                id="btn-form-item"
-                type="submit"
-                onClick={() => handleSubmit()}
-              ></button>
             </form>
           </div>
         </div>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./ModalEditCategoriaData.css";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
 
@@ -9,7 +8,7 @@ function Modal({ onClose = () => {},data }) {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
   };
   useEffect(() => {
@@ -18,11 +17,7 @@ function Modal({ onClose = () => {},data }) {
   }, []);
 
   const ModalDesactive = () => {
-    let modal = document.querySelector(".modal");
-    modal.style.display = "none";
 
-    let fundin = document.querySelector("#fundin");
-    fundin.style.backgroundColor = "transparent";
     onClose();
   };
 
@@ -40,15 +35,15 @@ function Modal({ onClose = () => {},data }) {
 
   return (
     <div>
-      <div id="fundin">
+      <div className="fundin">
         <div className="modal">
-          <div id="x" onClick={() => ModalDesactive()}></div>
-          <h1 id="title-category">Categoria</h1>
+          <div className="x" onClick={() => ModalDesactive()}></div>
+          <h1 className="title-category">Categoria</h1>
 
-          <div id="form-modal">
+          <div className="form-modal">
             <form onSubmit={(e) => e.preventDefault()}>
               <input
-                id="name-category"
+                className="name-category"
                 placeholder="Nome"
                 type="text"
                 defaultValue={data.nome_categoria}
@@ -56,7 +51,7 @@ function Modal({ onClose = () => {},data }) {
                 required
               />
               <select
-                id="select-priority"
+                className="select-priority"
                 defaultValue="0"
                 disabled
     
@@ -68,7 +63,7 @@ function Modal({ onClose = () => {},data }) {
               </select>
 
               <button
-                id="btn-form"
+                className="btn-form"
                 type="submit"
                 onClick={() => handleSubmit()}
               ></button>

@@ -101,7 +101,7 @@ input {
   display: flex;
 }
 
-.row input {
+.cadastro-form .row input {
   width: 111px;
   margin-right: 0px;
 }

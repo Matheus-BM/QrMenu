@@ -234,15 +234,6 @@ app.get("api/verifyToken", (req,res) => {
 
 
 
-//TEST
-app.get('/', (req, res) => {
-    if (!req.user) return res.status(401).json({ success: false, message: 'Invalid user to access it.' });
-    res.send('Welcome to the Node.js Tutorial! - ' + req.user.name);
-  
-
-
-});
-
 //CREATE SECTION
 
 app.post('/api/addCategoria', async (req,res)=>{
@@ -343,7 +334,7 @@ try{
 
 
 
-//get a menu
+//get Itens from a menu
 
 app.get("/api/:nomeRestaurante", async (req,res) =>{
     try {

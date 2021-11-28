@@ -14,7 +14,7 @@ function Modal({ onClose = () => {} }) {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 
     axios
@@ -30,7 +30,7 @@ function Modal({ onClose = () => {} }) {
     let modal = document.querySelector(".modal");
     modal.style.display = "none";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin");
     fundin.style.backgroundColor = "transparent";
     onClose();
   };
@@ -53,39 +53,39 @@ function Modal({ onClose = () => {} }) {
 
   return (
     <div>
-      <div id="fundin">
+      <div className="fundin">
         <div className="modal">
-          <div id="x" onClick={() => ModalDesactive()}></div>
-          <h1 id="title-category">Item</h1>
+          <div className="x" onClick={() => ModalDesactive()}></div>
+          <h1 className="title-category">Item</h1>
 
-          <div id="form-item">
+          <div className="form-item">
             <form onSubmit={(e) => e.preventDefault()}>
-              <div id="name-desc">
+              <div className="name-desc">
                 <input
-                  id="name-item"
+                  className="name-item"
                   placeholder="Nome"
                   type="text"
                   onChange={(e) => setNomeItem(e.target.value)}
                   required
                 />
                 <input
-                  id="input-item-desc"
+                  className="input-item-desc"
                   placeholder="Descrição"
                   type="text"
                   onChange={(e) => setDescItem(e.target.value)}
                   required
                 />
               </div>
-              <div id="price-category">
+              <div className="price-category">
                 <input
-                  id="price-item"
+                  className="price-item"
                   placeholder="Preço"
                   type="number"
                   onChange={(e) => setPrecoItem(e.target.value)}
                   required
                 />
                 <select
-                  id="select-item"
+                  className="select-item"
                   defaultValue="0"
                   onChange={(e) => setNomeCategoria(e.target.value)}
                 >
@@ -95,12 +95,12 @@ function Modal({ onClose = () => {} }) {
                   {categoria.map((ctg,id)=>(<option value={ctg.nome_categoria} key={id++}>{ctg.nome_categoria}</option>))}
                 </select>
                   
-              </div>
               <button
-                id="btn-form-item"
+                className="btn-form item"
                 type="submit"
                 onClick={() => handleSubmit()}
               ></button>
+              </div>
             </form>
           </div>
         </div>

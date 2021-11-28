@@ -13,10 +13,10 @@ function ModalEditCategora({ onClose = () => {} }) {
   const nomeRestaurante = user.nomeRestaurante;
 
   const ModalActive = () => {
-    let modal = document.querySelector(".modal");
+    let modal = document.querySelector(".modal.edit.categoria");
     modal.style.display = "block";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin.edit.categoria");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 
     axios
@@ -27,11 +27,6 @@ function ModalEditCategora({ onClose = () => {} }) {
   };
 
   const ModalDesactive = () => {
-    let modal = document.querySelector(".modal");
-    modal.style.display = "none";
-
-    let fundin = document.querySelector("#fundin");
-    fundin.style.backgroundColor = "transparent";
     onClose();
   };
   useEffect(() => {
@@ -47,17 +42,17 @@ function ModalEditCategora({ onClose = () => {} }) {
   return (
     <div>
         {toggleModalDataCtg?<ModalEditCategoriaData data={data} onClose={() => {setToggleModalDataCtg(false); ModalDesactive() }} />:
-       <div id="fundin">
-        <div className="modal">
-          <div id="x" onClick={ModalDesactive}></div>
-          <h1 id="title-category">Escolha a Categoria</h1>
-          <fieldset id="field">
-            <div className="categories">
+       <div className="fundin edit categoria">
+        <div className="modal edit categoria">
+          <div className="x" onClick={ModalDesactive}></div>
+          <h1 className="title-category edit">Escolha a Categoria</h1>
+          <fieldset className="field edit categoria">
+            <div className="categories edit categoria">
               {categoria.map((categoria, id) => (
-                <div id="category" key={id++}>
+                <div className="category" key={id++}>
                   <h2 className="h2">{categoria.nome_categoria}</h2>
                   <div
-                    className="emoji-side"
+                    className="emoji-side edit categoria"
                     onClick={() => editCategoria(categoria)}
                   ></div>
                 </div>

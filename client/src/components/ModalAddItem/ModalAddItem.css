@@ -1,12 +1,6 @@
-#fundin {
-  height: 100vh;
-  width: 100vw;
-  background-color: transparent;
-  animation: animate;
-  animation-duration: 1s;
-}
 
-#name-item {
+
+.name-item {
   width: 600px;
   border: 2px solid black;
   border-radius: 10px;
@@ -16,7 +10,7 @@
   font-size: 16px;
 }
 
-#input-item-desc {
+.input-item-desc {
   width: 600px;
   height: 100px;
   border: 2px solid black;
@@ -28,10 +22,9 @@
   margin-top: 20px;
 }
 
-#price-item {
+.price-item {
   width: 155px;
   margin-top: 5%;
-  margin-left: 13%;
   border: 2px solid black;
   border-radius: 10px;
   padding: 20px;
@@ -39,15 +32,15 @@
   font-size: 16px;
 }
 
-#price-category {
+.price-category {
   display: flex;
-  width: 600px;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
-select {
+.select-item {
   width: 200px;
   margin-top: 5%;
-  margin-left: 16%;
   border: 2px solid black;
   border-radius: 10px;
   padding: 20px;
@@ -55,27 +48,51 @@ select {
   font-size: 16px;
 }
 
-#form-item {
-  margin-bottom: 20%;
-}
 
-#name-desc {
+
+.name-desc {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-#btn-form-item {
-  width: 100px;
-  height: 100px;
-  margin-left: 650px;
-  background-color: transparent;
-  border: 2px solid #19990e;
-  border-radius: 40px 40px 40px 40px;
-  background-image: url(../../img/Arrow\ 6.png);
-  background-repeat: no-repeat;
-  background-position: center;
+
+.btn-form.item{
+  width: 60px;
+  height: 50px;
+  margin-left: 0;
+  border-radius: 40px;
+  margin-top:  6% ;
+  box-shadow: none;
 }
 
-#btn-form-item:hover {
-  background-color: #19990e10;
+@media screen and (max-width: 930px) {
+  
+.name-item {
+  width: 200px;
+  height: 10px;
+  margin: 0;
+  margin-left: 20px;
+  align-self: start;
+}
+
+.input-item-desc {
+  width: 200px;
+  height: 40px;
+}
+
+.price-item {
+  width: 200px;
+  height: 10px;
+  margin-left: 20px;
+}
+.price-category {
+  flex-direction: column;
+}
+.select-item {
+  width: 240px;
+  margin-left: 20px;
+}
+
+
 }

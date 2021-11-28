@@ -9,10 +9,10 @@ function Modal({ onClose = () => {} }) {
   const idRestaurante = user.idRestaurante;
 
   const ModalActive = () => {
-    let modal = document.querySelector(".modal");
+    let modal = document.querySelector(".modal.add.categoria");
     modal.style.display = "block";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin.add.categoria");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
   };
   // eslint-disable-next-line
@@ -21,10 +21,10 @@ function Modal({ onClose = () => {} }) {
   }, []);
 
   const ModalDesactive = () => {
-    let modal = document.querySelector(".modal");
+    let modal = document.querySelector(".modal.add.categoria");
     modal.style.display = "none";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin.add.categoria");
     fundin.style.backgroundColor = "transparent";
     onClose();
   };
@@ -44,22 +44,22 @@ function Modal({ onClose = () => {} }) {
 
   return (
     <div>
-      <div id="fundin">
-        <div className="modal">
-          <div id="x" onClick={() => ModalDesactive()}></div>
-          <h1 id="title-category">Categoria</h1>
+      <div className="fundin add categoria">
+        <div className="modal add categoria">
+          <div className="x" onClick={() => ModalDesactive()}></div>
+          <h1 className="title-category add">Categoria</h1>
 
-          <div id="form-modal">
+          <div className="form-modal add categoria">
             <form onSubmit={(e) => e.preventDefault()}>
               <input
-                id="name-category"
+                className="name-category add"
                 placeholder="Nome"
                 type="text"
                 onChange={(e) => setNomeCategoria(e.target.value)}
                 required
               />
               <select
-                id="select-priority"
+                className="select-priority add categoria"
                 defaultValue="0"
                 disabled
                 onChange={(e) => setPriority(e.target.value)}
@@ -71,7 +71,7 @@ function Modal({ onClose = () => {} }) {
               </select>
 
               <button
-                id="btn-form"
+                className="btn-form add categoria"
                 type="submit"
                 onClick={() => handleSubmit()}
               ></button>

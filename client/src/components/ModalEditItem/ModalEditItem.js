@@ -17,7 +17,7 @@ function ModalEditCategora({ onClose = () => {} }) {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 
     axios
@@ -29,7 +29,7 @@ function ModalEditCategora({ onClose = () => {} }) {
     let modal = document.querySelector(".modal");
     modal.style.display = "none";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin");
     fundin.style.backgroundColor = "transparent";
     onClose();
   };
@@ -46,14 +46,14 @@ function ModalEditCategora({ onClose = () => {} }) {
   return (
     <div>
       { toggleModalData?<ModalEditItemData onClose={() => {setToggleModalData(false); ModalDesactive() }} data={data}/>:
-      <div id="fundin">
+      <div className="fundin">
         <div className="modal">
-          <div id="x" onClick={()=>ModalDesactive()}></div>
-          <h1 id="title-category">Escolha o Item</h1>
-          <fieldset id="field">
+          <div className="x" onClick={()=>ModalDesactive()}></div>
+          <h1 className="title-category">Escolha o Item</h1>
+          <fieldset className="field">
             <div className="categories">
               {item.map((item, id) => (
-                <div id="category" key={id++}>
+                <div className="category" key={id++}>
                   <h2 className="h2">{item.nome_produto}</h2>
                   <div
                     className="emoji-side"

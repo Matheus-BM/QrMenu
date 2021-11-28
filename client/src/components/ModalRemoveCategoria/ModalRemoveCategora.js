@@ -16,10 +16,10 @@ function ModalRemoveCategora({ onClose = () => {} }) {
   const nomeRestaurante = user.nomeRestaurante;
 
   const ModalActive = () => {
-    let modal = document.querySelector(".modal");
+    let modal = document.querySelector(".modal.remove.categoria");
     modal.style.display = "block";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin.remove.categoria");
     fundin.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
 
     axios
@@ -30,10 +30,10 @@ function ModalRemoveCategora({ onClose = () => {} }) {
   };
 
   const ModalDesactive = () => {
-    let modal = document.querySelector(".modal");
+    let modal = document.querySelector(".modal.remove.categoria");
     modal.style.display = "none";
 
-    let fundin = document.querySelector("#fundin");
+    let fundin = document.querySelector(".fundin.remove.categoria");
     fundin.style.backgroundColor = "transparent";
     onClose();
   };
@@ -48,14 +48,14 @@ function ModalRemoveCategora({ onClose = () => {} }) {
 
   return (
     <div>
-      <div id="fundin">
-        <div className="modal">
-          <div id="x" onClick={ModalDesactive}></div>
-          <h1 id="title-category">Remova Categoria</h1>
-          <fieldset id="field">
+      <div className="fundin remove categoria">
+        <div className="modal remove categoria">
+          <div className="x" onClick={ModalDesactive}></div>
+          <h1 className="title-category remove categoria">Remova Categoria</h1>
+          <fieldset className="field remove categoria">
             <div className="categories">
               {categoria.map((categoria, id) => (
-                <div id="category" key={id++}>
+                <div className="category" key={id++}>
                   <h2 className="h2">{categoria.nome_categoria}</h2>
                   <div
                     className="emoji-side-trash"
