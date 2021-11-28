@@ -92,7 +92,7 @@ function ModalEditItemData({ onClose = () => {},data }) {
                   <option disabled value="0">
                     Padrão
                   </option>
-                  {categoria.map((ctg,id)=>(<option value={ctg.cod_categoria} key={ctg.cod_categoria}>{console.log(ctg.cod_categoria)}  {ctg.nome_categoria}</option>))}
+                  {categoria.map((ctg,id)=>(<option value={ctg.cod_categoria} key={ctg.cod_categoria}> {ctg.nome_categoria}</option>))}
                 </select>
                   
               </div>

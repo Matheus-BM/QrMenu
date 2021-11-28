@@ -11,7 +11,7 @@ export const ContextlistaDePedidos = React.createContext();
 const PedidosProvider = ({children}) =>{
 
     const [pedidos, setPedidos] = useState([]);
-    
+    const [total, setTotal] = useState(0);
 
     const addPedido = pedido => {
 
@@ -29,10 +29,12 @@ const PedidosProvider = ({children}) =>{
 
         if (pedidos.find(item => item.cod_produto === pedido.cod_produto) === undefined){
             setPedidos([...pedidos,newPedido]);
+            setTotal(()=> total+(parseFloat( newPedido.preco_produto.substring(3))))
         }else{
              pedidos.forEach((item) => {
                 if(item.cod_produto === pedido.cod_produto ){
-                    return { 
+    
+                    var obj = { 
                         cod_produto: item.cod_produto,
                         nome_produto : item.nome_produto,
                         categoria_produto:item.categoria_produto,
@@ -40,12 +42,15 @@ const PedidosProvider = ({children}) =>{
                         imgSrc_produto: item.imgSrc_produto,
                         qt_produto : item.qt_produto++
                     };
+                    setTotal(()=> total+(parseFloat( item.preco_produto.substring(3))))
+                    return obj
                 }
                 return item;
                 
             }) 
             setPedidos([...pedidos]);
         }
+        
     }
 
     const deletePedido = pedido =>{
@@ -60,10 +65,11 @@ const PedidosProvider = ({children}) =>{
            if(pedido.qt_produto === 1){
                 arrayPedidos.splice(indexPedido,1)
                 setPedidos([...arrayPedidos]);
+                setTotal(()=> total-(parseFloat( pedido.preco_produto.substring(3))))
             }else{
                 pedidos.forEach((item) => {
                     if(item.cod_produto === pedido.cod_produto ){
-                        return { 
+                        var obj ={ 
                             cod_produto: item.cod_produto,
                             nome_produto : item.nome_produto,
                             categoria_produto:item.categoria_produto,
@@ -71,6 +77,8 @@ const PedidosProvider = ({children}) =>{
                             imgSrc_produto: item.imgSrc_produto,
                             qt_produto : item.qt_produto--
                         };
+                        setTotal(()=> total-(parseFloat( item.preco_produto.substring(3))))
+                        return obj
                     }
                     return item;
                     
@@ -127,7 +135,7 @@ const PedidosProvider = ({children}) =>{
 
 
     return(
-        <ContextlistaDePedidos.Provider value={{pedidos,addPedido,deletePedido, categoria,menu}} >
+        <ContextlistaDePedidos.Provider value={{pedidos,addPedido,deletePedido, categoria,menu,total}} >
             {children}            
         </ContextlistaDePedidos.Provider>
     )

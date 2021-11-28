@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ContextlistaDePedidos } from "../../ListMenuItems";
 
 const ModalPedido = () => {
-  const { pedidos, deletePedido } = useContext(ContextlistaDePedidos);
+  const { pedidos, deletePedido ,total } = useContext(ContextlistaDePedidos);
 
   const MenuActive = () => {
     let arrowRot = document.getElementById("active");
@@ -29,7 +29,10 @@ const ModalPedido = () => {
             </button>
           </li>
         ))}
+
+        <li><h4>Total:</h4> <p>R$ {total}</p> </li>
       </ul>
+
     </div>
   );
 };

@@ -39,7 +39,6 @@ function ModalEditCategora({ onClose = () => {} }) {
   }, []);
 
   function editItem (categoria) {
-    console.log(categoria);
     setData(categoria);
     setToggleModalData(true);
   };

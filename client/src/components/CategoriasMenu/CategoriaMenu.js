@@ -10,7 +10,7 @@ function CategoriaMenu() {
     <div className="all">
       { categoria.map((categoria) =>(
             <Fragment key={categoria.cod_categoria}> 
-            <h1>{categoria.nome_categoria}</h1>
+            <h2>{categoria.nome_categoria}</h2>
 
             {menu.filter((item) => item.cod_categoria === categoria.cod_categoria).map(item => (<ItemMenu
                 key={item.cod_produto}
