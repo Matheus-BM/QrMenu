@@ -8,6 +8,12 @@ function QrCodeMenu() {
 
   const user = getUser();
 
+  function printImg() {
+    var win = window.open('');
+    win.document.write('<img src="' + `https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://QrMenus.pt/${user.nomeRestaurante}` + '" onload="window.print();window.close()" />');
+    win.focus();
+  }
+
   return (
     <div>
       <div id="logo"></div>
@@ -17,7 +23,7 @@ function QrCodeMenu() {
           <h3 id="subtitle">Seu link : https://QrMenus.pt/{user.nomeRestaurante} </h3>
         </Link>
         <img src={`https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://QrMenus.pt/${user.nomeRestaurante}`} alt="qrcode carregando.."/>
-        <button id="button-gerarqr">Baixe seu QrCode</button>
+        <button id="button-gerarqr" onClick={()=> printImg()}>Imprima seu QrCode</button>
       </div>
       <Sidebar />
     </div>

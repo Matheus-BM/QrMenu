@@ -244,7 +244,7 @@ app.post('/api/addCategoria', async (req,res)=>{
 
         const idCardapio = await client.query("SELECT cod_cardapio from restaurante where cod_restaurante =$1",[idRestaurante])
 
-        const categoria = await client.query("SELECT nome_categoria from categoria where nome_categoria= $1",[nomeCategoria])
+        const categoria = await client.query("SELECT nome_categoria from categoria where nome_categoria= $1 and cod_cardapio=$2",[nomeCategoria,idCardapio.rows[0].cod_cardapio])
         
         if(categoria.rows[0]){
            return res.status(400).json({
@@ -271,9 +271,9 @@ app.post('/api/addItem', async (req,res)=>{
 
         // console.log(`Categoria : ${nomeCategoria} \nNome Item: ${nomeItem}\nDesc ${descItem}\nPreço ${precoItem}`)
 
-        const categoria = await client.query("SELECT cod_categoria from categoria where nome_categoria= $1",[nomeCategoria])
+        const categoria = await client.query("SELECT cod_categoria from categoria where nome_categoria= $1 ",[nomeCategoria])
         
-        const produto = await client.query("SELECT * from produto where nome_produto = $1",[nomeItem])
+        const produto = await client.query("SELECT * from produto where nome_produto = $1 and cod_categoria = $2 ",[nomeItem,categoria.rows[0].cod_categoria])
 
         if(produto.rows[0]){
            return res.status(400).json({
