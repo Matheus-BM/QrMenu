@@ -102,7 +102,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       <a href="#">
         <img src="https://i.imgur.com/GlpDxZp.jpeg" width="100px;" alt="Foto da Julia"/><br>
         <sub>
-          <b>Julia Valu</b>
+          <b>Júlia Valu</b>
         </sub>
       </a>
     </td>
