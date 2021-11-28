@@ -16,10 +16,12 @@
   align-items: center;
   border-radius: 15px;
   width: 600px;
-  height: 400px;
+  height: 300px;
+  max-height: 300px;
   margin-left: 12%;
   border: 5px solid black;
   justify-content: space-around;
+  overflow-y: auto;
 }
 
 .category .h2 {
@@ -35,7 +37,12 @@
   width: 100%;
   justify-content: space-between;
 }
-
+.category:last-of-type{
+  padding-bottom: 20px;
+}
+.category:first-of-type{
+  margin-top: 20px;
+}
 
 .categories {
   width: 100%;
