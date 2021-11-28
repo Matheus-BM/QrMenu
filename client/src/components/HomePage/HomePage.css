@@ -1,7 +1,7 @@
 .home {
   display: flex;
   flex-direction: row;
-  height: 80vh;
+  height: 100vh;
   justify-content: space-around;
   align-items: center;
   
@@ -51,9 +51,9 @@
   background-image: url(../../img/Background_1.png);
   background-position: top left;
   z-index: -5;
-  margin-top: -100px;
+
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   margin-right:  -400px;
   margin-left:  -200px;
   max-width: 1444px;
