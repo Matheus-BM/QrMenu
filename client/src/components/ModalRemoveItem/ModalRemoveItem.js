@@ -14,6 +14,8 @@ function ModalRemoveCategora({ onClose = () => {} }) {
 
   const user = getUser();
   const nomeRestaurante = user.nomeRestaurante;
+  const [categoria,setCategoria] =useState([]);
+  var itemCtg ='';
 
   const ModalActive = () => {
     let modal = document.querySelector(".modal");
@@ -25,6 +27,12 @@ function ModalRemoveCategora({ onClose = () => {} }) {
     axios
       .get(`${baseURL}${nomeRestaurante}`)
       .then((res) => setItem(res.data)).catch(e => console.log(e));
+
+      axios
+      .get(`${baseURL}${nomeRestaurante}/categoria`, {
+        cod_restaurante: user.idRestaurante,
+      })
+      .then((res) => setCategoria(res.data)).catch(e => console.log(e));;  
   };
 
   const ModalDesactive = () => {
@@ -44,6 +52,14 @@ function ModalRemoveCategora({ onClose = () => {} }) {
       .then(onClose());
   };
 
+  function getCategoria(cod_categoria){
+    categoria.forEach(ctg => {
+      if(ctg.cod_categoria === cod_categoria){
+      itemCtg = ctg.nome_categoria;
+    }
+  } )
+  }
+
   return (
     <div>
       <div className="fundin">
@@ -54,7 +70,8 @@ function ModalRemoveCategora({ onClose = () => {} }) {
             <div className="categories">
               {item.map((item, id) => (
                 <div className="category" key={id++}>
-                  <h2 className="h2">{item.nome_produto}</h2>
+                 {getCategoria(item.cod_categoria)}
+                  <h2 className="h2">  {`${item.nome_produto} - ${itemCtg} `} </h2>
                   <div
                     className="emoji-side-trash"
                     onClick={() => deleteItem(item.cod_produto)}
