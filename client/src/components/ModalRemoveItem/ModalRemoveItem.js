@@ -24,7 +24,7 @@ function ModalRemoveCategora({ onClose = () => {} }) {
 
     axios
       .get(`${baseURL}${nomeRestaurante}`)
-      .then((res) => setItem(res.data));
+      .then((res) => setItem(res.data)).catch(e => console.log(e));
   };
 
   const ModalDesactive = () => {

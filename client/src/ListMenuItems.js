@@ -94,8 +94,9 @@ const PedidosProvider = ({children}) =>{
     function getItens() {
         try {
             
-            axios.get(`${baseURL}${nomeRestaurante}`).then((res) => setMenu(res.data));
+            axios.get(`${baseURL}${nomeRestaurante}`).then((res) => setMenu(res.data)).catch(e => console.log(e));
             axios.get(`${baseURL}${nomeRestaurante}/categoria`).then( response => setCategoria(response.data) )
+            .catch(e => console.log(e));
         } catch (error) {
             console.log(error)
         }

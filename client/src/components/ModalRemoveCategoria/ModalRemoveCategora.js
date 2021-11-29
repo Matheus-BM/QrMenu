@@ -26,7 +26,7 @@ function ModalRemoveCategora({ onClose = () => {} }) {
       .get(`${baseURL}${nomeRestaurante}/categoria`, {
         cod_restaurante: user.idRestaurante,
       })
-      .then((res) => setCategoria(res.data));
+      .then((res) => setCategoria(res.data)).catch(e => console.log(e));
   };
 
   const ModalDesactive = () => {
