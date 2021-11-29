@@ -9,6 +9,7 @@ function ModalEditCategora({ onClose = () => {} }) {
   const [item, setItem] = useState([]);
   const [data, setData] = useState();
   const [toggleModalData, setToggleModalData] = useState(false)
+  const [categoria,setCategoria] =useState([]);
 
   const user = getUser();
   const nomeRestaurante = user.nomeRestaurante;
@@ -22,7 +23,13 @@ function ModalEditCategora({ onClose = () => {} }) {
 
     axios
       .get(`${baseURL}${nomeRestaurante}`)
-      .then((res) => setItem(res.data)).catch(e => console.log(e));;
+      .then((res) => setItem(res.data)).catch(e => console.log(e));
+
+      axios
+      .get(`${baseURL}${nomeRestaurante}/categoria`, {
+        cod_restaurante: user.idRestaurante,
+      })
+      .then((res) => setCategoria(res.data)).catch(e => console.log(e));;
   };
 
   const ModalDesactive = () => {
@@ -43,6 +50,15 @@ function ModalEditCategora({ onClose = () => {} }) {
     setToggleModalData(true);
   };
 
+  function getCategoria(cod_categoria){
+    categoria.forEach(ctg => {
+      if(ctg.cod_categoria === cod_categoria){
+      return ctg.nome_categoria
+      }
+      return ""
+    } )
+  }
+
   return (
     <div>
       { toggleModalData?<ModalEditItemData onClose={() => {setToggleModalData(false); ModalDesactive() }} data={data}/>:
@@ -54,7 +70,7 @@ function ModalEditCategora({ onClose = () => {} }) {
             <div className="categories">
               {item.map((item, id) => (
                 <div className="category" key={id++}>
-                  <h2 className="h2">{item.nome_produto}</h2>
+                  <h2 className="h2">{`${item.nome_produto} - ${getCategoria(item.cod_categoria)}`}</h2>
                   <div
                     className="emoji-side"
                     onClick={() => editItem(item)}
