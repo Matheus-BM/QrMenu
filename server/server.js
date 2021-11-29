@@ -242,7 +242,8 @@ app.post('/api/addCategoria', async (req,res)=>{
         const priority =req.body.priority;
         const idRestaurante = req.body.idRestaurante
 
-        if(!nomeCategoria){
+        console.log(nomeCategoria)
+        if(nomeCategoria === ""){
             return res.status(400).json({
                 error:true,
                 msg:"Escolha um nome"
