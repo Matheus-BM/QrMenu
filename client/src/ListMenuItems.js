@@ -55,11 +55,7 @@ const PedidosProvider = ({children}) =>{
   
     const {nomeRestaurante} = useParams();
 
-    useEffect(() => {           
-        getItens();
-     
-    // eslint-disable-next-line
-    }, [])
+    getItens();
 
     const deletePedido = pedido =>{
 
