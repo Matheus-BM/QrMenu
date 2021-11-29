@@ -78,7 +78,7 @@ function ModalEditItemData({ onClose = () => {},data }) {
                   className="price-item"
                   placeholder="Preço"
                   type="number"
-                  defaultValue={parseFloat( data.preco_produto.substring(2))}
+                  defaultValue={parseFloat( data.preco_produto.substring(1))}
                   onChange={(e) => setPrecoItem(e.target.value)}
                   required
                 />
