@@ -9,6 +9,9 @@ const PedidosProvider = ({children}) =>{
 
     const [pedidos, setPedidos] = useState([]);
     const [total, setTotal] = useState(0);
+    const [menu, setMenu] = useState([])
+    const [categoria , setCategoria ] = useState([]);
+    const {nomeRestaurante} = useParams();
 
     const addPedido = pedido => {
 
@@ -49,13 +52,6 @@ const PedidosProvider = ({children}) =>{
         }
         
     }
-    const [menu, setMenu] = useState([])
-
-    const [categoria , setCategoria ] = useState([]);
-  
-    const {nomeRestaurante} = useParams();
-
-    getItens();
 
     const deletePedido = pedido =>{
 
@@ -96,9 +92,23 @@ const PedidosProvider = ({children}) =>{
 
 
     function getItens() {
-        axios.get(`${baseURL}${nomeRestaurante}`).then((res) => setMenu(res.data));
-        axios.get(`${baseURL}${nomeRestaurante}/categoria`).then( response => setCategoria(response.data) )
-    }
+        try {
+            
+            axios.get(`${baseURL}${nomeRestaurante}`).then((res) => setMenu(res.data));
+            axios.get(`${baseURL}${nomeRestaurante}/categoria`).then( response => setCategoria(response.data) )
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    useEffect(() => {
+        
+        getItens();
+        return () => {
+            
+        }
+     //// eslint-disable-next-line   
+    }, [])
 
     return(
         <ContextlistaDePedidos.Provider value={{pedidos,addPedido,deletePedido, categoria,menu,total}} >
