@@ -34,17 +34,42 @@ function ModalEditItemData({ onClose = () => {},data }) {
   const [descItem, setDescItem] = useState(data.descricao_produto);
   const [precoItem, setPrecoItem] = useState(data.preco_produto);
 
-  const handleSubmit = () => {
-    axios
-      .post(`${baseURL}EditItem`, {
-        cod_categoria: codCategoria,
-        nomeItem: nomeItem,
-        descItem:descItem,
-        precoItem:precoItem,
-        cod_produto:data.cod_produto
-      })
-      .then(ModalDesactive());
+  const handleSubmit = async () => {
+
+    try {
+      await axios
+        .post(`${baseURL}EditItem`, {
+          cod_categoria: codCategoria,
+          nomeItem: nomeItem,
+          descItem:descItem,
+          precoItem:precoItem,
+          cod_produto:data.cod_produto
+        })
+        ModalDesactive()
+      
+    } catch (error) { 
+      openAlert(error.response.data.msg)
+      
+    }
+
   };
+
+  
+  function openAlert(msg){
+ 
+    document.querySelector('.alert').classList.add("show");
+    document.querySelector('.alert').classList.remove("hide");
+    document.querySelector('.alert').classList.add("showAlert");
+    document.querySelector('.msg').textContent = msg
+  
+  }
+
+  function closeAlert(){
+    document.querySelector('.close-btn')
+    document.querySelector('.alert').classList.remove("show");
+    document.querySelector('.alert').classList.add("hide");
+    
+  }
 
   return (
     <div>
@@ -103,6 +128,13 @@ function ModalEditItemData({ onClose = () => {},data }) {
             </form>
           </div>
         </div>
+      </div>
+      <div className="alert hide">
+         <span className="fas fa-exclamation-circle"></span>
+         <span className="msg">Warning: This is a warning alert!</span>
+         <div className="close-btn" onClick={()=> closeAlert()}>
+            <span className="fas fa-times"></span>
+         </div>
       </div>
     </div>
   );

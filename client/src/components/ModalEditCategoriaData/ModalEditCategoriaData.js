@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { baseURL } from "../../apis/MenuFetcher";
+import { getUser } from "../../utils/Common";
 
 
 function Modal({ onClose = () => {},data }) {
@@ -17,21 +18,45 @@ function Modal({ onClose = () => {},data }) {
   }, []);
 
   const ModalDesactive = () => {
+    
 
     onClose();
   };
 
   const [nomeCategoria, setNomeCategoria] = useState(data.nome_categoria);
+  const user = getUser();
+  const idRestaurante = user.idRestaurante;
   
 
-  const handleSubmit = () => {
-    axios
+  const handleSubmit = async () => {
+    try {
+      await axios
       .post(`${baseURL}editCategoria`, {
         nomeCategoria: nomeCategoria,
-        cod_categoria: data.cod_categoria
+        cod_categoria: data.cod_categoria,
+        idRestaurante: idRestaurante
       })
-      .then(ModalDesactive());
+      onClose()
+      
+    } catch (error) {
+      openAlert(error.response.data.msg)
+    }
   };
+
+  function openAlert(msg){
+    document.querySelector('.alert').classList.add("show");
+    document.querySelector('.alert').classList.remove("hide");
+    document.querySelector('.alert').classList.add("showAlert");
+    document.querySelector('.msg').textContent = msg
+
+  }
+
+  function closeAlert(){
+    document.querySelector('.close-btn')
+    document.querySelector('.alert').classList.remove("show");
+    document.querySelector('.alert').classList.add("hide");
+    
+  }
 
   return (
     <div>
@@ -70,6 +95,13 @@ function Modal({ onClose = () => {},data }) {
             </form>
           </div>
         </div>
+      </div>
+      <div className="alert hide">
+         <span className="fas fa-exclamation-circle"></span>
+         <span className="msg">Warning: This is a warning alert!</span>
+         <div className="close-btn" onClick={()=> closeAlert()}>
+            <span className="fas fa-times"></span>
+         </div>
       </div>
     </div>
   );

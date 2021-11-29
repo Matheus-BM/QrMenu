@@ -40,16 +40,38 @@ function Modal({ onClose = () => {} }) {
   const [descItem, setDescItem] = useState("");
   const [precoItem, setPrecoItem] = useState("");
 
-  const handleSubmit = () => {
-    axios
-      .post(`${baseURL}addItem`, {
-        nomeCategoria: nomeCategoria,
-        nomeItem: nomeItem,
-        descItem:descItem,
-        precoItem:precoItem
-      })
-      .then(ModalDesactive());
+  const handleSubmit = async () => {
+     try {
+     await axios
+        .post(`${baseURL}addItem`, {
+          nomeCategoria: nomeCategoria,
+          nomeItem: nomeItem,
+          descItem:descItem,
+          precoItem:precoItem
+        })
+        ModalDesactive();
+      
+    } catch (error) {
+      openAlert(error.response.data.msg);
+    }
   };
+
+
+  
+  function openAlert(msg){
+    document.querySelector('.alert').classList.add("show");
+    document.querySelector('.alert').classList.remove("hide");
+    document.querySelector('.alert').classList.add("showAlert");
+    document.querySelector('.msg').textContent = msg
+
+  }
+
+  function closeAlert(){
+    document.querySelector('.close-btn')
+    document.querySelector('.alert').classList.remove("show");
+    document.querySelector('.alert').classList.add("hide");
+    
+  }
 
   return (
     <div>
@@ -104,6 +126,13 @@ function Modal({ onClose = () => {} }) {
             </form>
           </div>
         </div>
+      </div>
+      <div className="alert hide">
+         <span className="fas fa-exclamation-circle"></span>
+         <span className="msg">Warning: This is a warning alert!</span>
+         <div className="close-btn" onClick={()=> closeAlert()}>
+            <span className="fas fa-times"></span>
+         </div>
       </div>
     </div>
   );

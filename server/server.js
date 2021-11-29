@@ -242,6 +242,20 @@ app.post('/api/addCategoria', async (req,res)=>{
         const priority =req.body.priority;
         const idRestaurante = req.body.idRestaurante
 
+        if(!nomeCategoria){
+            return res.status(400).json({
+                error:true,
+                msg:"Escolha um nome"
+            })
+        }
+
+        if(nomeCategoria.length>50){
+            return res.status(400).json({
+                error:true,
+                msg:"Nome só pode ter até 50 Caracteres"
+            })
+        }
+
         const idCardapio = await client.query("SELECT cod_cardapio from restaurante where cod_restaurante =$1",[idRestaurante])
 
         const categoria = await client.query("SELECT nome_categoria from categoria where nome_categoria= $1 and cod_cardapio=$2",[nomeCategoria,idCardapio.rows[0].cod_cardapio])
@@ -254,7 +268,10 @@ app.post('/api/addCategoria', async (req,res)=>{
         }
         await client.query("INSERT INTO categoria (nome_categoria,prioridade_categoria,cod_cardapio) values ($1,$2,$3) ",[nomeCategoria,priority,idCardapio.rows[0].cod_cardapio]);
 
-        return 
+        return res.status(200).json({
+            error:false,
+            msg:"Categoria cadastrada com sucesso"
+        })
     }catch(e){
         console.log(e)
     }
@@ -268,6 +285,33 @@ app.post('/api/addItem', async (req,res)=>{
         const nomeItem = req.body.nomeItem;
         const descItem = req.body.descItem;
         const precoItem = req.body.precoItem;
+
+        if(!nomeCategoria||!nomeItem||!descItem||!precoItem){
+            return res.status(400).json({
+                error:true,
+                msg:"Preencha todos os campos"
+            })
+        }
+
+        if(descItem.length>100){
+            return res.status(400).json({
+                error:true,
+                msg:"Descrição só pode ter até 100 Caracteres"
+            })
+        }
+
+        if(nomeItem.length>50){
+            return res.status(400).json({
+                error:true,
+                msg:"Nome só pode ter até 50 Caracteres"
+            })
+        }
+        if(precoItem >= 1000){
+            return res.status(400).json({
+                error:true,
+                msg:"A versão beta do sistema só aceita preços de até 1000"
+            })
+        }
 
         // console.log(`Categoria : ${nomeCategoria} \nNome Item: ${nomeItem}\nDesc ${descItem}\nPreço ${precoItem}`)
 
@@ -283,7 +327,10 @@ app.post('/api/addItem', async (req,res)=>{
         }
         await client.query("INSERT INTO produto (nome_produto,descricao_produto,preco_produto,cod_categoria) values ($1,$2,$3,$4) ",[nomeItem,descItem,precoItem,categoria.rows[0].cod_categoria]);
 
-        return 
+        return res.status(200).json({
+            error:false,
+            msg:"Item cadastrado com sucesso"
+        })
     }catch(e){
         console.log(e)
     }
@@ -310,8 +357,51 @@ app.post('/api/editItem',async(req,res)=>{
     const precoItem = req.body.precoItem;
 try{
 
+
+    
+    if(!cod_categoria||!nomeItem||!descItem||!precoItem){
+        return res.status(400).json({
+            error:true,
+            msg:"Preencha todos os campos"
+        })
+    }
+
+    if(descItem.length>100){
+        return res.status(400).json({
+            error:true,
+            msg:"Descrição só pode ter até 100 Caracteres"
+        })
+    }
+
+    if(nomeItem.length>50){
+        return res.status(400).json({
+            error:true,
+            msg:"Nome só pode ter até 50 Caracteres"
+        })
+    }
+    if(precoItem >= 1000){
+        return res.status(400).json({
+            error:true,
+            msg:"A versão beta do sistema só aceita preços de até 1000"
+        })
+    }
+        
+    const produto = await client.query("SELECT * from produto where nome_produto = $1 and cod_categoria = $2 ",[nomeItem,cod_categoria])
+
+    if(produto.rows[0]){
+       return res.status(400).json({
+            error:true,
+            msg:"Item já castrado"
+        })
+    }
+
     await client.query("UPDATE produto SET nome_produto = $1 ,descricao_produto = $2,preco_produto = $3,cod_categoria = $4 where cod_produto = $5",
     [nomeItem,descItem,precoItem,cod_categoria,cod_produto])
+
+    return res.status(200).json({
+        error:false,
+        msg:"Item editado com sucesso"
+    })
 }catch (e){
     console.log(e)
 }
@@ -319,13 +409,39 @@ try{
 
 //Edit categoria
 app.post('/api/editCategoria',async(req,res)=>{
+
     const cod_categoria =req.body.cod_categoria;
     const nome_categoria = req.body.nomeCategoria;
+    const idRestaurante = req.body.idRestaurante
+    try{
+
+        if(nome_categoria.length>50){
+            return res.status(400).json({
+                error:true,
+                msg:"Nome só pode ter até 50 Caracteres"
+            })
+        }
+
+    const idCardapio = await client.query("SELECT cod_cardapio from restaurante where cod_restaurante =$1",[idRestaurante])
+
+    const categoria = await client.query("SELECT nome_categoria from categoria where nome_categoria= $1 and cod_cardapio=$2",[nome_categoria,idCardapio.rows[0].cod_cardapio])
+    
+    if(categoria.rows[0]){
+       return res.status(400).json({
+            error:true,
+            msg:"Categoria já castrada"
+        })
+    }
 
 
-try{
+
     await client.query("UPDATE categoria SET nome_categoria = $1 where cod_categoria= $2"
    , [ nome_categoria, cod_categoria])
+
+   return res.status(200).json({
+    error:false,
+    msg:"Categoria editada com sucesso"
+})
 }catch (e){
     console.log(e)
 }
