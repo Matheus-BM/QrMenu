@@ -28,7 +28,7 @@ const PedidosProvider = ({children}) =>{
 
         if (pedidos.find(item => item.cod_produto === pedido.cod_produto) === undefined){
             setPedidos([...pedidos,newPedido]);
-            setTotal(()=> total+(parseFloat( newPedido.preco_produto.substring(3))))
+            setTotal(()=> total+(parseFloat( newPedido.preco_produto.substring(1))))
         }else{
              pedidos.forEach((item) => {
                 if(item.cod_produto === pedido.cod_produto ){
@@ -41,7 +41,7 @@ const PedidosProvider = ({children}) =>{
                         imgSrc_produto: item.imgSrc_produto,
                         qt_produto : item.qt_produto++
                     };
-                    setTotal(()=> total+(parseFloat( item.preco_produto.substring(3))))
+                    setTotal(()=> total+(parseFloat( item.preco_produto.substring(1))))
                     return obj
                 }
                 return item;
@@ -65,6 +65,7 @@ const PedidosProvider = ({children}) =>{
                 arrayPedidos.splice(indexPedido,1)
                 setPedidos([...arrayPedidos]);
                 setTotal(()=> total-(parseFloat( pedido.preco_produto.substring(1))))
+
             }else{
                 pedidos.forEach((item) => {
                     if(item.cod_produto === pedido.cod_produto ){
