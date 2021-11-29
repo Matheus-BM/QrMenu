@@ -99,39 +99,12 @@ const PedidosProvider = ({children}) =>{
 
     useEffect(() => {
       
-
-        const getMenu = async() =>{
-            try {
-                const response = await axios.get(`${baseURL}${nomeRestaurante}`,{
-                   
-                })
-    
-                setMenu(response.data)
-            } catch (error) {
-                console.log(error.message.data)
-            }
-        }
-         getMenu();
-
-    
+               
+    axios.get(`${baseURL}${nomeRestaurante}`).then((res) => setMenu(res.data));
+    axios.get(`${baseURL}${nomeRestaurante}/categoria`).then( response => setCategoria(response.data) )
 
     }, [nomeRestaurante,idCardapio])
 
-    useEffect(() => {
-        
-        const getCategoria = async() =>{
-            try {
-                const response = await axios.get(`${baseURL}${nomeRestaurante}/categoria`,{
-                  
-                  })
-
-                setCategoria(response.data)
-            } catch (error) {
-                console.log(error.message)
-            }
-        }
-         getCategoria();
-    }, [nomeRestaurante,idCardapio])
 
 
     return(
