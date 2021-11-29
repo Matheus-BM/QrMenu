@@ -1,7 +1,6 @@
 import axios from "axios";
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import { useParams } from "react-router";
-import { useEffect } from "react/cjs/react.development";
 import { baseURL } from "./apis/MenuFetcher";
 export const ContextlistaDePedidos = React.createContext();
 
