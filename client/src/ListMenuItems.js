@@ -100,12 +100,16 @@ const PedidosProvider = ({children}) =>{
     useEffect(() => {
       
                
-    axios.get(`${baseURL}${nomeRestaurante}`).then((res) => setMenu(res.data));
-    axios.get(`${baseURL}${nomeRestaurante}/categoria`).then( response => setCategoria(response.data) )
+        getItens();
+    
+     
+    // eslint-disable-next-line
+    }, [])
 
-    }, [nomeRestaurante,idCardapio])
-
-
+    function getItens() {
+        axios.get(`${baseURL}${nomeRestaurante}`).then((res) => setMenu(res.data));
+        axios.get(`${baseURL}${nomeRestaurante}/categoria`).then( response => setCategoria(response.data) )
+    }
 
     return(
         <ContextlistaDePedidos.Provider value={{pedidos,addPedido,deletePedido, categoria,menu,total}} >
