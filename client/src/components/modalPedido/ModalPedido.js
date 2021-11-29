@@ -30,7 +30,7 @@ const ModalPedido = () => {
           </li>
         ))}
 
-        <li><h4>Total:</h4> <p>R$ {total}</p> </li>
+        <li><h4>Total:</h4> <p>R$ {total.toFixed(2)}</p> </li>
       </ul>
 
     </div>
