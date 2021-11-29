@@ -10,6 +10,7 @@ function ModalEditCategora({ onClose = () => {} }) {
   const [data, setData] = useState();
   const [toggleModalData, setToggleModalData] = useState(false)
   const [categoria,setCategoria] =useState([]);
+  var itemCtg ='';
 
   const user = getUser();
   const nomeRestaurante = user.nomeRestaurante;
@@ -53,10 +54,9 @@ function ModalEditCategora({ onClose = () => {} }) {
   function getCategoria(cod_categoria){
     categoria.forEach(ctg => {
       if(ctg.cod_categoria === cod_categoria){
-      return ctg.nome_categoria
-      }
-      return ""
-    } )
+      itemCtg = ctg.nome_categoria;
+    }
+  } )
   }
 
   return (
@@ -70,7 +70,8 @@ function ModalEditCategora({ onClose = () => {} }) {
             <div className="categories">
               {item.map((item, id) => (
                 <div className="category" key={id++}>
-                  <h2 className="h2">{`${item.nome_produto} - ${getCategoria(item.cod_categoria)}`}</h2>
+                  {getCategoria(item.cod_categoria)}
+                  <h2 className="h2">  {`${item.nome_produto} - ${itemCtg} `} </h2>
                   <div
                     className="emoji-side"
                     onClick={() => editItem(item)}
