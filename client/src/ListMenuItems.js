@@ -3,10 +3,7 @@ import React,{useState} from "react";
 import { useParams } from "react-router";
 import { useEffect } from "react/cjs/react.development";
 import { baseURL } from "./apis/MenuFetcher";
-
-
 export const ContextlistaDePedidos = React.createContext();
-
 
 const PedidosProvider = ({children}) =>{
 
@@ -52,6 +49,17 @@ const PedidosProvider = ({children}) =>{
         }
         
     }
+    const [menu, setMenu] = useState([])
+
+    const [categoria , setCategoria ] = useState([]);
+  
+    const {nomeRestaurante} = useParams();
+
+    useEffect(() => {           
+        getItens();
+     
+    // eslint-disable-next-line
+    }, [])
 
     const deletePedido = pedido =>{
 
@@ -90,21 +98,6 @@ const PedidosProvider = ({children}) =>{
 
     }
 
-    const [menu, setMenu] = useState([])
-
-    const [categoria , setCategoria ] = useState([]);
-  
-    const {nomeRestaurante,idCardapio} = useParams();
-
-
-    useEffect(() => {
-      
-               
-        getItens();
-    
-     
-    // eslint-disable-next-line
-    }, [])
 
     function getItens() {
         axios.get(`${baseURL}${nomeRestaurante}`).then((res) => setMenu(res.data));

@@ -11,6 +11,7 @@ import PedidosProvider from "./ListMenuItems";
 import { CategoriaMenu, ModalPedido, Title } from "./components/index";
 
 
+
 function App() {
   return (
     <Router>
