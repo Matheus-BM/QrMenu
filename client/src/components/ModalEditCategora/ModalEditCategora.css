@@ -16,12 +16,11 @@
   align-items: center;
   border-radius: 15px;
   width: 600px;
-  height: 300px;
-  max-height: 300px;
+  max-height: 400px;
   margin-left: 12%;
   border: 5px solid black;
   justify-content: space-around;
-  overflow-y: auto;
+ 
 }
 
 .category .h2 {
@@ -33,19 +32,17 @@
   display: flex;
   flex-direction: row;
   text-align: center;
-  margin-bottom: 5%;
+  padding: 40px 0 40px 0;
+
   width: 100%;
   justify-content: space-between;
 }
-.category:last-of-type{
-  padding-bottom: 20px;
-}
-.category:first-of-type{
-  margin-top: 20px;
-}
+
 
 .categories {
   width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 @media screen and (max-width: 930px) {

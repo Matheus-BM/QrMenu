@@ -51,13 +51,7 @@ function ModalEditCategora({ onClose = () => {} }) {
     setToggleModalData(true);
   };
 
-  function getCategoria(cod_categoria){
-    categoria.forEach(ctg => {
-      if(ctg.cod_categoria === cod_categoria){
-      itemCtg = ctg.nome_categoria;
-    }
-  } )
-  }
+
 
   return (
     <div>
@@ -68,16 +62,26 @@ function ModalEditCategora({ onClose = () => {} }) {
           <h1 className="title-category">Escolha o Item</h1>
           <fieldset className="field">
             <div className="categories">
-              {item.map((item, id) => (
-                <div className="category" key={id++}>
-                  {getCategoria(item.cod_categoria)}
-                  <h2 className="h2">  {`${item.nome_produto} - ${itemCtg} `} </h2>
-                  <div
-                    className="emoji-side"
-                    onClick={() => editItem(item)}
-                  ></div>
-                </div>
-              ))}
+
+              { categoria.map((categoria) =>(
+                <>
+                 <hr></hr>
+                 <h1>{categoria.nome_categoria}</h1>
+                {
+                  item.filter(item => item.cod_categoria === categoria.cod_categoria).map((item, id) => (
+                  <div className="category" key={id++}>
+                    <h3 className="h2">  {`${item.nome_produto}`} </h3>
+                    <div className="emoji-side"onClick={() => editItem(item)}></div>
+                  </div>
+                  ))
+                }
+
+                </>
+              ))
+              
+              
+              
+              }
             </div>
           </fieldset>
         </div>
