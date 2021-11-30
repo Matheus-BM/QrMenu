@@ -37,6 +37,12 @@ function Modal({ onClose = () => {},data }) {
         idRestaurante: idRestaurante
       })
       onClose()
+      openAlert("Categoria editada")
+      setTimeout(()=>{
+        document.querySelector('.alert#confirm').classList.remove("show");
+        document.querySelector('.alert#confirm').classList.add("hide");
+      },2000);
+     
       
     } catch (error) {
       openAlert(error.response.data.msg)

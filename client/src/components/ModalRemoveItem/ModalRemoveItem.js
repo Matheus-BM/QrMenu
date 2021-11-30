@@ -50,10 +50,22 @@ function ModalRemoveCategora({ onClose = () => {} }) {
       .post(`${baseURL}deleteItem`, {
         cod_produto: codItem,
       })
-      .then(onClose());
+      .then(onClose()).then(
+         openAlert("Item removido")
+       
+      ).then( setTimeout(()=>{
+        document.querySelector('.alert#confirm').classList.remove("show");
+        document.querySelector('.alert#confirm').classList.add("hide");
+      },2000));
   };
 
+  function openAlert(msg){
+    document.querySelector('.alert').classList.add("show");
+    document.querySelector('.alert').classList.remove("hide");
+    document.querySelector('.alert').classList.add("showAlert");
+    document.querySelector('.msg').textContent = msg
 
+  }
 
   return (
     <div>

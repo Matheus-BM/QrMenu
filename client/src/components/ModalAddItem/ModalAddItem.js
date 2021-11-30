@@ -50,6 +50,11 @@ function Modal({ onClose = () => {} }) {
           precoItem:precoItem
         })
         ModalDesactive();
+        openAlert("Item adionado")
+        setTimeout(()=>{
+          document.querySelector('.alert#confirm').classList.remove("show");
+          document.querySelector('.alert#confirm').classList.add("hide");
+        },2000);
       
     } catch (error) {
       openAlert(error.response.data.msg);

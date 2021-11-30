@@ -41,8 +41,14 @@ function Modal({ onClose = () => {} }) {
           priority: priority,
           idRestaurante: idRestaurante,
         })
-      
+        
         ModalDesactive()
+        openAlert("Categoria adionada")
+        setTimeout(()=>{
+          document.querySelector('.alert#confirm').classList.remove("show");
+          document.querySelector('.alert#confirm').classList.add("hide");
+        },2000);
+       
       
     } catch (error) {
       openAlert(error.response.data.msg)

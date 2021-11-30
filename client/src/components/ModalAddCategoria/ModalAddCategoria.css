@@ -93,7 +93,7 @@
 .alert{
   background: #ffdb9b;
   padding: 20px 40px;
-  min-width: 420px;
+  min-width: 300px;
   position: absolute;
   right: 0;
   top: 10px;
@@ -174,6 +174,11 @@
 
 
 @media screen and (max-width: 930px) {
+  .alert{
+    position: fixed;
+    min-width: 0px;
+    
+  }
 
   .name-category{
     width: 200px;

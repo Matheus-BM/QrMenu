@@ -17,7 +17,22 @@ function CreateMenu() {
   const [toggleDeleteItem, setToggleDeleteItem] = useState(false);
 
 
- 
+  function openAlert(msg){
+    document.querySelector('.alert').classList.add("show");
+    document.querySelector('.alert').classList.remove("hide");
+    document.querySelector('.alert').classList.add("showAlert");
+    document.querySelector('.msg').textContent = msg
+
+   
+
+  }
+
+  function closeAlert(){
+    document.querySelector('.close-btn')
+    document.querySelector('.alert').classList.remove("show");
+    document.querySelector('.alert').classList.add("hide");
+    
+  }
 
   return (
     <div id="main">
@@ -73,7 +88,7 @@ function CreateMenu() {
         </div>
       </fieldset>
       {toggleModal ? (
-        <ModalAddCategoria onClose={() => setToggleModal(false)} />
+        <ModalAddCategoria onClose={() => {setToggleModal(false); }} />
       ) : null}
       {toggleEditCategoria ? (
         <ModalEditCategora onClose={() => setToggleEditCategoria(false)} />
@@ -92,6 +107,14 @@ function CreateMenu() {
         <ModalRemoveItem onClose={() => setToggleDeleteItem(false)} />
       ) : null}
 
+
+    <div className="alert hide" id="confirm">
+         <span className="fas fa-check-circle" id="confirm"></span>
+         <span className="msg" id="confirm">Warning: This is a warning alert!</span>
+         <div className="close-btn" onClick={()=> closeAlert()} id="confirm">
+            <span className="fas fa-times" id="confirm"></span>
+         </div>
+      </div>
       
     </div>
   );

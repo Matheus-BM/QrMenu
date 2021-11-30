@@ -46,6 +46,11 @@ function ModalEditItemData({ onClose = () => {},data }) {
           cod_produto:data.cod_produto
         })
         ModalDesactive()
+        openAlert("Item editado")
+        setTimeout(()=>{
+          document.querySelector('.alert#confirm').classList.remove("show");
+          document.querySelector('.alert#confirm').classList.add("hide");
+        },2000);
       
     } catch (error) { 
       openAlert(error.response.data.msg)
