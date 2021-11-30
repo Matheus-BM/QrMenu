@@ -31,3 +31,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+::-webkit-scrollbar{
+  background-color: rgb(240, 240, 240);
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgb(216, 216, 216);
+  border-radius: 20px;
+}

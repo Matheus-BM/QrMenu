@@ -1,5 +1,6 @@
 import React from "react";
 import "./ThirdPage.css";
+import {Link} from "react-router-dom"
 
 function ThirdPage() {
   return (
@@ -11,8 +12,8 @@ function ThirdPage() {
           <h1>QrMenu é gratuito</h1>
         </div>
         <div id="buttons">
-          <button id="btn1">Comece Agora</button>
-          <button id="btn2">Login</button>
+          <Link to="/auth"> <button id="btn1">Comece Agora</button> </Link>
+          <Link to="/auth">  <button id="btn2">Login</button></Link>
         </div>
       </div>
     </div>
