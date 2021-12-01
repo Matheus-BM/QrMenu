@@ -47,7 +47,8 @@ function Modal({ onClose = () => {} }) {
           nomeCategoria: nomeCategoria,
           nomeItem: nomeItem,
           descItem:descItem,
-          precoItem:precoItem
+          precoItem:precoItem,
+          nomeRestaurante:user.nomeRestaurante
         })
         ModalDesactive();
         openAlert("Item adionado")

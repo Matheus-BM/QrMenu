@@ -82,13 +82,15 @@ app.post("/api/register", async (req,res)=>{
     const uniqueEmail = usersArray.find((user) => user.email_gerente === email );
 
 
-    
+    const nomeRestauranteJaCadastrado = await client.query("SELECT nome_restaurante from restaurante where nome_restaurante = $1",[nomeRestaurante]);
 
 
-    if( uniqueEmail === undefined){
+    if( nomeRestauranteJaCadastrado.rows[0] === undefined ){
+
+    if( uniqueEmail === undefined  ){
         await client.query("INSERT INTO gerente (nome_gerente, sobrenome_gerente,email_gerente , senha_gerente) values ($1,$2,$3,$4) ",[nome,sobrenome,email,password])
         
-        var cod_gerente = await client.query("SELECT cod_gerente FROM gerente where nome_gerente = $1",[nome])
+        var cod_gerente = await client.query("SELECT cod_gerente FROM gerente where email_gerente = $1",[email])
         cod_gerente = cod_gerente.rows[0].cod_gerente;
 
         var cod_cardapio = await client.query("SELECT MAX(cod_cardapio) FROM cardapio");
@@ -122,6 +124,12 @@ app.post("/api/register", async (req,res)=>{
         const userObj = utils.getCleanUser(user);
         return res.status(200).json({user: userObj, token});
         
+    }
+    }else{
+        return res.status(401).json({
+            error:true,
+            message: "Nome do restaurante indisponivel."
+        })
     }
 
     return res.status(401).json({
@@ -257,9 +265,7 @@ app.post('/api/addCategoria', async (req,res)=>{
             })
         }
 
-        const idCardapio = await client.query("SELECT cod_cardapio from restaurante where cod_restaurante =$1",[idRestaurante])
-
-        const categoria = await client.query("SELECT nome_categoria from categoria where nome_categoria= $1 and cod_cardapio=$2",[nomeCategoria,idCardapio.rows[0].cod_cardapio])
+        const categoria = await client.query("SELECT nome_categoria from categoria INNER JOIN restaurante as r ON r.cod_restaurante = $2 WHERE nome_categoria= $1 and categoria.cod_cardapio= r.cod_cardapio",[nomeCategoria,idRestaurante])
         
         if(categoria.rows[0]){
            return res.status(400).json({
@@ -267,7 +273,7 @@ app.post('/api/addCategoria', async (req,res)=>{
                 msg:"Categoria já castrada"
             })
         }
-        await client.query("INSERT INTO categoria (nome_categoria,prioridade_categoria,cod_cardapio) values ($1,$2,$3) ",[nomeCategoria,priority,idCardapio.rows[0].cod_cardapio]);
+        await client.query("INSERT INTO categoria (nome_categoria,prioridade_categoria,cod_cardapio) values ($1,$2,(SELECT cod_cardapio from restaurante where cod_restaurante = $3)) ",[nomeCategoria,priority,idRestaurante]);
 
         return res.status(200).json({
             error:false,
@@ -286,6 +292,7 @@ app.post('/api/addItem', async (req,res)=>{
         const nomeItem = req.body.nomeItem;
         const descItem = req.body.descItem;
         const precoItem = req.body.precoItem;
+        const nomeRestaurante = req.body.nomeRestaurante;
 
         if(!nomeCategoria||!nomeItem||!descItem||!precoItem){
             return res.status(400).json({
@@ -314,11 +321,10 @@ app.post('/api/addItem', async (req,res)=>{
             })
         }
 
-        // console.log(`Categoria : ${nomeCategoria} \nNome Item: ${nomeItem}\nDesc ${descItem}\nPreço ${precoItem}`)
 
-        const categoria = await client.query("SELECT cod_categoria from categoria where nome_categoria= $1 ",[nomeCategoria])
         
-        const produto = await client.query("SELECT * from produto where nome_produto = $1 and cod_categoria = $2 ",[nomeItem,categoria.rows[0].cod_categoria])
+        
+        const produto = await client.query("SELECT nome_produto FROM produto INNER JOIN categoria ON categoria.nome_categoria = $1 WHERE produto.cod_categoria = categoria.cod_categoria and  nome_produto = $2",[nomeCategoria,nomeItem])
 
         if(produto.rows[0]){
            return res.status(400).json({
@@ -326,7 +332,7 @@ app.post('/api/addItem', async (req,res)=>{
                 msg:"Item já castrado"
             })
         }
-        await client.query("INSERT INTO produto (nome_produto,descricao_produto,preco_produto,cod_categoria) values ($1,$2,$3,$4) ",[nomeItem,descItem,precoItem,categoria.rows[0].cod_categoria]);
+        await client.query("INSERT INTO produto (nome_produto,descricao_produto,preco_produto,cod_categoria) values ($1,$2,$3,(SELECT cod_categoria from categoria INNER JOIN restaurante AS res ON res.nome_restaurante= $5 where nome_categoria = $4 and categoria.cod_cardapio = res.cod_cardapio )) ",[nomeItem,descItem,precoItem,nomeCategoria,nomeRestaurante]);
 
         return res.status(200).json({
             error:false,
@@ -413,7 +419,7 @@ app.post('/api/editCategoria',async(req,res)=>{
 
     const cod_categoria =req.body.cod_categoria;
     const nome_categoria = req.body.nomeCategoria;
-    const idRestaurante = req.body.idRestaurante
+    const id_restaurante = req.body.idRestaurante
     try{
 
         if(nome_categoria.length>50){
@@ -423,9 +429,8 @@ app.post('/api/editCategoria',async(req,res)=>{
             })
         }
 
-    const idCardapio = await client.query("SELECT cod_cardapio from restaurante where cod_restaurante =$1",[idRestaurante])
 
-    const categoria = await client.query("SELECT nome_categoria from categoria where nome_categoria= $1 and cod_cardapio=$2",[nome_categoria,idCardapio.rows[0].cod_cardapio])
+    const categoria = await client.query("SELECT nome_categoria from categoria INNER JOIN restaurante ON restaurante.cod_restaurante = $2 where nome_categoria = $1 and categoria.cod_cardapio = restaurante.cod_cardapio",[nome_categoria,id_restaurante])
     
     if(categoria.rows[0]){
        return res.status(400).json({
@@ -458,28 +463,11 @@ app.get("/api/:nomeRestaurante", async (req,res) =>{
 
         const {nomeRestaurante} =req.params
 
-        var idCardapio = await client.query('SELECT cod_cardapio FROM restaurante where nome_restaurante = $1',[nomeRestaurante])
-
-        idCardapio =idCardapio.rows[0].cod_cardapio
-       
-        var categorias = await client.query('SELECT * from categoria where cod_cardapio = $1',[idCardapio])
+        var produtos = await client.query
+        ('SELECT cod_produto,nome_produto,descricao_produto,preco_produto,produto.cod_categoria FROM categoria INNER JOIN restaurante ON restaurante.nome_restaurante = $1 INNER JOIN produto ON produto.cod_categoria = categoria.cod_Categoria  WHERE categoria.cod_cardapio = restaurante.cod_cardapio',[nomeRestaurante]);
 
 
-        var produtos = [];
-        var produto = null;
-
-        for (const categoria of  categorias.rows) {
-             produto = await (await client.query("SELECT * FROM produto where cod_categoria = $1 ",[categoria.cod_categoria])).rows
-             
-             if( produto !== undefined){
-              produtos.push(...produto)
-             }
-        };
-
-        res.json(produtos)
-        
-    
-        
+        res.json(produtos.rows)
         
         
     } 
@@ -495,10 +483,9 @@ app.get("/api/:nomeRestaurante/categoria", async (req,res) =>{
 
         const {nomeRestaurante} =req.params
 
-        var idCardapio = await client.query('SELECT cod_cardapio FROM restaurante where nome_restaurante = $1',[nomeRestaurante])
-
-
-        const restaurante = await client.query("SELECT * from categoria where cod_cardapio = $1 ",[idCardapio.rows[0].cod_cardapio])
+    
+       const restaurante = await client.query("SELECT cod_categoria,nome_categoria,prioridade_categoria FROM categoria INNER JOIN restaurante ON restaurante.nome_restaurante = $1 WHERE categoria.cod_cardapio = restaurante.cod_cardapio",[nomeRestaurante])
+    
         res.json(restaurante.rows)
         
     } 

@@ -20,7 +20,7 @@ function QrCodeMenu() {
       <div id="all">
         <h1 id="title-qrcode">Seu QrCode</h1>
         <Link to = {`/${user.nomeRestaurante}`}>
-          <h3 id="subtitle">Seu link : https://QrMenus.pt/{user.nomeRestaurante} </h3>
+          <h3 id="subtitle">Seu link : https://QrMenus.site/{user.nomeRestaurante} </h3>
         </Link>
         <img src={`https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://QrMenus.pt/${user.nomeRestaurante}`} alt="qrcode carregando.."/>
         <button id="button-gerarqr" onClick={()=> printImg()}>Imprima seu QrCode</button>
