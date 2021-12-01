@@ -497,9 +497,10 @@ app.get("/api/:nomeRestaurante/categoria", async (req,res) =>{
 
 // DELETE ACOUNT
 
-app.delete('/api/deleteUser',async (req,res)=>{
+app.post('/api/deleteUser',async (req,res)=>{
     const email_gerente = req.body.email_gerente;
     try{
+        console.log(email_gerente)
         client.query('DELETE from gerente where email_gerente = $1 ',[email_gerente])
     }catch(e){console.log(e)}
 });

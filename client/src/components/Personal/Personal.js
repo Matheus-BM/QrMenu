@@ -1,15 +1,19 @@
 import React from "react";
-import { getUser } from "../../utils/Common";
+import { getUser ,removeUserSession } from "../../utils/Common";
 import "./Personal.css";
-
+import axios from "axios";
+import { baseURL } from "../../apis/MenuFetcher";
+import { useNavigate } from "react-router-dom";
 function Personal() {
 
   const user = getUser();
+  const navigate = useNavigate()
 
   function deleteUser(){
-    axios.delete(`${baseURL}deleteUser`,{
-        email_gerente: user.email_gerente
-    })
+    console.log(user)
+    axios.post(`${baseURL}deleteUser`,{
+        email_gerente: user.email
+    }).then( removeUserSession()).then(navigate("/Dashboard"));
   }
 
   return (
@@ -28,7 +32,11 @@ function Personal() {
             <h2>Nome do Restaurante: {` ${user.nomeRestaurante}`}</h2>
           </div>
         </div>
-        <button onClick={()=> deleteUser()}  id='remove'> Delete User </button>
+        <div onClick={()=> deleteUser()} className='btn-group'>
+            <div id='remove' className='emoji' > </div>
+            <div className='delete-btn' > Delete user</div>
+
+        </div>
       </fieldset>
     </div>
   );
