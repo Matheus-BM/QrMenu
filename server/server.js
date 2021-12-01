@@ -325,7 +325,7 @@ app.post('/api/addItem', async (req,res)=>{
 
         
         
-        const produto = await client.query("SELECT nome_produto FROM produto INNER JOIN categoria ON categoria.nome_categoria = $1 WHERE produto.cod_categoria = categoria.cod_categoria and  nome_produto = $2",[nomeCategoria,nomeItem])
+        const produto = await client.query("SELECT nome_produto FROM produto INNER JOIN categoria ON categoria.nome_categoria = $1 INNER JOIN restaurante as r ON nome_restaurante = $3 WHERE produto.cod_categoria = categoria.cod_categoria and  nome_produto = $2 and nome_restaurante = r.nome_restaurante ",[nomeCategoria,nomeItem,nomeRestaurante])
 
         if(produto.rows[0]){
            return res.status(400).json({
