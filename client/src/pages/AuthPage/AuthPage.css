@@ -13,6 +13,7 @@
   justify-content: space-between;
   width: 80%;
   height: 70%;
+  min-height: fit-content;
   border-radius: 20px;
   min-width: 800px;
   max-width: 800px;
@@ -34,6 +35,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
+  padding-bottom: 20px;
   background-color: white;
   width: 50%;
   border-radius: 0px 20px 20px 0px;
