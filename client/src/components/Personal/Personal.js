@@ -6,6 +6,11 @@ function Personal() {
 
   const user = getUser();
 
+  function deleteUser(){
+    axios.delete(`${baseURL}deleteUser`,{
+        email_gerente: user.email_gerente
+    })
+  }
 
   return (
     <div id="main">
@@ -23,6 +28,7 @@ function Personal() {
             <h2>Nome do Restaurante: {` ${user.nomeRestaurante}`}</h2>
           </div>
         </div>
+        <button onClick={()=> deleteUser()}  id='remove'> Delete User </button>
       </fieldset>
     </div>
   );

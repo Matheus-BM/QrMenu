@@ -495,8 +495,26 @@ app.get("/api/:nomeRestaurante/categoria", async (req,res) =>{
 })
 
 
+// DELETE ACOUNT
 
+app.delete('/api/deleteUser',async (req,res)=>{
+    const email_gerente = req.body.email_gerente;
+    try{
+        client.query('DELETE from gerente where email_gerente = $1 ',[email_gerente])
+    }catch(e){console.log(e)}
+});
+/*
+app.put('/api/updateGerente',async (req,res)=>{
+    const email_gerente = req.body.email_gerente
+    const nome_gerente = req.body.nome_gerente
+    const sobrenome_gerente = req.body.sobrenome_gerente
+    const senha_gerente = req.body.senha_gerente
+    const nome_restaurante = req.body.nome_restaurante
 
+    client.query('UPDATE gerente SET nome_gerente = $1,sobrenome_gerente =$2,email_gerente =$3,senha_gerente =$4 where email_gerente =$')
+
+} )
+*/
 
 const PORT = process.env.PORT|| 5000
 app.listen(PORT, () => console.log(`listen to port ${PORT}`))
