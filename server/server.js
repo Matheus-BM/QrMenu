@@ -86,6 +86,7 @@ app.post("/api/register", async (req,res)=>{
 
 
     if( nomeRestauranteJaCadastrado.rows[0] === undefined ){
+        console.log(nomeRestauranteJaCadastrado.rows)
 
     if( uniqueEmail === undefined  ){
         await client.query("INSERT INTO gerente (nome_gerente, sobrenome_gerente,email_gerente , senha_gerente) values ($1,$2,$3,$4) ",[nome,sobrenome,email,password])
