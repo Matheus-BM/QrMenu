@@ -6,9 +6,8 @@ function Navbar() {
         
       <nav >
         <ul>
-          <li><Link to="/">Home</Link> </li>
-          <li><Link to="">Como funciona?</Link> </li>
-          <li><Link to="/">Custos</Link> </li>
+          <li><Link to="/auth">Login</Link> </li>
+          <li><Link to="/auth">Registre-se</Link> </li>
         </ul>
       </nav>
     )

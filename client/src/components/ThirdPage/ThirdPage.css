@@ -52,6 +52,11 @@
   margin-top: 100px;
   font-size: 40px;
 }
+#maintitle span{
+  color: #949494;
+  font-size: 30px;
+  margin-left: -60px;
+}
 
 @media screen and (max-width: 640px) {
 
