@@ -53,7 +53,7 @@
   font-size: 40px;
 }
 
-@media screen and (max-width: 361px) {
+@media screen and (max-width: 640px) {
 
   #navtitle{
     padding-top: 100px;
