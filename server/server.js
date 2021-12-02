@@ -259,10 +259,10 @@ app.post('/api/addCategoria', async (req,res)=>{
             })
         }
 
-        if(nomeCategoria.length>50){
+        if(nomeCategoria.length>20){
             return res.status(400).json({
                 error:true,
-                msg:"Nome só pode ter até 50 Caracteres"
+                msg:"Nome só pode ter até 20 Caracteres"
             })
         }
 
@@ -309,17 +309,24 @@ app.post('/api/addItem', async (req,res)=>{
             })
         }
 
-        if(nomeItem.length>50){
+        if(nomeItem.length>20){
             return res.status(400).json({
                 error:true,
-                msg:"Nome só pode ter até 50 Caracteres"
+                msg:"Nome só pode ter até 20 Caracteres"
             })
         }
         if(precoItem >= 1000){
             return res.status(400).json({
                 error:true,
-                msg:"A versão beta do sistema só aceita preços de até 1000"
+                msg:"A versão beta do sistema só aceita preços menores que 1000"
             })
+        }
+        if(precoItem <= 0){
+            return res.status(400).json({
+                error:true,
+                msg:"Preços não podem ser menor que 0"
+            })
+
         }
 
 
@@ -381,10 +388,10 @@ try{
         })
     }
 
-    if(nomeItem.length>50){
+    if(nomeItem.length>20){
         return res.status(400).json({
             error:true,
-            msg:"Nome só pode ter até 50 Caracteres"
+            msg:"Nome só pode ter até 20 Caracteres"
         })
     }
     if(precoItem >= 1000){
@@ -393,10 +400,17 @@ try{
             msg:"A versão beta do sistema só aceita preços de até 1000"
         })
     }
+    if(precoItem <=0){
+        return res.status(400).json({
+            error:true,
+            msg:"Preços não podem ser menores que 0"
+        })
+    }
         
     const produto = await client.query("SELECT * from produto where nome_produto = $1 and cod_categoria = $2 ",[nomeItem,cod_categoria])
 
-    if(produto.rows[0]){
+
+    if(produto.rows[0] && produto.rows[0].cod_produto !== cod_produto){
        return res.status(400).json({
             error:true,
             msg:"Item já castrado"

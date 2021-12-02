@@ -110,6 +110,8 @@ function Modal({ onClose = () => {} }) {
                   placeholder="Preço"
                   type="number"
                   onChange={(e) => setPrecoItem(e.target.value)}
+                  onkeypress="return event.charCode >= 48" min="1"
+                  oninput="validity.valid||(value='');"
                   required
                 />
                 <select
