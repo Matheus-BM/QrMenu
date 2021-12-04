@@ -68,46 +68,6 @@ cd server
 nodemon index.js
 ```
 
-## 🤝 Colaboradores
-
-Agradecemos às seguintes pessoas que contribuíram para este projeto:
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="#">
-        <img src="https://i.imgur.com/X0x6GUp.png" width="100px;" alt="Foto do Matheus"/><br>
-        <sub>
-          <b>Matheus Barreto</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://i.imgur.com/rLMJJfV.jpeg" width="100px;" alt="Foto do Valentin"/><br>
-        <sub>
-          <b>Valentin Almeida</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://i.imgur.com/XPLgsA5.jpeg" width="100px;" alt="Foto do Macedo"/><br>
-        <sub>
-          <b>Pedro Macedo</b>
-        </sub>
-      </a>
-    </td>
-     <td align="center">
-      <a href="#">
-        <img src="https://i.imgur.com/GlpDxZp.jpeg" width="100px;" alt="Foto da Julia"/><br>
-        <sub>
-          <b>Júlia Valu</b>
-        </sub>
-      </a>
-    </td>
-  </tr>
-</table>
 
 
-[⬆ Voltar ao topo](#nome-do-projeto)<br> 
+[⬆ Voltar ao topo](#QrMenu)<br> 
