@@ -55,7 +55,7 @@ npm install
 
 ## ☕ Usando <QrMenu>
 
-Para usar <QrMenu>, siga estas etapas:
+Para usar <QrMenu> no servidor locar, siga estas etapas:
 
 Client 
 ```
@@ -68,6 +68,39 @@ cd server
 nodemon index.js
 ```
 
+Abra http://localhost:3000 no seu navegador favorito para ver o sistema funcionado
 
+### Processos de softeware
+
+Este trabalho foi desenvolvido para utilizando metodologia ágil (Scrum)
+
+
+|Função | Responsavel |
+|---------|-----------|
+|Scrum Master| Matheus Barreto|
+|Product Owner | Valentin Almeida|
+
+|Evento |  Tempo de duração  |
+|-------------------  |---|
+| Sprints | 2 - 7 dias  |
+| Daily meetings      | 15-30 min |  
+ 
+
+
+|Sprint |  Entrega  | Duração | Data |
+|-------------------  |---|-|-|
+| 1 | Documentação & Prototipo | 7 dias| 29/10 -  06/11
+|2| Tela de cardapio & Inicio do Backend | 7 dias | 07/11 - 14/11 
+|3| Welcome Page & Login | 7 dias | 15/11 - 22/11
+|4| Logged Pages &  Responsividade |3 dias|23/11 - 25/11
+|5| Upadate Backend & Deploy | 2 dias | 26/11 - 28/11
+|6| Erros user friendly & Update Comands DB | 5 dias | 29/11 - 04/12
+
+####Documentação
+
+<a href="https://docs.google.com/document/d/1nky51gvmiKfOviM7aJ-4t8-pkIkSi83tqGLuthtKJ6A/edit"><h5>Clique aqui para acessar a documentação</h5></a>
+
+
+<br>
 
 [⬆ Voltar ao topo](#QrMenu)<br> 
