@@ -17,14 +17,6 @@ function PainelDeControle() {
   const [toggleDeleteItem, setToggleDeleteItem] = useState(false);
 
 
-  function openAlert(msg){
-    document.querySelector('.alert').classList.add("show");
-    document.querySelector('.alert').classList.remove("hide");
-    document.querySelector('.alert').classList.add("showAlert");
-    document.querySelector('.msg').textContent = msg
-
-  }
-
   function closeAlert(){
     document.querySelector('.close-btn')
     document.querySelector('.alert').classList.remove("show");

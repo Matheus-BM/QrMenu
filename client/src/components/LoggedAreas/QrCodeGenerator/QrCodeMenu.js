@@ -9,7 +9,7 @@ function QrCodeMenu() {
 
   function printImg() {
     var win = window.open('');
-    win.document.write('<img src="' + `https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://QrMenus.pt/${user.nomeRestaurante}` + '" onload="window.print();window.close()" />');
+    win.document.write(`<img src= https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://QrMenus.pt/${user.nomeRestaurante} onload="window.print();window.close()" />`);
     win.focus();
   }
 

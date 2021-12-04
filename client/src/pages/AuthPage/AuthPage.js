@@ -90,14 +90,9 @@ function Auth_page() {
   return (
     <>
       <div className="bg">
-        {" "}
-        <Link to="/">
-          {" "}
-          <div id="voltar"> ← voltar</div>
-        </Link>{" "}
+        <Link to="/"><div id="voltar"> ← voltar</div></Link>
       </div>
       <div id="logo">
-        {" "}
         <div id="logotipo"></div>
       </div>
 

@@ -10,7 +10,7 @@ function ModalEditCategora({ onClose = () => {} }) {
   const [data, setData] = useState();
   const [toggleModalData, setToggleModalData] = useState(false)
   const [categoria,setCategoria] =useState([]);
-  var itemCtg ='';
+ 
 
   const user = getUser();
   const nomeRestaurante = user.nomeRestaurante;

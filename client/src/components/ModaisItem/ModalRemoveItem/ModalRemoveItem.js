@@ -15,7 +15,6 @@ function ModalRemoveCategora({ onClose = () => {} }) {
   const user = getUser();
   const nomeRestaurante = user.nomeRestaurante;
   const [categoria,setCategoria] =useState([]);
-  var itemCtg ='';
 
   const ModalActive = () => {
     let modal = document.querySelector(".modal");
