@@ -1,14 +1,14 @@
 import React from "react";
 import SideBar from "../../components/LoggedAreas/SideBar/SideBar";
-import UserData from "../../components/LoggedAreas/UserData/UserData.js";
+import QrCodeMenu from "../../components/LoggedAreas/QrCodeGenerator/QrCodeMenu";
 
-function PersonalData() {
+function QrCode() {
   return (
     <div>
-      <UserData />
       <SideBar />
+      <QrCodeMenu />
     </div>
   );
 }
 
-export default PersonalData;
+export default QrCode;

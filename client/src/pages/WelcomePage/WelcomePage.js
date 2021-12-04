@@ -1,17 +1,17 @@
 import React from "react";
-import Navbar from "../../components/navbar/Navbar.js";
-import HomePage from "../../components/HomePage/HomePage.js";
-import SecondPage from "../../components/SecondPage/SecondPage.js";
-import ThirdPage from "../../components/ThirdPage/ThirdPage.js";
-import "./WelcomePage.css";
+import Navbar from "../../components/HomePageAreas/navbar/Navbar.js";
+import HomePage from "../../components/HomePageAreas/HomePage/HomePage.js";
+import HomePageSecondArea from "../../components/HomePageAreas/HomePageSecondArea/HomePageSecondArea.js";
+import HomePageThirdArea from "../../components/HomePageAreas/HomePageThirdArea/HomePageThirdArea.js";
+
 
 function WelcomePage() {
   return (
     <>
       <Navbar />
       <HomePage />
-      <SecondPage />
-      <ThirdPage />
+      <HomePageSecondArea />
+      <HomePageThirdArea />
     </>
   );
 }

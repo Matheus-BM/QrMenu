@@ -35,7 +35,7 @@ Para instalar o <QrMenu>, siga estas etapas:
 
 Clone o repositorio:
 ```
-git clone https://github.com/Matheus-BM/QrMenu.git;
+git fork https://github.com/Matheus-BM/QrMenu.git;
 ```
 Sevidor
 ```

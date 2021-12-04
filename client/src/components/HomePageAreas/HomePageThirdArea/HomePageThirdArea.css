@@ -1,0 +1,75 @@
+#bg3 {
+  background-image: url(../../../img/fundo3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+#navtitle {
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
+  font-size: 40px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  width: 100vw;
+}
+
+
+
+#btn1 {
+  margin-right: 20px;
+  height: 40px;
+  width: 160px;
+  border-radius: 6px;
+  background-color: #ff0000;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+#btn2 {
+  height: 40px;
+  width: 120px;
+  border-radius: 6px;
+  background-color: #ebe9e9;
+  color: black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+#maintitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  font-size: 40px;
+}
+#maintitle span{
+  color: #949494;
+  font-size: 30px;
+  margin-left: -60px;
+}
+
+@media screen and (max-width: 640px) {
+
+  #navtitle{
+    padding-top: 100px;
+  }
+
+  #maintitle{
+    font-size: 30px;
+    margin-top: 20px;
+  }
+
+  #buttons{
+    margin-top: 30px;
+  }
+}
