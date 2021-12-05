@@ -95,7 +95,7 @@ Este trabalho foi desenvolvido para utilizando metodologia ágil (Scrum)
 |3| Welcome Page & Login | 7 dias | 15/11 - 22/11
 |4| Logged Pages &  Responsividade |3 dias|23/11 - 25/11
 |5| Upadate Backend & Deploy | 2 dias | 26/11 - 28/11
-|6| Erros user friendly & Update Comands DB | 5 dias | 29/11 - 04/12
+|6| Erros user friendly & Update Comands DB | 5 dias | 29/11 - 04/12Z|
 
 ###📄 Documentação
 
