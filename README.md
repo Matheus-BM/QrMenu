@@ -83,19 +83,19 @@ Este trabalho foi desenvolvido para utilizando metodologia ágil (Scrum)
 
 |Evento |  Tempo de duração  |
 |-------------------  |---|
-| Sprints | 2 - 7 dias  |
+| Sprints | 7 dias |
 | Daily meetings      | 15-30 min |  
  
 
 
-|Sprint |  Entrega  | Duração | Data |
-|-------------------  |---|-|-|
-| 1 | Documentação & Prototipo | 7 dias| 29/10 -  06/11
-|2| Tela de cardapio & Inicio do Backend | 7 dias | 07/11 - 14/11 
-|3| Welcome Page & Login | 7 dias | 15/11 - 22/11
-|4| Logged Pages &  Responsividade |3 dias|23/11 - 25/11
-|5| Upadate Backend & Deploy | 2 dias | 26/11 - 28/11
-|6| Erros user friendly & Update Comands DB | 5 dias | 29/11 - 04/12Z|
+|Sprint |  Entrega  | Duração |
+|-------------------  |---|-|
+| 1 | Documentação & Prototipo | 7 dias
+|2| Tela de cardapio & Inicio do Backend | 7 dias 
+|3| Welcome Page & Login | 7 dias |
+|4| Logged Pages &  Responsividade |7 dias
+|5| Upadate Backend & Deploy | 7 dias 
+|6| Erros user friendly & Update Comands DB | 7 dias 
 
 ###📄 Documentação
 
